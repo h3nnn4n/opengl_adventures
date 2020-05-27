@@ -60,7 +60,7 @@ int main()
   glViewport(0, 0, 800, 600);
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-  Shader *shader = newShader("shaders/shader.vs", "shaders/shader.fs");
+  Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");
   Shader_use(shader);
   Shader_set_float(shader, "redOverride", 0.5);
 
