@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -96,7 +97,14 @@ int main()
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    Shader_set_float(shader, "time", glfwGetTime());
+    float timer = glfwGetTime();
+
+    float x_diff = sin(timer) * 0.25;
+    float y_diff = cos(timer) * 0.25;
+
+    Shader_set_float(shader, "time", timer);
+    Shader_set_float(shader, "x_diff", x_diff);
+    Shader_set_float(shader, "y_diff", y_diff);
 
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
