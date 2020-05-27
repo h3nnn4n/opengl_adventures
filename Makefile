@@ -3,8 +3,8 @@ BUILDDIR = $(abspath $(CURDIR)/build)
 
 OPTIONS =
 
-INCLUDES = -Isrc -Ideps/include/ -Ideps/glfw/include/
-LINKS = -Ldeps/glfw/build/src/ -Ldeps/src/ -Ldeps/include/
+INCLUDES = -Isrc -Ideps/glad/include/ -Ideps/glfw/include/
+LINKS = -Ldeps/glfw/build/src/ -Ldeps/glad/src/
 
 CPPFLAGS = -Wall -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
 CFLAGS = -std=c99
@@ -16,7 +16,7 @@ LD_LIBRARY_PATH = deps/glfw/build/src/
 CC = gcc
 CXX = g++
 
-C_FILES := $(wildcard src/*.c) $(wildcard deps/src/*.c)
+C_FILES := $(wildcard src/*.c) deps/glad/src/glad.c
 
 SOURCES := $(C_FILES:.c=.o) $(CPP_FILES:.cpp=.o)
 OBJS := $(foreach src,$(SOURCES), $(BUILDDIR)/$(src))
