@@ -2,10 +2,19 @@
 out vec4 FragColor;
 in vec3 ourColor;
 
-uniform float redOverride;
+uniform float colorOverrideIntensity;
 uniform float time;
 
 void main()
 {
-    FragColor = vec4(ourColor, 1.0) + vec4(redOverride, 0.0, 0.0, 0.0) * sin(time);
+  float pi = 3.141592653;
+
+  vec4 override = vec4(
+    colorOverrideIntensity * sin(time),
+    colorOverrideIntensity * sin(time + pi / 3.0),
+    colorOverrideIntensity * sin(time + pi / 3.0 * 2.0),
+    1.0
+  );
+
+  FragColor = vec4(ourColor, 1.0) + override;
 }

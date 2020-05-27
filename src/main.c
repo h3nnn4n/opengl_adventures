@@ -62,7 +62,7 @@ int main()
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");
   Shader_use(shader);
-  Shader_set_float(shader, "redOverride", 0.5);
+  Shader_set_float(shader, "colorOverrideIntensity", 0.5);
 
   float vertices[] = {
     // positions         // colors
