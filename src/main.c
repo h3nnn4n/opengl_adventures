@@ -3,24 +3,16 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-float vertices1[] = {
+float vertices[] = {
      0.5f,  0.5f, 0.0f,  // top right
      0.5f, -0.5f, 0.0f,  // bottom right
-     0.0f,  0.5f, 0.0f,  // top center
-};
-
-float vertices2[] = {
-    -0.5f,  0.5f, 0.0f,  // top left
     -0.5f, -0.5f, 0.0f,  // bottom left
-     0.0f,  0.5f, 0.0f,  // top center
+    -0.5f,  0.5f, 0.0f   // top left
 };
 
-unsigned int indices1[] = {  // note that we start from 0!
-    0, 1, 2,   // first triangle
-};
-
-unsigned int indices2[] = {  // note that we start from 0!
-    0, 1, 2,   // first triangle again
+unsigned int indices[] = {  // note that we start from 0!
+    0, 1, 3,   // first triangle
+    1, 2, 3    // second triangle
 };
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -118,26 +110,27 @@ int main()
       printf("ERROR::SHADER::PROGRAM::LINKING_FAILED\n%s", infoLog);
   }
 
+  glUseProgram(shaderProgram);
+
   glDeleteShader(vertexShader);
   glDeleteShader(fragmentShader);
 
-  unsigned int VBO[2];
-  unsigned int VAO[2];
+  unsigned int VBO;
+  glGenBuffers(1, &VBO);
 
-  glGenVertexArrays(2, VAO);
-  glGenBuffers(2, VBO);
+  unsigned int VAO;
+  glGenVertexArrays(1, &VAO);
+  glBindVertexArray(VAO);
 
-  glBindVertexArray(VAO[0]);
-  glBindBuffer(GL_ARRAY_BUFFER, VBO[0]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices1), vertices1, GL_STATIC_DRAW);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices1), indices1, GL_STATIC_DRAW);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-  glEnableVertexAttribArray(0);
+  unsigned int EBO;
+  glGenBuffers(1, &EBO);
 
-  glBindVertexArray(VAO[1]);
-  glBindBuffer(GL_ARRAY_BUFFER, VBO[1]);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices2), indices2, GL_STATIC_DRAW);
+  glBindBuffer(GL_ARRAY_BUFFER, VBO);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
   glEnableVertexAttribArray(0);
 
@@ -151,13 +144,9 @@ int main()
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glUseProgram(shaderProgram);
-
-    glBindVertexArray(VAO[0]);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-
-    glBindVertexArray(VAO[1]);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
 
     glfwSwapBuffers(window);
     glfwPollEvents();
