@@ -21,24 +21,6 @@ void processInput(GLFWwindow *window)
     glfwSetWindowShouldClose(window, 1);
 }
 
-const char *vertexShaderSource ="#version 330 core\n"
-  "layout (location = 0) in vec3 aPos;\n"
-  "layout (location = 1) in vec3 aColor;\n"
-  "out vec3 ourColor;\n"
-  "void main()\n"
-  "{\n"
-  "   gl_Position = vec4(aPos, 1.0);\n"
-  "   ourColor = aColor;\n"
-  "}\0";
-
-const char *fragmentShaderSource = "#version 330 core\n"
-  "out vec4 FragColor;\n"
-  "in vec3 ourColor;\n"
-  "void main()\n"
-  "{\n"
-  "   FragColor = vec4(ourColor, 1.0f);\n"
-  "}\n\0";
-
 int main()
 {
   glfwInit();
@@ -69,17 +51,61 @@ int main()
   Shader_use(shader);
   Shader_set_float(shader, "colorOverrideIntensity", 0.5);
 
-  float vertices[] = {
-    // positions         // colors
-     0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-     0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-    -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-    -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left
-  };
+  /*float vertices[] = {*/
+    /*// positions         // colors*/
+     /*0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right*/
+     /*0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right*/
+    /*-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left*/
+    /*-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left*/
+  /*};*/
 
-  unsigned int indices[] = {  // note that we start from 0!
-    0, 1, 3,   // first triangle
-    1, 2, 3    // second triangle
+  /*unsigned int indices[] = {  // note that we start from 0!*/
+    /*0, 1, 3,   // first triangle*/
+    /*1, 2, 3    // second triangle*/
+  /*};*/
+
+  float cube_vertices[] = {
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+     0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+    -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
   };
 
   unsigned int VBO, VAO, EBO;
@@ -91,19 +117,25 @@ int main()
   glBindVertexArray(VAO);
 
   glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(cube_vertices), cube_vertices, GL_STATIC_DRAW);
 
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(0 * sizeof(float)));
   glEnableVertexAttribArray(0);
 
-  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
   glEnableVertexAttribArray(1);
 
-  glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-  glEnableVertexAttribArray(2);
+  /*glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);*/
+  /*glEnableVertexAttribArray(0);*/
 
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+  /*glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));*/
+  /*glEnableVertexAttribArray(1);*/
+
+  /*glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));*/
+  /*glEnableVertexAttribArray(2);*/
+
+  /*glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);*/
+  /*glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);*/
 
   glBindVertexArray(0);
 
@@ -168,20 +200,20 @@ int main()
   ////////////////////////
   // Model matrix
 
-  vec3 v_scale = GLM_VEC3_ONE_INIT;
+  /*vec3 v_scale = GLM_VEC3_ONE_INIT;*/
   /*glm_vec3_scale(v_scale, 0.5, v_scale);*/
 
-  vec3 v_translate = GLM_VEC3_ONE_INIT;
-  glm_vec3_scale(v_translate, 0.1, v_translate);
-  v_translate[2] = 0;
+  /*vec3 v_translate = GLM_VEC3_ONE_INIT;*/
+  /*glm_vec3_scale(v_translate, 0.1, v_translate);*/
+  /*v_translate[2] = 0;*/
 
-  mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+  /*mat4 m_model = GLM_MAT4_IDENTITY_INIT;*/
 
-  glm_translate(m_model, v_translate);
-  glm_rotate(m_model, -55 * GLM_PI / 180.0, GLM_XUP);
-  glm_scale(m_model, v_scale);
+  /*glm_translate(m_model, v_translate);*/
+  /*glm_rotate(m_model, -55 * GLM_PI / 180.0, GLM_XUP);*/
+  /*glm_scale(m_model, v_scale);*/
 
-  Shader_set_matrix4(shader, "model", (float*)m_model);
+  /*Shader_set_matrix4(shader, "model", (float*)m_model);*/
 
   ////////////////////////
   // View matrix
@@ -200,6 +232,8 @@ int main()
 
   Shader_set_matrix4(shader, "projection", (float*)m_projection);
 
+  glEnable(GL_DEPTH_TEST);
+
   ////////////////////////
   // Main loop
   //
@@ -208,11 +242,27 @@ int main()
     processInput(window);
 
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     float timer = glfwGetTime();
 
     Shader_set_float(shader, "time", timer);
+
+    vec3 v_scale = GLM_VEC3_ONE_INIT;
+    glm_vec3_scale(v_scale, 0.5, v_scale);
+
+    vec3 v_translate = GLM_VEC3_ONE_INIT;
+    glm_vec3_scale(v_translate, 0.1, v_translate);
+    v_translate[2] = 0;
+
+    mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+
+    glm_translate(m_model, v_translate);
+    glm_rotate(m_model, (25 * GLM_PI / 180.0) * timer, GLM_XUP);
+    glm_rotate(m_model, (50 * GLM_PI / 180.0) * timer, GLM_YUP);
+    glm_scale(m_model, v_scale);
+
+    Shader_set_matrix4(shader, "model", (float*)m_model);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
@@ -226,7 +276,9 @@ int main()
     glBindVertexArray(VAO);
 
     /*glDrawArrays(GL_TRIANGLES, 0, 3);*/
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    /*glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
     glBindVertexArray(0);
 
     glfwSwapBuffers(window);
