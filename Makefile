@@ -40,21 +40,21 @@ run: $(TARGET)
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) $(CURDIR)/$(TARGET)
 
 $(BUILDDIR)/%.o: %.c
-	@echo "[CC]\t$<"
+	@echo -e "[CC]\t$<"
 	@mkdir -p "$(dir $@)"
 	@$(CC) $(CFLAGS) $(L_INC) -o "$@" -c "$<"
 
 $(BUILDDIR)/%.o: %.cpp
-	@echo "[CXX]\t$<"
+	@echo -e "[CXX]\t$<"
 	@mkdir -p "$(dir $@)"
 	@$(CXX) $(CPPFLAGS) $(L_INC) -o "$@" -c "$<"
 
 $(TARGET).o: $(OBJS) $(LDSCRIPT)
-	@echo "[LD]\t$@"
+	@echo -e "[LD]\t$@"
 	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS)
 
 $(TARGET): $(OBJS) $(LDSCRIPT)
-	@echo "[LD]\t$@"
+	@echo -e "[LD]\t$@"
 	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS)
 
 -include $(OBJS:.o=.d)
