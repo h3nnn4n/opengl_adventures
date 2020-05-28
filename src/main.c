@@ -234,6 +234,19 @@ int main()
 
   glEnable(GL_DEPTH_TEST);
 
+  vec3 cube_positions[] = {
+    { 0.0f,  0.0f,  0.0f },
+    { 2.0f,  5.0f, -15.0f},
+    {-1.5f, -2.2f, -2.5f },
+    {-3.8f, -2.0f, -12.3f},
+    { 2.4f, -0.4f, -3.5f },
+    {-1.7f,  3.0f, -7.5f },
+    { 1.3f, -2.0f, -2.5f },
+    { 1.5f,  2.0f, -2.5f },
+    { 1.5f,  0.2f, -1.5f },
+    {-1.3f,  1.0f, -1.5f }
+  };
+
   ////////////////////////
   // Main loop
   //
@@ -248,22 +261,6 @@ int main()
 
     Shader_set_float(shader, "time", timer);
 
-    vec3 v_scale = GLM_VEC3_ONE_INIT;
-    glm_vec3_scale(v_scale, 0.5, v_scale);
-
-    vec3 v_translate = GLM_VEC3_ONE_INIT;
-    glm_vec3_scale(v_translate, 0.1, v_translate);
-    v_translate[2] = 0;
-
-    mat4 m_model = GLM_MAT4_IDENTITY_INIT;
-
-    glm_translate(m_model, v_translate);
-    glm_rotate(m_model, (25 * GLM_PI / 180.0) * timer, GLM_XUP);
-    glm_rotate(m_model, (50 * GLM_PI / 180.0) * timer, GLM_YUP);
-    glm_scale(m_model, v_scale);
-
-    Shader_set_matrix4(shader, "model", (float*)m_model);
-
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
     /*glBindTexture(GL_TEXTURE_2D, texture);*/
@@ -275,9 +272,31 @@ int main()
 
     glBindVertexArray(VAO);
 
+    {
+      for (int i = 0; i < 10; ++i) {
+        vec3 v_scale = GLM_VEC3_ONE_INIT;
+        glm_vec3_scale(v_scale, 0.5, v_scale);
+
+        /*vec3 v_translate = GLM_VEC3_ONE_INIT;*/
+        /*glm_vec3_scale(v_translate, 0.1, v_translate);*/
+        /*v_translate[2] = 0;*/
+
+        mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+
+        glm_translate(m_model, cube_positions[i]);
+        glm_rotate(m_model, (25 * GLM_PI / 180.0) * timer * i / 3.0, GLM_XUP);
+        glm_rotate(m_model, (50 * GLM_PI / 180.0) * timer * i / 2.0, GLM_YUP);
+        glm_scale(m_model, v_scale);
+
+        Shader_set_matrix4(shader, "model", (float*)m_model);
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+      }
+    }
+
     /*glDrawArrays(GL_TRIANGLES, 0, 3);*/
     /*glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);*/
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    /*glDrawArrays(GL_TRIANGLES, 0, 36);*/
 
     glBindVertexArray(0);
 
