@@ -3,8 +3,8 @@ BUILDDIR = $(abspath $(CURDIR)/build)
 
 OPTIONS =
 
-INCLUDES = -Isrc -Ideps/glad/include/ -Ideps/glfw/include/
-LINKS = -Ldeps/glfw/build/src/ -Ldeps/glad/src/
+INCLUDES = -Isrc -Ideps/glad/include/ -Ideps/glfw/include/ -Ideps/cglm/include/
+LINKS = -Ldeps/glfw/build/src/ -Ldeps/glad/src/ -Ldeps/cglm/build
 
 CPPFLAGS = -Wall -std=c++11 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
 CFLAGS = -Wall -std=c99 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
