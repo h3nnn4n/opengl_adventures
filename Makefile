@@ -14,7 +14,7 @@ LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	LIBS = -lm -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lstdc++
-	ECHOFLAGS = $(ECHOFLAGS)
+	ECHOFLAGS = -e
 endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS = -lm -lglfw -framework OpenGL -lpthread -ldl -lstdc++
