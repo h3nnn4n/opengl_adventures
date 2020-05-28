@@ -14,6 +14,7 @@ LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	LIBS = -lm -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl -lstdc++
+	ECHOFLAGS = $(ECHOFLAGS)
 endif
 ifeq ($(UNAME_S),Darwin)
 	LIBS = -lm -lglfw -framework OpenGL -lpthread -ldl -lstdc++
@@ -40,21 +41,21 @@ run: $(TARGET)
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) $(CURDIR)/$(TARGET)
 
 $(BUILDDIR)/%.o: %.c
-	@echo -e "[CC]\t$<"
+	@echo $(ECHOFLAGS) "[CC]\t$<"
 	@mkdir -p "$(dir $@)"
 	@$(CC) $(CFLAGS) $(L_INC) -o "$@" -c "$<"
 
 $(BUILDDIR)/%.o: %.cpp
-	@echo -e "[CXX]\t$<"
+	@echo $(ECHOFLAGS) "[CXX]\t$<"
 	@mkdir -p "$(dir $@)"
 	@$(CXX) $(CPPFLAGS) $(L_INC) -o "$@" -c "$<"
 
 $(TARGET).o: $(OBJS) $(LDSCRIPT)
-	@echo -e "[LD]\t$@"
+	@echo $(ECHOFLAGS) "[LD]\t$@"
 	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS)
 
 $(TARGET): $(OBJS) $(LDSCRIPT)
-	@echo -e "[LD]\t$@"
+	@echo $(ECHOFLAGS) "[LD]\t$@"
 	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS)
 
 -include $(OBJS:.o=.d)
