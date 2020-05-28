@@ -10,6 +10,11 @@
 #include "shader_c.h"
 #include "stb_image.h"
 
+vec3 camera_pos = { 0, 0, 3 };
+vec3 camera_target = { 0, 0, 0 };
+vec3 camera_up = { 0, 1, 0 };
+vec3 camera_right = { 0, 0, 0 };
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
   glViewport(0, 0, width, height);
@@ -218,11 +223,20 @@ int main()
   ////////////////////////
   // View matrix
 
-  mat4 m_view = GLM_MAT4_IDENTITY_INIT;
-  vec3 m_view_translate = {0, 0, -3};
-  glm_translate(m_view, m_view_translate);
+  /*mat4 m_view = GLM_MAT4_IDENTITY_INIT;*/
+  /*vec3 m_view_translate = {0, 0, -3};*/
+  /*glm_translate(m_view, m_view_translate);*/
 
-  Shader_set_matrix4(shader, "view", (float*)m_view);
+  /*vec3 camera_direction;*/
+  /*glm_vec3_sub(camera_pos, camera_target, camera_direction);*/
+  /*glm_vec3_normalize(camera_direction);*/
+
+  /*glm_vec3_cross(GLM_YUP, camera_direction, camera_right);*/
+  /*glm_vec3_normalize(camera_right);*/
+
+  /*mat4 m_view = GLM_MAT4_IDENTITY_INIT;*/
+  /*glm_lookat(camera_pos, camera_target, camera_up, m_view);*/
+  /*Shader_set_matrix4(shader, "view", (float*)m_view);*/
 
   ////////////////////////
   // View projection
@@ -261,6 +275,23 @@ int main()
 
     Shader_set_float(shader, "time", timer);
 
+    {
+      float radius = 10;
+      camera_pos[0] = sin(timer) * radius;
+      camera_pos[2] = cos(timer) * radius;
+
+      vec3 camera_direction;
+      glm_vec3_sub(camera_pos, camera_target, camera_direction);
+      glm_vec3_normalize(camera_direction);
+
+      glm_vec3_cross(GLM_YUP, camera_direction, camera_right);
+      glm_vec3_normalize(camera_right);
+
+      mat4 m_view = GLM_MAT4_IDENTITY_INIT;
+      glm_lookat(camera_pos, camera_target, camera_up, m_view);
+      Shader_set_matrix4(shader, "view", (float*)m_view);
+    }
+
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
     /*glBindTexture(GL_TEXTURE_2D, texture);*/
@@ -275,7 +306,7 @@ int main()
     {
       for (int i = 0; i < 10; ++i) {
         vec3 v_scale = GLM_VEC3_ONE_INIT;
-        glm_vec3_scale(v_scale, 0.5, v_scale);
+        /*glm_vec3_scale(v_scale, 0.5, v_scale);*/
 
         /*vec3 v_translate = GLM_VEC3_ONE_INIT;*/
         /*glm_vec3_scale(v_translate, 0.1, v_translate);*/
