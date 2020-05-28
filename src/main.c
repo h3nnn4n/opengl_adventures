@@ -170,7 +170,7 @@ int main()
 
   vec3 v_translate = GLM_VEC3_ONE_INIT;
   glm_vec3_scale(v_translate, 0.25, v_translate);
-  v_translate[3] = 0;
+  v_translate[2] = 0;
 
   mat4 m_transform = GLM_MAT4_IDENTITY_INIT;
 
