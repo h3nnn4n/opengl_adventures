@@ -4,6 +4,9 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <cglm/cglm.h>
+#include <cglm/call.h>
+
 #include "shader_c.h"
 #include "stb_image.h"
 
@@ -162,6 +165,22 @@ int main()
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
 
+  vec3 v_scale = GLM_VEC3_ONE_INIT;
+  glm_vec3_scale(v_scale, 0.5, v_scale);
+
+  vec3 v_translate = GLM_VEC3_ONE_INIT;
+  glm_vec3_scale(v_translate, 0.25, v_translate);
+  v_translate[3] = 0;
+
+  mat4 m_transform = GLM_MAT4_IDENTITY_INIT;
+
+  glm_translate(m_transform, v_translate);
+  glm_rotate(m_transform, GLM_PI / 3.0, GLM_ZUP);
+  glm_scale(m_transform, v_scale);
+
+  unsigned int transformLoc = glGetUniformLocation(Shader_get_id(shader), "transform");
+  glUniformMatrix4fv(transformLoc, 1, GL_FALSE, (float*)m_transform);
+
   while(!glfwWindowShouldClose(window))
   {
     processInput(window);
@@ -171,12 +190,7 @@ int main()
 
     float timer = glfwGetTime();
 
-    float x_diff = sin(timer) * 0.25;
-    float y_diff = cos(timer) * 0.25;
-
     Shader_set_float(shader, "time", timer);
-    Shader_set_float(shader, "x_diff", x_diff);
-    Shader_set_float(shader, "y_diff", y_diff);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 

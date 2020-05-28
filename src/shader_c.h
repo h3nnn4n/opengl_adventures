@@ -9,12 +9,15 @@ extern "C" {
 
   Shader* newShader(const char* vertexPath, const char* fragmentPath);
 
+  unsigned int Shader_get_id(Shader* shader);
+
   void Shader_use(Shader* shader);
   void Shader_set_bool(Shader* shader, const char* name, int value);
   void Shader_set_int(Shader* shader, const char* name, int value);
   void Shader_set_float(Shader* shader, const char* name, float value);
 
-  void deleteMyClass(Shader* shader);
+  // TODO
+  void Shader_destroy(Shader* shader);
 
 #ifdef __cplusplus
 }

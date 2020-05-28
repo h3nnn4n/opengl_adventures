@@ -6,6 +6,10 @@ extern "C" {
     return new Shader(vertexPath, fragmentPath);
   }
 
+  unsigned int Shader_get_id(Shader* shader) {
+    return shader->ID;
+  }
+
   void Shader_use(Shader* shader) {
     shader->use();
   }
