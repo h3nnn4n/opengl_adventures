@@ -25,4 +25,8 @@ extern "C" {
   void Shader_set_float(Shader* shader, const char* name, float value) {
     shader->setFloat(name, value);
   }
+
+  void Shader_set_matrix4(Shader* shader, const char* name, float *value) {
+    shader->setMatrix4(name, value);
+  }
 }

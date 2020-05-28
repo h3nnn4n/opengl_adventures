@@ -181,8 +181,7 @@ int main()
   glm_rotate(m_model, -55 * GLM_PI / 180.0, GLM_XUP);
   glm_scale(m_model, v_scale);
 
-  unsigned int modelLoc = glGetUniformLocation(Shader_get_id(shader), "model");
-  glUniformMatrix4fv(modelLoc, 1, GL_FALSE, (float*)m_model);
+  Shader_set_matrix4(shader, "model", (float*)m_model);
 
   ////////////////////////
   // View matrix
@@ -191,8 +190,7 @@ int main()
   vec3 m_view_translate = {0, 0, -3};
   glm_translate(m_view, m_view_translate);
 
-  unsigned int viewLoc = glGetUniformLocation(Shader_get_id(shader), "view");
-  glUniformMatrix4fv(viewLoc, 1, GL_FALSE, (float*)m_view);
+  Shader_set_matrix4(shader, "view", (float*)m_view);
 
   ////////////////////////
   // View projection
@@ -200,8 +198,7 @@ int main()
   mat4 m_projection = GLM_MAT4_IDENTITY_INIT;
   glm_perspective(45 * GLM_PI / 180.0, 800 / 600, 1, 100, m_projection);
 
-  unsigned int projectionLoc = glGetUniformLocation(Shader_get_id(shader), "projection");
-  glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, (float*)m_projection);
+  Shader_set_matrix4(shader, "projection", (float*)m_projection);
 
   ////////////////////////
   // Main loop
