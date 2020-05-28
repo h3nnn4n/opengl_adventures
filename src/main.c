@@ -165,22 +165,47 @@ int main()
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
 
+  ////////////////////////
+  // Model matrix
+
   vec3 v_scale = GLM_VEC3_ONE_INIT;
-  glm_vec3_scale(v_scale, 0.5, v_scale);
+  /*glm_vec3_scale(v_scale, 0.5, v_scale);*/
 
   vec3 v_translate = GLM_VEC3_ONE_INIT;
-  glm_vec3_scale(v_translate, 0.25, v_translate);
+  glm_vec3_scale(v_translate, 0.1, v_translate);
   v_translate[2] = 0;
 
-  mat4 m_transform = GLM_MAT4_IDENTITY_INIT;
+  mat4 m_model = GLM_MAT4_IDENTITY_INIT;
 
-  glm_translate(m_transform, v_translate);
-  glm_rotate(m_transform, GLM_PI / 3.0, GLM_ZUP);
-  glm_scale(m_transform, v_scale);
+  glm_translate(m_model, v_translate);
+  glm_rotate(m_model, -55 * GLM_PI / 180.0, GLM_XUP);
+  glm_scale(m_model, v_scale);
 
-  unsigned int transformLoc = glGetUniformLocation(Shader_get_id(shader), "transform");
-  glUniformMatrix4fv(transformLoc, 1, GL_FALSE, (float*)m_transform);
+  unsigned int modelLoc = glGetUniformLocation(Shader_get_id(shader), "model");
+  glUniformMatrix4fv(modelLoc, 1, GL_FALSE, (float*)m_model);
 
+  ////////////////////////
+  // View matrix
+
+  mat4 m_view = GLM_MAT4_IDENTITY_INIT;
+  vec3 m_view_translate = {0, 0, -3};
+  glm_translate(m_view, m_view_translate);
+
+  unsigned int viewLoc = glGetUniformLocation(Shader_get_id(shader), "view");
+  glUniformMatrix4fv(viewLoc, 1, GL_FALSE, (float*)m_view);
+
+  ////////////////////////
+  // View projection
+
+  mat4 m_projection = GLM_MAT4_IDENTITY_INIT;
+  glm_perspective(45 * GLM_PI / 180.0, 800 / 600, 1, 100, m_projection);
+
+  unsigned int projectionLoc = glGetUniformLocation(Shader_get_id(shader), "projection");
+  glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, (float*)m_projection);
+
+  ////////////////////////
+  // Main loop
+  //
   while(!glfwWindowShouldClose(window))
   {
     processInput(window);
