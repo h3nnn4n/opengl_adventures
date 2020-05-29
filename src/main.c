@@ -9,11 +9,49 @@
 
 #include "shader_c.h"
 #include "stb_image.h"
+#include "utils.h"
 
 vec3 camera_pos = { 0, 0, 3 };
+vec3 camera_front = { 0, 0, 3 };
 vec3 camera_target = { 0, 0, 0 };
 vec3 camera_up = { 0, 1, 0 };
 vec3 camera_right = { 0, 0, 0 };
+
+float delta_time, last_frame;
+
+int firstMouse = 1;
+float lastX, lastY;
+float pitch, yaw;
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+  if (firstMouse) {
+      lastX = xpos;
+      lastY = ypos;
+      firstMouse = 0;
+  }
+
+  float xoffset = xpos - lastX;
+  float yoffset = lastY - ypos; // reversed since y-coordinates range from bottom to top
+  lastX = xpos;
+  lastY = ypos;
+
+  const float sensitivity = 0.1f;
+  xoffset *= sensitivity;
+  yoffset *= sensitivity;
+
+  yaw   += xoffset;
+  pitch += yoffset;
+
+  if(pitch > 89.0f)
+    pitch =  89.0f;
+  if(pitch < -89.0f)
+    pitch = -89.0f;
+
+  camera_front[0] = cos(deg2rad(yaw)) * cos(deg2rad(pitch));
+  camera_front[1] = sin(deg2rad(pitch));
+  camera_front[2] = sin(deg2rad(yaw)) * cos(deg2rad(pitch));
+  glm_vec3_normalize(camera_front);
+}
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -22,8 +60,36 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void processInput(GLFWwindow *window)
 {
+  const float camera_speed = 2.5f * delta_time;
+
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     glfwSetWindowShouldClose(window, 1);
+
+  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    vec3 tmp;
+    glm_vec3_scale(camera_front, camera_speed, tmp);
+    glm_vec3_add(camera_pos, tmp, camera_pos);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+    vec3 tmp;
+    glm_vec3_scale(camera_front, camera_speed, tmp);
+    glm_vec3_sub(camera_pos, tmp, camera_pos);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+    vec3 tmp;
+    glm_vec3_crossn(camera_front, camera_up, tmp);
+    glm_vec3_scale(tmp, camera_speed, tmp);
+    glm_vec3_sub(camera_pos, tmp, camera_pos);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+    vec3 tmp;
+    glm_vec3_crossn(camera_front, camera_up, tmp);
+    glm_vec3_scale(tmp, camera_speed, tmp);
+    glm_vec3_add(camera_pos, tmp, camera_pos);
+  }
 }
 
 int main()
@@ -51,6 +117,8 @@ int main()
 
   glViewport(0, 0, 800, 600);
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+  glfwSetCursorPosCallback(window, mouse_callback);
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");
   Shader_use(shader);
@@ -203,42 +271,6 @@ int main()
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
 
   ////////////////////////
-  // Model matrix
-
-  /*vec3 v_scale = GLM_VEC3_ONE_INIT;*/
-  /*glm_vec3_scale(v_scale, 0.5, v_scale);*/
-
-  /*vec3 v_translate = GLM_VEC3_ONE_INIT;*/
-  /*glm_vec3_scale(v_translate, 0.1, v_translate);*/
-  /*v_translate[2] = 0;*/
-
-  /*mat4 m_model = GLM_MAT4_IDENTITY_INIT;*/
-
-  /*glm_translate(m_model, v_translate);*/
-  /*glm_rotate(m_model, -55 * GLM_PI / 180.0, GLM_XUP);*/
-  /*glm_scale(m_model, v_scale);*/
-
-  /*Shader_set_matrix4(shader, "model", (float*)m_model);*/
-
-  ////////////////////////
-  // View matrix
-
-  /*mat4 m_view = GLM_MAT4_IDENTITY_INIT;*/
-  /*vec3 m_view_translate = {0, 0, -3};*/
-  /*glm_translate(m_view, m_view_translate);*/
-
-  /*vec3 camera_direction;*/
-  /*glm_vec3_sub(camera_pos, camera_target, camera_direction);*/
-  /*glm_vec3_normalize(camera_direction);*/
-
-  /*glm_vec3_cross(GLM_YUP, camera_direction, camera_right);*/
-  /*glm_vec3_normalize(camera_right);*/
-
-  /*mat4 m_view = GLM_MAT4_IDENTITY_INIT;*/
-  /*glm_lookat(camera_pos, camera_target, camera_up, m_view);*/
-  /*Shader_set_matrix4(shader, "view", (float*)m_view);*/
-
-  ////////////////////////
   // View projection
 
   mat4 m_projection = GLM_MAT4_IDENTITY_INIT;
@@ -273,13 +305,12 @@ int main()
 
     float timer = glfwGetTime();
 
+    delta_time = timer - last_frame;
+    last_frame = timer;
+
     Shader_set_float(shader, "time", timer);
 
     {
-      float radius = 10;
-      camera_pos[0] = sin(timer) * radius;
-      camera_pos[2] = cos(timer) * radius;
-
       vec3 camera_direction;
       glm_vec3_sub(camera_pos, camera_target, camera_direction);
       glm_vec3_normalize(camera_direction);
@@ -288,6 +319,7 @@ int main()
       glm_vec3_normalize(camera_right);
 
       mat4 m_view = GLM_MAT4_IDENTITY_INIT;
+      glm_vec3_add(camera_pos, camera_front, camera_target);
       glm_lookat(camera_pos, camera_target, camera_up, m_view);
       Shader_set_matrix4(shader, "view", (float*)m_view);
     }
