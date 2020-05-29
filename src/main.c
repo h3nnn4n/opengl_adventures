@@ -11,8 +11,8 @@
 #include "stb_image.h"
 #include "utils.h"
 
-vec3 camera_pos = { 0, 0, 3 };
-vec3 camera_front = { 0, 0, 3 };
+vec3 camera_pos = { 0, 0, -3 };
+vec3 camera_front = { 0, 0, 1 };
 vec3 camera_target = { 0, 0, 0 };
 vec3 camera_up = { 0, 1, 0 };
 vec3 camera_right = { 0, 0, 0 };
@@ -20,8 +20,9 @@ vec3 camera_right = { 0, 0, 0 };
 float delta_time, last_frame;
 
 int firstMouse = 1;
-float lastX, lastY;
+float lastX = 400, lastY = 300;
 float pitch, yaw;
+float zoom = 45;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (firstMouse) {
@@ -51,6 +52,16 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   camera_front[1] = sin(deg2rad(pitch));
   camera_front[2] = sin(deg2rad(yaw)) * cos(deg2rad(pitch));
   glm_vec3_normalize(camera_front);
+}
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+  zoom -= (float)yoffset;
+
+  if (zoom < 1.0f)
+    zoom = 1.0f;
+  if (zoom > 90.0f)
+    zoom = 90.0f;
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -118,6 +129,7 @@ int main()
   glViewport(0, 0, 800, 600);
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
   glfwSetCursorPosCallback(window, mouse_callback);
+  glfwSetScrollCallback(window, scroll_callback);
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");
@@ -270,13 +282,7 @@ int main()
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
 
-  ////////////////////////
-  // View projection
-
   mat4 m_projection = GLM_MAT4_IDENTITY_INIT;
-  glm_perspective(45 * GLM_PI / 180.0, 800 / 600, 1, 100, m_projection);
-
-  Shader_set_matrix4(shader, "projection", (float*)m_projection);
 
   glEnable(GL_DEPTH_TEST);
 
@@ -309,6 +315,9 @@ int main()
     last_frame = timer;
 
     Shader_set_float(shader, "time", timer);
+
+    glm_perspective(deg2rad(zoom), 800 / 600, 1, 100, m_projection);
+    Shader_set_matrix4(shader, "projection", (float*)m_projection);
 
     {
       vec3 camera_direction;
