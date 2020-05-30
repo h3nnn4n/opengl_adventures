@@ -7,15 +7,20 @@
 #include <cglm/cglm.h>
 #include <cglm/call.h>
 
+#include "camera.h"
 #include "gui.h"
+#include "settings.h"
 #include "shader_c.h"
 #include "stb_image.h"
-#include "camera.h"
+#include "timer.h"
 #include "utils.h"
 
 int firstMouse;
 float lastX;
 float lastY;
+
+GLFWwindow *window;
+Camera *camera;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (firstMouse) {
@@ -30,32 +35,12 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   lastX = xpos;
   lastY = ypos;
 
-  const float sensitivity = 0.1f;
-  xoffset *= sensitivity;
-  yoffset *= sensitivity;
-
-  yaw   += xoffset;
-  pitch += yoffset;
-
-  if(pitch > 89.0f)
-    pitch =  89.0f;
-  if(pitch < -89.0f)
-    pitch = -89.0f;
-
-  camera_front[0] = cos(deg2rad(yaw)) * cos(deg2rad(pitch));
-  camera_front[1] = sin(deg2rad(pitch));
-  camera_front[2] = sin(deg2rad(yaw)) * cos(deg2rad(pitch));
-  glm_vec3_normalize(camera_front);
+  update_camera_target(camera, xoffset, yoffset);
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-  zoom -= (float)yoffset;
-
-  if (zoom < 1.0f)
-    zoom = 1.0f;
-  if (zoom > 90.0f)
-    zoom = 90.0f;
+  update_camera_fov(camera, xoffset, yoffset);
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -65,35 +50,24 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void processInput(GLFWwindow *window)
 {
-  const float camera_speed = 2.5f * delta_time;
-
-  if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+  if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
     glfwSetWindowShouldClose(window, 1);
+  }
 
   if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-    vec3 tmp;
-    glm_vec3_scale(camera_front, camera_speed, tmp);
-    glm_vec3_add(camera_pos, tmp, camera_pos);
+    update_camera_position(camera, FRONT);
   }
 
   if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-    vec3 tmp;
-    glm_vec3_scale(camera_front, camera_speed, tmp);
-    glm_vec3_sub(camera_pos, tmp, camera_pos);
+    update_camera_position(camera, BACK);
   }
 
   if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-    vec3 tmp;
-    glm_vec3_crossn(camera_front, camera_up, tmp);
-    glm_vec3_scale(tmp, camera_speed, tmp);
-    glm_vec3_sub(camera_pos, tmp, camera_pos);
+    update_camera_position(camera, LEFT);
   }
 
   if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-    vec3 tmp;
-    glm_vec3_crossn(camera_front, camera_up, tmp);
-    glm_vec3_scale(tmp, camera_speed, tmp);
-    glm_vec3_add(camera_pos, tmp, camera_pos);
+    update_camera_position(camera, RIGHT);
   }
 }
 
@@ -127,6 +101,8 @@ int main()
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
   gui_init();
+
+  camera = make_camera();
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");
   Shader_use(shader);
@@ -278,8 +254,6 @@ int main()
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
 
-  mat4 m_projection = GLM_MAT4_IDENTITY_INIT;
-
   glEnable(GL_DEPTH_TEST);
 
   vec3 cube_positions[] = {
@@ -310,27 +284,11 @@ int main()
 
     float timer = glfwGetTime();
 
-    delta_time = timer - last_frame;
-    last_frame = timer;
+    update_delta(timer);
 
     Shader_set_float(shader, "time", timer);
 
-    glm_perspective(deg2rad(zoom), WINDOW_WIDTH / WINDOW_HEIGHT, 1, 100, m_projection);
-    Shader_set_matrix4(shader, "projection", (float*)m_projection);
-
-    {
-      vec3 camera_direction;
-      glm_vec3_sub(camera_pos, camera_target, camera_direction);
-      glm_vec3_normalize(camera_direction);
-
-      glm_vec3_cross(GLM_YUP, camera_direction, camera_right);
-      glm_vec3_normalize(camera_right);
-
-      mat4 m_view = GLM_MAT4_IDENTITY_INIT;
-      glm_vec3_add(camera_pos, camera_front, camera_target);
-      glm_lookat(camera_pos, camera_target, camera_up, m_view);
-      Shader_set_matrix4(shader, "view", (float*)m_view);
-    }
+    update_camera(camera, shader);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 

@@ -3,6 +3,10 @@
 
 #include <cglm/cglm.h>
 
+#include "shader_c.h"
+#include "time.h"
+#include "utils.h"
+
 typedef struct {
   vec3 camera_pos;
   vec3 camera_front;
@@ -10,16 +14,20 @@ typedef struct {
   vec3 camera_up;
   vec3 camera_right;
 
-  float delta_time, last_frame;
+  mat4 projection;
 
-  int firstMouse;
-  float lastX;
-  float lastY;
   float pitch;
   float yaw;
   float zoom;
+
+  Shader *shader;
 } Camera;
 
 Camera* make_camera();
+void update_camera_target(Camera *camera, float xoffset, float yoffset);
+void update_camera_fov(Camera *camera, float xoffset, float yoffset);
+void update_camera_target(Camera *camera, float xoffset, float yoffset);
+void update_camera_position(Camera *camera, Direction direction);
+void update_camera(Camera *camera, Shader *shader);
 
 #endif
