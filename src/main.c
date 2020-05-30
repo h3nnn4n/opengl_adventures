@@ -266,6 +266,7 @@ int main()
     Shader_set_vec3(shader, "light.direction", (float*)camera->camera_front);
 
     Shader_set_float(shader, "light.cutOff", cos(deg2rad(12.5f)));
+    Shader_set_float(shader, "light.outterCutOff", cos(deg2rad(17.5f)));
 
     Shader_set_vec3f(shader, "light.ambient",  0.2f, 0.2f, 0.2f);
     Shader_set_vec3f(shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
