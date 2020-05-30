@@ -2,6 +2,8 @@
 
 #include "input_handling.h"
 
+extern Camera *camera;
+
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (firstMouse) {
       lastX = xpos;
@@ -48,5 +50,13 @@ void processInput(GLFWwindow *window)
 
   if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
     update_camera_position(camera, RIGHT);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+    update_camera_position(camera, DOWN);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+    update_camera_position(camera, UP);
   }
 }

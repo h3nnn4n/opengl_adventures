@@ -70,19 +70,32 @@ void update_camera_position(Camera *camera, Direction direction) {
   vec3 tmp;
 
   switch (direction) {
+    case UP:
+      glm_vec3_scale(camera->camera_up, camera_speed, tmp);
+      glm_vec3_add(camera->camera_pos, tmp, camera->camera_pos);
+      break;
+
+    case DOWN:
+      glm_vec3_scale(camera->camera_up, camera_speed, tmp);
+      glm_vec3_sub(camera->camera_pos, tmp, camera->camera_pos);
+      break;
+
     case FRONT:
       glm_vec3_scale(camera->camera_front, camera_speed, tmp);
       glm_vec3_add(camera->camera_pos, tmp, camera->camera_pos);
       break;
+
     case BACK:
       glm_vec3_scale(camera->camera_front, camera_speed, tmp);
       glm_vec3_sub(camera->camera_pos, tmp, camera->camera_pos);
       break;
+
     case LEFT:
       glm_vec3_crossn(camera->camera_front, camera->camera_up, tmp);
       glm_vec3_scale(tmp, camera_speed, tmp);
       glm_vec3_sub(camera->camera_pos, tmp, camera->camera_pos);
       break;
+
     case RIGHT:
       glm_vec3_crossn(camera->camera_front, camera->camera_up, tmp);
       glm_vec3_scale(tmp, camera_speed, tmp);

@@ -6,6 +6,8 @@ typedef enum Direction {
   BACK,
   LEFT,
   RIGHT,
+  UP,
+  DOWN,
 } Direction;
 
 float deg2rad(float degrees);
