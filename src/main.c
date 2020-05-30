@@ -259,8 +259,14 @@ int main()
     Shader_use(shader);
     Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
 
-    Shader_set_vec3(shader, "light.position", (float*)light_position);
+    /*Shader_set_vec3(shader, "light.position", (float*)light_position);*/
     /*Shader_set_vec3(shader, "light.direction", (float*)light_direction);*/
+
+    Shader_set_vec3(shader, "light.position", (float*)camera->camera_pos);
+    Shader_set_vec3(shader, "light.direction", (float*)camera->camera_front);
+
+    Shader_set_float(shader, "light.cutOff", cos(deg2rad(12.5f)));
+
     Shader_set_vec3f(shader, "light.ambient",  0.2f, 0.2f, 0.2f);
     Shader_set_vec3f(shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
     Shader_set_vec3f(shader, "light.specular", 1.0f, 1.0f, 1.0f);
