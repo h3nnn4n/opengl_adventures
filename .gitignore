@@ -2,3 +2,5 @@ deps/
 build/
 
 opengl_adventures
+
+imgui.ini

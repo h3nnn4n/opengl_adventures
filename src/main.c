@@ -7,9 +7,15 @@
 #include <cglm/cglm.h>
 #include <cglm/call.h>
 
+#include "gui.h"
 #include "shader_c.h"
 #include "stb_image.h"
 #include "utils.h"
+
+#define WINDOW_WIDTH 1200
+#define WINDOW_HEIGHT 800
+
+GLFWwindow *window;
 
 vec3 camera_pos = { 0, 0, -3 };
 vec3 camera_front = { 0, 0, 1 };
@@ -20,7 +26,7 @@ vec3 camera_right = { 0, 0, 0 };
 float delta_time, last_frame;
 
 int firstMouse = 1;
-float lastX = 400, lastY = 300;
+float lastX = WINDOW_WIDTH / 2, lastY = WINDOW_HEIGHT / 2;
 float pitch, yaw;
 float zoom = 45;
 
@@ -111,7 +117,7 @@ int main()
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-  GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+  window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "LearnOpenGL", NULL, NULL);
   if (window == NULL) {
     printf("Failed to create GLFW window\n");
     glfwTerminate();
@@ -126,11 +132,13 @@ int main()
     return -1;
   }
 
-  glViewport(0, 0, 800, 600);
+  glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
   glfwSetCursorPosCallback(window, mouse_callback);
   glfwSetScrollCallback(window, scroll_callback);
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+  gui_init();
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");
   Shader_use(shader);
@@ -304,10 +312,13 @@ int main()
   //
   while(!glfwWindowShouldClose(window))
   {
+    glfwPollEvents();
     processInput(window);
 
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    gui_update();
 
     float timer = glfwGetTime();
 
@@ -316,7 +327,7 @@ int main()
 
     Shader_set_float(shader, "time", timer);
 
-    glm_perspective(deg2rad(zoom), 800 / 600, 1, 100, m_projection);
+    glm_perspective(deg2rad(zoom), WINDOW_WIDTH / WINDOW_HEIGHT, 1, 100, m_projection);
     Shader_set_matrix4(shader, "projection", (float*)m_projection);
 
     {
@@ -372,10 +383,12 @@ int main()
 
     glBindVertexArray(0);
 
+    gui_render();
+
     glfwSwapBuffers(window);
-    glfwPollEvents();
   }
 
+  gui_terminate();
   glfwTerminate();
 
   return 0;
