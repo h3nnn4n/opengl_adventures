@@ -261,8 +261,12 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     Shader_use(shader);
-    Shader_set_vec3(shader, "lightPos", (float*)light_position);
     Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
+
+    Shader_set_vec3(shader, "light.position", (float*)light_position);
+    Shader_set_vec3f(shader, "light.ambient",  0.2f, 0.2f, 0.2f);
+    Shader_set_vec3f(shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
+    Shader_set_vec3f(shader, "light.specular", 1.0f, 1.0f, 1.0f);
 
     // Timer
     float timer = glfwGetTime();
@@ -284,6 +288,12 @@ int main()
     glBindVertexArray(VAO);
 
     {
+      Shader_set_vec3f(shader, "material.ambient", 1.0f, 0.5f, 0.31f);
+      Shader_set_vec3f(shader, "material.diffuse", 1.0f, 0.5f, 0.31f);
+      Shader_set_vec3f(shader, "material.specular", 0.5f, 0.5f, 0.5f);
+
+      Shader_set_float(shader, "material.shininess", 32.0f);
+
       /*for (int i = 0; i < 10; ++i) {*/
         int i = 0;
         vec3 v_scale = GLM_VEC3_ONE_INIT;
@@ -321,8 +331,11 @@ int main()
       glm_translate(m_model, light_position);
       glm_scale_uni(m_model, 0.2f);
 
-      /*Shader_set_matrix4(shader, "model", (float*)m_model);*/
       Shader_set_matrix4(light_shader, "model", (float*)m_model);
+      Shader_set_vec3(light_shader, "light.position", (float*)light_position);
+      Shader_set_vec3f(light_shader, "light.ambient",  0.2f, 0.2f, 0.2f);
+      Shader_set_vec3f(light_shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
+      Shader_set_vec3f(light_shader, "light.specular", 1.0f, 1.0f, 1.0f);
 
       glBindVertexArray(lightVAO);
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);

@@ -30,6 +30,10 @@ extern "C" {
     shader->setVec3(name, value);
   }
 
+  void Shader_set_vec3f(Shader* shader, const char* name, float v1, float v2, float v3) {
+    shader->setVec3(name, v1, v2, v3);
+  }
+
   void Shader_set_matrix4(Shader* shader, const char* name, float *value) {
     shader->setMatrix4(name, value);
   }
