@@ -208,7 +208,7 @@ int main()
 
   {
     int width, height, nrChannels;
-    const char *tex_filename = "assets/awesomeface.png";
+    const char *tex_filename = "assets/container2_specular.png";
     unsigned char *data = stbi_load(tex_filename, &width, &height, &nrChannels, 0);
 
     if (data) {
@@ -221,8 +221,8 @@ int main()
     stbi_image_free(data);
   }
 
-  Shader_set_int(shader, "texture1", 0);
-  Shader_set_int(shader, "texture2", 1);
+  Shader_set_int(shader, "material.diffuse", 0);
+  Shader_set_int(shader, "material.specular", 1);
 
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
   /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
