@@ -23,7 +23,8 @@ float lastY;
 GLFWwindow *window;
 Camera *camera;
 
-vec3 light_position = { 1.2f, 1.0f, 2.0f };
+vec3 light_position = { 1.2f, 1.0f, 2.0f }; // Point light
+vec3 light_direction = { -0.2f, -1.0f, -0.3f }; // Directional light
 
 int main()
 {
@@ -68,7 +69,7 @@ int main()
   Shader_set_vec3(shader, "objectColor", objectColor);
   Shader_set_vec3(shader, "lightColor", lightColor);
 
-  Shader *light_shader = newShader("shaders/shader.vert", "shaders/light_obj.frag");
+  /*Shader *light_shader = newShader("shaders/shader.vert", "shaders/light_obj.frag");*/
 
   /*float vertices[] = {*/
     /*// positions         // colors*/
@@ -258,7 +259,8 @@ int main()
     Shader_use(shader);
     Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
 
-    Shader_set_vec3(shader, "light.position", (float*)light_position);
+    /*Shader_set_vec3(shader, "light.position", (float*)light_position);*/
+    Shader_set_vec3(shader, "light.direction", (float*)light_direction);
     Shader_set_vec3f(shader, "light.ambient",  0.2f, 0.2f, 0.2f);
     Shader_set_vec3f(shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
     Shader_set_vec3f(shader, "light.specular", 1.0f, 1.0f, 1.0f);
@@ -286,8 +288,8 @@ int main()
       Shader_set_vec3f(shader, "material.specular", 0.5f, 0.5f, 0.5f);
       Shader_set_float(shader, "material.shininess", 32.0f);
 
-      /*for (int i = 0; i < 10; ++i) {*/
-        int i = 0;
+      int i = 0;
+      for (i = 0; i < 10; ++i) {
         vec3 v_scale = GLM_VEC3_ONE_INIT;
         /*glm_vec3_scale(v_scale, 0.5, v_scale);*/
 
@@ -298,14 +300,16 @@ int main()
         mat4 m_model = GLM_MAT4_IDENTITY_INIT;
 
         glm_translate(m_model, cube_positions[i]);
-        glm_rotate(m_model, (25 * GLM_PI / 180.0) * timer * i / 3.0, GLM_XUP);
-        glm_rotate(m_model, (50 * GLM_PI / 180.0) * timer * i / 2.0, GLM_YUP);
+        /*glm_rotate(m_model, (25 * GLM_PI / 180.0) * timer * i / 3.0, GLM_XUP);*/
+        /*glm_rotate(m_model, (50 * GLM_PI / 180.0) * timer * i / 2.0, GLM_YUP);*/
+        glm_rotate(m_model, (25 * GLM_PI / 180.0) * i / 3.0, GLM_XUP);
+        glm_rotate(m_model, (50 * GLM_PI / 180.0) * i / 2.0, GLM_YUP);
         glm_scale(m_model, v_scale);
 
         Shader_set_matrix4(shader, "model", (float*)m_model);
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
-      /*}*/
+      }
     }
 
     /*glDrawArrays(GL_TRIANGLES, 0, 3);*/
@@ -314,27 +318,28 @@ int main()
 
     glBindVertexArray(0);
 
-    { // Draw light source
-      Shader_use(light_shader);
-      update_camera(camera, light_shader);
+    /*{ // Draw light source*/
+      /*Shader_use(light_shader);*/
+      /*update_camera(camera, light_shader);*/
 
-      mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+      /*mat4 m_model = GLM_MAT4_IDENTITY_INIT;*/
 
-      glm_translate(m_model, light_position);
-      glm_scale_uni(m_model, 0.2f);
+      /*glm_translate(m_model, light_position);*/
+      /*glm_scale_uni(m_model, 0.2f);*/
 
-      Shader_set_matrix4(light_shader, "model", (float*)m_model);
-      Shader_set_vec3(light_shader, "light.position", (float*)light_position);
-      Shader_set_vec3f(light_shader, "light.ambient",  0.2f, 0.2f, 0.2f);
-      Shader_set_vec3f(light_shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
-      Shader_set_vec3f(light_shader, "light.specular", 1.0f, 1.0f, 1.0f);
+      /*Shader_set_matrix4(light_shader, "model", (float*)m_model);*/
+      /*[>Shader_set_vec3(light_shader, "light.position", (float*)light_position);<]*/
+      /*Shader_set_vec3(light_shader, "light.direction", (float*)light_direction);*/
+      /*Shader_set_vec3f(light_shader, "light.ambient",  0.2f, 0.2f, 0.2f);*/
+      /*Shader_set_vec3f(light_shader, "light.diffuse",  0.6f, 0.7f, 0.8f);*/
+      /*Shader_set_vec3f(light_shader, "light.specular", 1.0f, 1.0f, 1.0f);*/
 
-      glBindVertexArray(lightVAO);
-      glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-      glDrawArrays(GL_TRIANGLES, 0, 36);
+      /*glBindVertexArray(lightVAO);*/
+      /*glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);*/
+      /*glDrawArrays(GL_TRIANGLES, 0, 36);*/
 
-      glBindVertexArray(0);
-    }
+      /*glBindVertexArray(0);*/
+    /*}*/
 
     // Update gui
     gui_new_frame();
