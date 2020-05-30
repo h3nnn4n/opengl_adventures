@@ -23,6 +23,6 @@ void ImGui_ImplGlfw_NewFrame();
 void gui_init();
 void gui_terminate();
 void gui_render();
-void gui_update();
+void gui_update_camera(Camera *camera);
 
 #endif
