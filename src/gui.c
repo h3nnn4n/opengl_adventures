@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 
 #include "camera.h"
+#include "timer.h"
 #include "gui.h"
 
 struct ImGuiContext *ctx;
@@ -38,11 +39,13 @@ void gui_render() {
   ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData());
 }
 
-void gui_update_camera(Camera *camera) {
+void gui_new_frame() {
   ImGui_ImplOpenGL3_NewFrame();
   ImGui_ImplGlfw_NewFrame();
   igNewFrame();
+}
 
+void gui_update_camera(Camera *camera) {
   igBegin("Camera", NULL, 0);
 
   sprintf(buffer,
@@ -68,6 +71,21 @@ void gui_update_camera(Camera *camera) {
   sprintf(buffer,
           "fov: %4.2f",
           camera->zoom);
+  igText(buffer);
+
+  igEnd();
+}
+
+void gui_update_fps() {
+  igBegin("FPS", NULL, 0);
+
+  float ms = delta_time();
+  float fps = 1.0 / ms;
+
+  sprintf(buffer, "FPS: %6.2f", fps);
+  igText(buffer);
+
+  sprintf(buffer, " ms: %6.4f", ms);
   igText(buffer);
 
   igEnd();

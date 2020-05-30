@@ -345,6 +345,8 @@ int main()
     }
 
     // Update gui
+    gui_new_frame();
+    gui_update_fps();
     gui_update_camera(camera);
     gui_render();
 
