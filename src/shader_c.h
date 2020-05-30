@@ -15,6 +15,7 @@ extern "C" {
   void Shader_set_bool(Shader* shader, const char* name, int value);
   void Shader_set_int(Shader* shader, const char* name, int value);
   void Shader_set_float(Shader* shader, const char* name, float value);
+  void Shader_set_vec3(Shader* shader, const char* name, float* value);
   void Shader_set_matrix4(Shader* shader, const char* name, float* value);
 
   // TODO

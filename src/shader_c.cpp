@@ -26,6 +26,10 @@ extern "C" {
     shader->setFloat(name, value);
   }
 
+  void Shader_set_vec3(Shader* shader, const char* name, float* value) {
+    shader->setVec3(name, value);
+  }
+
   void Shader_set_matrix4(Shader* shader, const char* name, float *value) {
     shader->setMatrix4(name, value);
   }
