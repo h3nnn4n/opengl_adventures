@@ -10,25 +10,12 @@
 #include "gui.h"
 #include "shader_c.h"
 #include "stb_image.h"
+#include "camera.h"
 #include "utils.h"
 
-#define WINDOW_WIDTH 1200
-#define WINDOW_HEIGHT 800
-
-GLFWwindow *window;
-
-vec3 camera_pos = { 0, 0, -3 };
-vec3 camera_front = { 0, 0, 1 };
-vec3 camera_target = { 0, 0, 0 };
-vec3 camera_up = { 0, 1, 0 };
-vec3 camera_right = { 0, 0, 0 };
-
-float delta_time, last_frame;
-
-int firstMouse = 1;
-float lastX = WINDOW_WIDTH / 2, lastY = WINDOW_HEIGHT / 2;
-float pitch, yaw;
-float zoom = 45;
+int firstMouse;
+float lastX;
+float lastY;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (firstMouse) {
@@ -39,6 +26,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 
   float xoffset = xpos - lastX;
   float yoffset = lastY - ypos; // reversed since y-coordinates range from bottom to top
+
   lastX = xpos;
   lastY = ypos;
 
