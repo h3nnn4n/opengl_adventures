@@ -16,15 +16,14 @@
 #include "timer.h"
 #include "utils.h"
 
+#define NR_POINT_LIGHTS 4
+
 int firstMouse;
 float lastX;
 float lastY;
 
 GLFWwindow *window;
 Camera *camera;
-
-vec3 light_position = { 1.2f, 1.0f, 2.0f }; // Point light
-vec3 light_direction = { -0.2f, -1.0f, -0.3f }; // Directional light
 
 int main()
 {
@@ -61,15 +60,8 @@ int main()
 
   /*Shader *shader = newShader("shaders/shader.vert", "shaders/shader.frag");*/
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader_obj_color.frag");
-  Shader_use(shader);
-  Shader_set_float(shader, "colorOverrideIntensity", 0.5);
-
-  vec3 objectColor = {1.0f, 0.5f, 0.31f};
-  vec3 lightColor = {1.0f, 1.0f, 1.0f};
-  Shader_set_vec3(shader, "objectColor", objectColor);
-  Shader_set_vec3(shader, "lightColor", lightColor);
-
   Shader *light_shader = newShader("shaders/shader.vert", "shaders/light_obj.frag");
+  Shader_use(shader);
 
   /*float vertices[] = {*/
     /*// positions         // colors*/
@@ -167,6 +159,14 @@ int main()
   glEnableVertexAttribArray(0);
   glBindVertexArray(0);
 
+  vec3 light_direction = { -0.2f, -1.0f, -0.3f };
+  vec3 light_positions[] = {
+    { 0.7f,  0.2f,  2.0f },
+    { 2.3f, -3.3f, -4.0f },
+    {-4.0f,  2.0f, -12.0f},
+    { 0.0f, -2.0f, -3.0f }
+  };
+
   ///////////////////////////////
   // Textures
   //
@@ -257,24 +257,50 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     Shader_use(shader);
-    Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
+    /*Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);*/
 
-    /*Shader_set_vec3(shader, "light.position", (float*)light_position);*/
-    /*Shader_set_vec3(shader, "light.direction", (float*)light_direction);*/
+    { // Update lights
+      char buffer[256];
 
-    Shader_set_vec3(shader, "light.position", (float*)camera->camera_pos);
-    Shader_set_vec3(shader, "light.direction", (float*)camera->camera_front);
+      Shader_set_vec3(shader, "spotLight.position", (float*)camera->camera_pos);
+      Shader_set_vec3(shader, "spotLight.direction", (float*)camera->camera_front);
+      Shader_set_vec3f(shader, "spotLight.ambient",  0.01f, 0.01f, 0.01f);
+      Shader_set_vec3f(shader, "spotLight.diffuse",  0.5f, 0.2f, 0.2f);
+      Shader_set_vec3f(shader, "spotLight.specular", 1.0f, 0.0f, 0.0f);
+      Shader_set_float(shader, "spotLight.constant",  1.0f);
+      Shader_set_float(shader, "spotLight.linear",    0.09f);
+      Shader_set_float(shader, "spotLight.quadratic", 0.032f);
+      Shader_set_float(shader, "spotLight.cutOff", cos(deg2rad(12.5f)));
+      Shader_set_float(shader, "spotLight.outterCutOff", cos(deg2rad(17.5f)));
 
-    Shader_set_float(shader, "light.cutOff", cos(deg2rad(12.5f)));
-    Shader_set_float(shader, "light.outterCutOff", cos(deg2rad(17.5f)));
+      Shader_set_vec3(shader, "dirLight.direction", (float*)light_direction);
+      Shader_set_vec3f(shader, "dirLight.ambient",  0.05f, 0.05f, 0.05f);
+      Shader_set_vec3f(shader, "dirLight.diffuse",  0.6f, 0.7f, 0.8f);
+      Shader_set_vec3f(shader, "dirLight.specular", 1.0f, 1.0f, 1.0f);
 
-    Shader_set_vec3f(shader, "light.ambient",  0.2f, 0.2f, 0.2f);
-    Shader_set_vec3f(shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
-    Shader_set_vec3f(shader, "light.specular", 1.0f, 1.0f, 1.0f);
+      for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+        sprintf(buffer, "pointLights[%d].position", i);
+        Shader_set_vec3(shader, buffer, (float*)light_positions[i]);
 
-    Shader_set_float(shader, "light.constant",  1.0f);
-    Shader_set_float(shader, "light.linear",    0.09f);
-    Shader_set_float(shader, "light.quadratic", 0.032f);
+        sprintf(buffer, "pointLights[%d].ambient", i);
+        Shader_set_vec3f(shader, buffer,  0.01f, 0.01f, 0.01f);
+
+        sprintf(buffer, "pointLights[%d].diffuse", i);
+        Shader_set_vec3f(shader, buffer,  0.4f, 0.2f, 1.0f);
+
+        sprintf(buffer, "pointLights[%d].specular", i);
+        Shader_set_vec3f(shader, buffer, 0.3f, 0.3f, 0.7f);
+
+        sprintf(buffer, "pointLights[%d].constant", i);
+        Shader_set_float(shader, buffer, 1.0f);
+
+        sprintf(buffer, "pointLights[%d].linear", i);
+        Shader_set_float(shader, buffer, 0.09f);
+
+        sprintf(buffer, "pointLights[%d].quadratic", i);
+        Shader_set_float(shader, buffer, 0.032f);
+      }
+    }
 
     // Timer
     float timer = glfwGetTime();
@@ -329,25 +355,25 @@ int main()
 
     glBindVertexArray(0);
 
-    { // Draw light source
+    { // Draw light sources
       Shader_use(light_shader);
       update_camera(camera, light_shader);
 
-      mat4 m_model = GLM_MAT4_IDENTITY_INIT;
-
-      glm_translate(m_model, light_position);
-      glm_scale_uni(m_model, 0.2f);
-
-      Shader_set_matrix4(light_shader, "model", (float*)m_model);
-      Shader_set_vec3(light_shader, "light.position", (float*)light_position);
-      /*Shader_set_vec3(light_shader, "light.direction", (float*)light_direction);*/
-      Shader_set_vec3f(light_shader, "light.ambient",  0.2f, 0.2f, 0.2f);
-      Shader_set_vec3f(light_shader, "light.diffuse",  0.6f, 0.7f, 0.8f);
-      Shader_set_vec3f(light_shader, "light.specular", 1.0f, 1.0f, 1.0f);
-
       glBindVertexArray(lightVAO);
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-      glDrawArrays(GL_TRIANGLES, 0, 36);
+
+      for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+        mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+
+        glm_translate(m_model, light_positions[i]);
+        glm_scale_uni(m_model, 0.2f);
+
+        Shader_set_matrix4(light_shader, "model", (float*)m_model);
+
+        Shader_set_vec3f(light_shader, "lightColor",  0.6f, 0.7f, 0.8f);
+
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+      }
 
       glBindVertexArray(0);
     }

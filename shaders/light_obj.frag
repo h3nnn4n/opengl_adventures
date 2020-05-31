@@ -5,17 +5,9 @@ in vec2 TexCoords;
 
 out vec4 FragColor;
 
-struct Light {
-  vec3 position;
-
-  vec3 ambient;
-  vec3 diffuse;
-  vec3 specular;
-};
-
-uniform Light light;
+uniform vec3 lightColor;
 
 void main()
 {
-    FragColor = vec4(light.diffuse, 1.0);
+    FragColor = vec4(lightColor, 1.0);
 }
