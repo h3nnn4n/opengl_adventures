@@ -4,8 +4,9 @@
 #include <GLFW/glfw3.h>
 
 #include "camera.h"
-#include "timer.h"
 #include "gui.h"
+#include "light.h"
+#include "timer.h"
 
 struct ImGuiContext *ctx;
 struct ImGuiIO *io;
@@ -86,6 +87,44 @@ void gui_update_fps() {
   igText(buffer);
 
   sprintf(buffer, " ms: %6.4f", ms);
+  igText(buffer);
+
+  igEnd();
+}
+
+void gui_update_lights() {
+  if (directional_light == NULL) return;
+
+  Light *light = directional_light;
+
+  igBegin("Directional Light", NULL, 0);
+
+  sprintf(buffer,
+         "target: %4.2f %4.2f %4.2f",
+         light->direction[0],
+         light->direction[1],
+         light->direction[2]);
+  igText(buffer);
+
+  sprintf(buffer,
+         "ambient: %4.2f %4.2f %4.2f",
+         light->ambient[0],
+         light->ambient[1],
+         light->ambient[2]);
+  igText(buffer);
+
+  sprintf(buffer,
+         "specular: %4.2f %4.2f %4.2f",
+         light->specular[0],
+         light->specular[1],
+         light->specular[2]);
+  igText(buffer);
+
+  sprintf(buffer,
+         "diffuse: %4.2f %4.2f %4.2f",
+         light->diffuse[0],
+         light->diffuse[1],
+         light->diffuse[2]);
   igText(buffer);
 
   igEnd();

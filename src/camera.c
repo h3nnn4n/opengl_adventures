@@ -129,4 +129,6 @@ void update_camera(Camera *camera, Shader *shader) {
   glm_lookat(camera->camera_pos, camera->camera_target, camera->camera_up, m_view);
 
   Shader_set_matrix4(shader, "view", (float*)m_view);
+
+  Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
 }

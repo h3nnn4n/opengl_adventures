@@ -1,4 +1,6 @@
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir) {
+  if (light.active == 0) return vec3(0, 0, 0);
+
   vec3 lightDir = normalize(-light.direction);
 
   // diffuse shading
@@ -17,6 +19,8 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir) {
 }
 
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
+  if (light.active == 0) return vec3(0, 0, 0);
+
   vec3 lightDir = normalize(light.position - fragPos);
 
   // diffuse shading
@@ -44,6 +48,8 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
 }
 
 vec3 CalcSpotLight(SpotLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
+  if (light.active == 0) return vec3(0, 0, 0);
+
   vec3 lightDir = normalize(light.position - FragPos);
 
   float theta     = dot(lightDir, normalize(-light.direction));

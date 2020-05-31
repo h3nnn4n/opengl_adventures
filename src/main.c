@@ -10,13 +10,12 @@
 #include "camera.h"
 #include "gui.h"
 #include "input_handling.h"
+#include "light.h"
 #include "settings.h"
 #include "shader_c.h"
 #include "stb_image.h"
 #include "timer.h"
 #include "utils.h"
-
-#define NR_POINT_LIGHTS 4
 
 int firstMouse;
 float lastX;
@@ -159,13 +158,34 @@ int main()
   glEnableVertexAttribArray(0);
   glBindVertexArray(0);
 
+  directional_light = make_light(DIRECTIONAL);
+  spot_light = make_light(SPOTLIGHT);
+  point_lights[0] = make_light(POINT);
+  point_lights[1] = make_light(POINT);
+  point_lights[2] = make_light(POINT);
+  point_lights[3] = make_light(POINT);
+
+  directional_light->shader = shader;
+  spot_light->shader = shader;
+
+  directional_light->active = 1;
+  spot_light->active = 1;
+
   vec3 light_direction = { -0.2f, -1.0f, -0.3f };
+  set_direction(directional_light, light_direction);
+
   vec3 light_positions[] = {
     { 0.7f,  0.2f,  2.0f },
     { 2.3f, -3.3f, -4.0f },
     {-4.0f,  2.0f, -12.0f},
     { 0.0f, -2.0f, -3.0f }
   };
+
+  for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+    set_position(point_lights[i], (float*)light_positions[i]);
+    point_lights[i]->shader = shader;
+    point_lights[i]->active = 1;
+  }
 
   ///////////////////////////////
   // Textures
@@ -257,50 +277,6 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     Shader_use(shader);
-    /*Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);*/
-
-    { // Update lights
-      char buffer[256];
-
-      Shader_set_vec3(shader, "spotLight.position", (float*)camera->camera_pos);
-      Shader_set_vec3(shader, "spotLight.direction", (float*)camera->camera_front);
-      Shader_set_vec3f(shader, "spotLight.ambient",  0.01f, 0.01f, 0.01f);
-      Shader_set_vec3f(shader, "spotLight.diffuse",  0.5f, 0.2f, 0.2f);
-      Shader_set_vec3f(shader, "spotLight.specular", 1.0f, 0.0f, 0.0f);
-      Shader_set_float(shader, "spotLight.constant",  1.0f);
-      Shader_set_float(shader, "spotLight.linear",    0.09f);
-      Shader_set_float(shader, "spotLight.quadratic", 0.032f);
-      Shader_set_float(shader, "spotLight.cutOff", cos(deg2rad(12.5f)));
-      Shader_set_float(shader, "spotLight.outterCutOff", cos(deg2rad(17.5f)));
-
-      Shader_set_vec3(shader, "dirLight.direction", (float*)light_direction);
-      Shader_set_vec3f(shader, "dirLight.ambient",  0.05f, 0.05f, 0.05f);
-      Shader_set_vec3f(shader, "dirLight.diffuse",  0.6f, 0.7f, 0.8f);
-      Shader_set_vec3f(shader, "dirLight.specular", 1.0f, 1.0f, 1.0f);
-
-      for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
-        sprintf(buffer, "pointLights[%d].position", i);
-        Shader_set_vec3(shader, buffer, (float*)light_positions[i]);
-
-        sprintf(buffer, "pointLights[%d].ambient", i);
-        Shader_set_vec3f(shader, buffer,  0.01f, 0.01f, 0.01f);
-
-        sprintf(buffer, "pointLights[%d].diffuse", i);
-        Shader_set_vec3f(shader, buffer,  0.4f, 0.2f, 1.0f);
-
-        sprintf(buffer, "pointLights[%d].specular", i);
-        Shader_set_vec3f(shader, buffer, 0.3f, 0.3f, 0.7f);
-
-        sprintf(buffer, "pointLights[%d].constant", i);
-        Shader_set_float(shader, buffer, 1.0f);
-
-        sprintf(buffer, "pointLights[%d].linear", i);
-        Shader_set_float(shader, buffer, 0.09f);
-
-        sprintf(buffer, "pointLights[%d].quadratic", i);
-        Shader_set_float(shader, buffer, 0.032f);
-      }
-    }
 
     // Timer
     float timer = glfwGetTime();
@@ -308,6 +284,11 @@ int main()
     Shader_set_float(shader, "time", timer);
 
     update_camera(camera, shader);
+
+    set_position(spot_light, camera->camera_pos);
+    set_direction(spot_light, camera->camera_front);
+
+    refresh_lights();
 
     // Draw cubes
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -339,6 +320,7 @@ int main()
         glm_translate(m_model, cube_positions[i]);
         /*glm_rotate(m_model, (25 * GLM_PI / 180.0) * timer * i / 3.0, GLM_XUP);*/
         /*glm_rotate(m_model, (50 * GLM_PI / 180.0) * timer * i / 2.0, GLM_YUP);*/
+        // FIXME: Not sure why yet, but rotated objects have fucked up lights
         glm_rotate(m_model, (25 * GLM_PI / 180.0) * i / 3.0, GLM_XUP);
         glm_rotate(m_model, (50 * GLM_PI / 180.0) * i / 2.0, GLM_YUP);
         glm_scale(m_model, v_scale);
@@ -382,6 +364,7 @@ int main()
     gui_new_frame();
     gui_update_fps();
     gui_update_camera(camera);
+    /*gui_update_lights();*/
     gui_render();
 
     // Draw to screen

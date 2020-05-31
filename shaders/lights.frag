@@ -4,6 +4,8 @@ struct DirLight {
   vec3 ambient;
   vec3 diffuse;
   vec3 specular;
+
+  int active;
 };
 
 struct SpotLight {
@@ -19,6 +21,8 @@ struct SpotLight {
   float constant;
   float linear;
   float quadratic;
+
+  int active;
 };
 
 struct PointLight {
@@ -31,4 +35,6 @@ struct PointLight {
   vec3 ambient;
   vec3 diffuse;
   vec3 specular;
+
+  int active;
 };

@@ -59,20 +59,20 @@ run: $(TARGET)
 $(BUILDDIR)/%.o: %.c
 	@echo $(ECHOFLAGS) "[CC]\t$<"
 	@mkdir -p "$(dir $@)"
-	@$(CC) $(CFLAGS) $(L_INC) -o "$@" -c "$<"
+	@$(CC) $(CFLAGS) $(L_INC) $(CUSTOM) -o "$@" -c "$<"
 
 $(BUILDDIR)/%.o: %.cpp
 	@echo $(ECHOFLAGS) "[CXX]\t$<"
 	@mkdir -p "$(dir $@)"
-	@$(CXX) $(CPPFLAGS) $(L_INC) -o "$@" -c "$<"
+	@$(CXX) $(CPPFLAGS) $(L_INC) $(CUSTOM) -o "$@" -c "$<"
 
 $(TARGET).o: $(OBJS) $(LDSCRIPT)
 	@echo $(ECHOFLAGS) "[LD]\t$@"
-	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS)
+	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS) $(CUSTOM)
 
 $(TARGET): $(OBJS) $(LDSCRIPT)
 	@echo $(ECHOFLAGS) "[LD]\t$@"
-	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS)
+	@$(CC) $(LDFLAGS) -o "$@" $(OBJS) $(LIBS) $(CUSTOM)
 
 -include $(OBJS:.o=.d)
 
