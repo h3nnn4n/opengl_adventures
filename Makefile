@@ -46,9 +46,6 @@ IMGUI_FILES := $(wildcard ./deps/cimgui/*.cpp) \
 							 $(wildcard ./deps/cimgui/imgui/examples/imgui_impl_glfw.cpp) \
 							 $(wildcard ./deps/cimgui/imgui/examples/imgui_impl_opengl3.cpp)
 
-#IMGUI_FILES := ./deps/cimgui/imgui/examples/imgui_impl_glfw.cpp \
-							 #./deps/cimgui/imgui/examples/imgui_impl_opengl3.cpp
-
 SOURCES := $(C_FILES:.c=.o) $(CPP_FILES:.cpp=.o) $(IMGUI_FILES:.cpp=.o)
 OBJS := $(foreach src,$(SOURCES), $(BUILDDIR)/$(src))
 
