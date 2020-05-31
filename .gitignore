@@ -4,3 +4,6 @@ build/
 opengl_adventures
 
 imgui.ini
+
+*.vert.final
+*.frag.final

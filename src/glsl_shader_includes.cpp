@@ -103,8 +103,14 @@ std::string Shadinclude::load(std::string path) {
 
   // Only add the null terminator at the end of the complete file,
   // essentially skipping recursive function calls this way
-  if (!isRecursiveCall)
+  if (!isRecursiveCall) {
     fullSourceCode += '\0';
+
+    // Since we preprocess the shaders, it is useful to have the final code
+    // laying around
+    std::ofstream out(path + ".final");
+    out << fullSourceCode;
+  }
 
   file.close();
 

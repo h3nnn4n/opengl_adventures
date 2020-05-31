@@ -25,8 +25,7 @@ void Mesh::setupMesh()
   glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
 
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int),
-               &indices[0], GL_STATIC_DRAW);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 
   // vertex positions
   glEnableVertexAttribArray(0);
@@ -46,6 +45,7 @@ void Mesh::setupMesh()
 void Mesh::Draw(Shader *shader) {
   unsigned int diffuseNr = 1;
   unsigned int specularNr = 1;
+
   for(unsigned int i = 0; i < textures.size(); i++) {
     // activate proper texture unit before binding
     glActiveTexture(GL_TEXTURE0 + i);
@@ -55,14 +55,21 @@ void Mesh::Draw(Shader *shader) {
     string name = textures[i].type;
 
     if(name == "texture_diffuse") {
+      if (diffuseNr > 1) cout << "Warning, ignoring " << name;
       number = std::to_string(diffuseNr++);
     } else if(name == "texture_specular") {
+      if (specularNr > 1) cout << "Warning, ignoring " << name;
       number = std::to_string(specularNr++);
     }
 
-    shader->setFloat(("material." + name + number).c_str(), i);
+    //string uniform_name = "material." + name + number;
+    string uniform_name = "material." + name;
+
+    shader->setInt(uniform_name.c_str(), i);
     glBindTexture(GL_TEXTURE_2D, textures[i].id);
   }
+
+  shader->setFloat("material.shininess", 32.0f);
 
   glActiveTexture(GL_TEXTURE0);
 

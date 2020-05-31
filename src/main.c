@@ -56,14 +56,15 @@ int main()
   camera = make_camera();
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader_obj_color.frag");
-  Shader *light_shader = newShader("shaders/shader.vert", "shaders/light_obj.frag");
-  Shader_use(shader);
+
+  Model* model = newModel("assets/backpack/backpack.obj");
 
   ///////////////////////////////
   // Light
   //
   directional_light = make_light(DIRECTIONAL);
   spot_light = make_light(SPOTLIGHT);
+
   point_lights[0] = make_light(POINT);
   point_lights[1] = make_light(POINT);
   point_lights[2] = make_light(POINT);
@@ -96,8 +97,6 @@ int main()
 
   glEnable(GL_DEPTH_TEST);
 
-  Model* model = newModel("assets/backpack/backpack.obj");
-
   ////////////////////////
   // Main loop
   //
@@ -126,6 +125,23 @@ int main()
     refresh_lights();
 
     // Draws
+    vec3 v_scale = GLM_VEC3_ONE_INIT;
+    glm_vec3_scale(v_scale, 0.3, v_scale);
+
+    vec3 v_translate = {
+       0.0,
+       0.0,
+       2.0
+    };
+
+    mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+
+    glm_translate(m_model, v_translate);
+    /*glm_rotate(m_model, deg2rad(25) * timer, GLM_XUP);*/
+    glm_rotate(m_model, deg2rad(180), GLM_YUP);
+    glm_scale(m_model, v_scale);
+
+    Shader_set_matrix4(shader, "model", (float*)m_model);
     Model_draw(model, shader);
 
     // Update gui

@@ -17,6 +17,8 @@ void Model::Draw(Shader *shader) {
 }
 
 void Model::loadModel(string const &path) {
+  cout << "Loading " << path << endl;
+
   // read file via ASSIMP
   Assimp::Importer importer;
   const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
@@ -31,6 +33,8 @@ void Model::loadModel(string const &path) {
 
   // process ASSIMP's root node recursively
   processNode(scene->mRootNode, scene);
+
+  cout << "Finished loading " << path << endl;
 }
 
 void Model::processNode(aiNode *node, const aiScene *scene) {
@@ -111,12 +115,15 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene) {
   // 1. diffuse maps
   vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
   textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+
   // 2. specular maps
   vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
   textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
+
   // 3. normal maps
   std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
   textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
+
   // 4. height maps
   std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
   textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
@@ -150,6 +157,7 @@ vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type,
       texture.path = str.C_Str();
       textures.push_back(texture);
       textures_loaded.push_back(texture);  // store it as texture loaded for entire model, to ensure we won't unnecesery load duplicate textures.
+      cout << "Loaded " << texture.type << " from " << texture.path << endl;
     }
   }
   return textures;

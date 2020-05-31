@@ -43,13 +43,14 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 void processInput(GLFWwindow *window)
 {
   if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-    locked_cursor = !locked_cursor;
+    locked_cursor = 1;
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-    if (locked_cursor) {
-      glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    } else {
-      glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-    }
+  }
+
+  if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+    locked_cursor = 0;
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
   }
 
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {

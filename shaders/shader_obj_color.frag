@@ -21,6 +21,7 @@ uniform Material material;
 
 void main() {
   vec3 norm = normalize(Normal);
+  /*vec3 norm = vec3(texture(material.texture_normal, TexCoords));*/
   vec3 viewDir = normalize(viewPos - FragPos);
   vec3 result = vec3(0, 0, 0);
 
@@ -33,4 +34,6 @@ void main() {
   result += CalcSpotLight(spotLight, norm, FragPos, viewDir);
 
   FragColor = vec4(result, 1.0);
+  /*FragColor = vec4(norm, 1.0);*/
+  /*FragColor = vec4(viewDir, 1.0);*/
 }
