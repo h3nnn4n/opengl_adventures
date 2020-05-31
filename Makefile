@@ -11,17 +11,20 @@ INCLUDES = -Isrc \
 					 -Ideps/cglm/include/ \
 					 -Ideps/cimgui/ \
 					 -Ideps/cimgui/imgui \
-					 -Ideps/cimgui/imgui/examples/
+					 -Ideps/cimgui/imgui/examples/ \
+					 -Ideps/assimp/build/include/ \
+					 -Ideps/assimp/include/
 
 LINKS = -Ldeps/glfw/build/src/ \
-				-Ldeps/glad/src/
+				-Ldeps/glad/src/ \
+				-Ldeps/assimp/build/code/
 
 CPPFLAGS = -Wall -std=c++11 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
 CFLAGS = -Wall -std=c99 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
 
-LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/
+LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/ -Ldeps/assimp/build/code/
 
-LIBS = -lm -lglfw -lpthread -ldl -lstdc++
+LIBS = -lm -lglfw -lpthread -ldl -lstdc++ -lassimp
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -34,7 +37,7 @@ ifeq ($(UNAME_S),Darwin)
 	CPPFLAGS += -Wno-unused-command-line-argument -Wno-mismatched-tags
 endif
 
-LD_LIBRARY_PATH = deps/glfw/build/src/
+LD_LIBRARY_PATH = deps/glfw/build/src/:deps/assimp/build/code/
 
 CC = gcc
 CXX = g++
