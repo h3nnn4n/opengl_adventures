@@ -10,6 +10,7 @@ extern int firstMouse;
 extern float lastX;
 extern float lastY;
 extern int locked_cursor;
+extern int wireframe_mode;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);

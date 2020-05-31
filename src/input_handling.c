@@ -7,6 +7,7 @@ float lastX;
 float lastY;
 
 int locked_cursor = 1;
+int wireframe_mode = 0;
 
 extern Camera *camera;
 
@@ -45,12 +46,15 @@ void processInput(GLFWwindow *window)
   if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
     locked_cursor = 1;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
   }
 
   if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
     locked_cursor = 0;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+  }
+
+  if(glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+    wireframe_mode = !wireframe_mode;
   }
 
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {

@@ -97,6 +97,8 @@ void gui_update_fps() {
   }
   igText(buffer);
 
+  igCheckbox("wireframe", (_Bool*)&wireframe_mode);
+
   igEnd();
 }
 

@@ -92,9 +92,6 @@ int main()
     point_lights[i]->active = 1;
   }
 
-  /*glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
-  /*glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);*/
-
   glEnable(GL_DEPTH_TEST);
 
   ////////////////////////
@@ -111,6 +108,12 @@ int main()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     Shader_use(shader);
+
+    if (wireframe_mode) {
+      glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    } else {
+      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
 
     // Timer
     float timer = glfwGetTime();
