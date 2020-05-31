@@ -9,6 +9,7 @@ extern Camera *camera;
 extern int firstMouse;
 extern float lastX;
 extern float lastY;
+extern int locked_cursor;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);

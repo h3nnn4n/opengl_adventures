@@ -2,6 +2,12 @@
 
 #include "input_handling.h"
 
+int firstMouse;
+float lastX;
+float lastY;
+
+int locked_cursor = 1;
+
 extern Camera *camera;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
@@ -17,11 +23,15 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   lastX = xpos;
   lastY = ypos;
 
+  if (!locked_cursor) return;
+
   update_camera_target(camera, xoffset, yoffset);
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
+  if (!locked_cursor) return;
+
   update_camera_fov(camera, xoffset, yoffset);
 }
 
@@ -32,9 +42,21 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void processInput(GLFWwindow *window)
 {
+  if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
+    locked_cursor = !locked_cursor;
+
+    if (locked_cursor) {
+      glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    } else {
+      glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    }
+  }
+
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
     glfwSetWindowShouldClose(window, 1);
   }
+
+  if (!locked_cursor) return;
 
   if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
     update_camera_position(camera, FRONT);

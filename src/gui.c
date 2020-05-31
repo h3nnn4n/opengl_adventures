@@ -5,6 +5,7 @@
 
 #include "camera.h"
 #include "gui.h"
+#include "input_handling.h"
 #include "light.h"
 #include "timer.h"
 
@@ -78,7 +79,7 @@ void gui_update_camera(Camera *camera) {
 }
 
 void gui_update_fps() {
-  igBegin("FPS", NULL, 0);
+  igBegin("Window", NULL, 0);
 
   float ms = delta_time();
   float fps = 1.0 / ms;
@@ -89,43 +90,104 @@ void gui_update_fps() {
   sprintf(buffer, " ms: %6.4f", ms);
   igText(buffer);
 
+  if (locked_cursor) {
+    sprintf(buffer, "cursor: locked");
+  } else {
+    sprintf(buffer, "cursor: free");
+  }
+  igText(buffer);
+
   igEnd();
 }
 
 void gui_update_lights() {
-  if (directional_light == NULL) return;
+  Light *light;
+  _Bool show = 1;
 
-  Light *light = directional_light;
+  igBegin("Lights", NULL, 0);
 
-  igBegin("Directional Light", NULL, 0);
+  light = directional_light;
+  if(light && igCollapsingHeaderBoolPtr("Directional", &show, 0)) {
+    sprintf(buffer,
+          "target: %4.2f %4.2f %4.2f",
+          light->direction[0],
+          light->direction[1],
+          light->direction[2]);
+    igText(buffer);
 
-  sprintf(buffer,
-         "target: %4.2f %4.2f %4.2f",
-         light->direction[0],
-         light->direction[1],
-         light->direction[2]);
-  igText(buffer);
+    igCheckbox("active", (_Bool*)&light->active);
 
-  sprintf(buffer,
-         "ambient: %4.2f %4.2f %4.2f",
-         light->ambient[0],
-         light->ambient[1],
-         light->ambient[2]);
-  igText(buffer);
+    igText("Color");
+    igColorEdit3("ambient", (float*)light->ambient, 0);
+    igColorEdit3("diffuse", (float*)light->diffuse, 0);
+    igColorEdit3("specular", (float*)light->specular, 0);
+  }
 
-  sprintf(buffer,
-         "specular: %4.2f %4.2f %4.2f",
-         light->specular[0],
-         light->specular[1],
-         light->specular[2]);
-  igText(buffer);
+  light = spot_light;
+  if(light && igCollapsingHeaderBoolPtr("Spotlight", &show, 0)) {
+    sprintf(buffer,
+          "target: %4.2f %4.2f %4.2f",
+          light->position[0],
+          light->position[1],
+          light->position[2]);
+    igText(buffer);
 
-  sprintf(buffer,
-         "diffuse: %4.2f %4.2f %4.2f",
-         light->diffuse[0],
-         light->diffuse[1],
-         light->diffuse[2]);
-  igText(buffer);
+    sprintf(buffer,
+          "target: %4.2f %4.2f %4.2f",
+          light->direction[0],
+          light->direction[1],
+          light->direction[2]);
+    igText(buffer);
+
+    igCheckbox("active", (_Bool*)&light->active);
+
+    igText("Color");
+    igColorEdit3("ambient", (float*)light->ambient, 0);
+    igColorEdit3("diffuse", (float*)light->diffuse, 0);
+    igColorEdit3("specular", (float*)light->specular, 0);
+
+    igText("Cone Shape");
+    igSliderFloat("cutoff", &light->cutOff, 0, 90, "%4.2f", 1);
+    igSliderFloat("outter cutoff", &light->outterCutOff, 0, 90, "%4.2f", 1);
+
+    igText("Attenuation");
+    igSliderFloat("constant", &light->constant, 0, 1, "%4.2f", 1);
+    igSliderFloat("linear", &light->linear, 0, 1, "%4.2f", 1);
+    igSliderFloat("quadratic", &light->quadratic, 0, 1, "%4.2f", 1);
+  }
+
+  if (igCollapsingHeaderBoolPtr("Point lights", &show, 0)) {
+    for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+      light = point_lights[i];
+      sprintf(buffer, "Point light %d", i);
+
+      if(light && igTreeNodeStr(buffer)) {
+        igPushIDInt(i);
+
+        sprintf(buffer,
+              "position: %4.2f %4.2f %4.2f",
+              light->position[0],
+              light->position[1],
+              light->position[2]);
+        igText(buffer);
+
+        igCheckbox("active", (_Bool*)&light->active);
+
+        igText("Color");
+        igColorEdit3("ambient", (float*)light->ambient, 0);
+        igColorEdit3("diffuse", (float*)light->diffuse, 0);
+        igColorEdit3("specular", (float*)light->specular, 0);
+
+        igText("Attenuation");
+        igSliderFloat("constant", &light->constant, 0, 1, "%4.2f", 1);
+        igSliderFloat("linear", &light->linear, 0, 1, "%4.2f", 1);
+        igSliderFloat("quadratic", &light->quadratic, 0, 1, "%4.2f", 1);
+
+        igPopID();
+        igTreePop();
+      }
+    }
+  }
 
   igEnd();
 }

@@ -17,10 +17,6 @@
 #include "timer.h"
 #include "utils.h"
 
-int firstMouse;
-float lastX;
-float lastY;
-
 GLFWwindow *window;
 Camera *camera;
 
@@ -345,14 +341,18 @@ int main()
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
       for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+        Light *light = point_lights[i];
+
+        if (!light->active) continue;
+
         mat4 m_model = GLM_MAT4_IDENTITY_INIT;
 
-        glm_translate(m_model, light_positions[i]);
+        glm_translate(m_model, light->position);
         glm_scale_uni(m_model, 0.2f);
 
         Shader_set_matrix4(light_shader, "model", (float*)m_model);
 
-        Shader_set_vec3f(light_shader, "lightColor",  0.6f, 0.7f, 0.8f);
+        Shader_set_vec3(light_shader, "lightColor", light->diffuse);
 
         glDrawArrays(GL_TRIANGLES, 0, 36);
       }
@@ -364,7 +364,7 @@ int main()
     gui_new_frame();
     gui_update_fps();
     gui_update_camera(camera);
-    /*gui_update_lights();*/
+    gui_update_lights();
     gui_render();
 
     // Draw to screen
