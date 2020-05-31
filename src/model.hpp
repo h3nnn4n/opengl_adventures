@@ -20,7 +20,7 @@ class Model
     vector<Texture> textures_loaded;
 
     Model(char *path);
-    void Draw(Shader shader);
+    void Draw(Shader *shader);
   private:
     // model data
     vector<Mesh> meshes;
