@@ -1,9 +1,55 @@
+#include <sys/inotify.h>
+
+#include <errno.h>
+#include <unistd.h>
+
+#include <iostream>
+
 #include "shader.hpp"
 #include "glsl_shader_includes.hpp"
 
-Shader::Shader(const char* vertexPath, const char* fragmentPath) {
-  // 1. retrieve the vertex/fragment source code from filePath
+#define EVENT_SIZE    ( sizeof (struct inotify_event) )
+#define EVENT_BUF_LEN ( 1024 * ( EVENT_SIZE + 16 ) )
 
+void check_inotify_errors(int return_value) {
+  if (return_value < 0) {
+    std::cerr << "Error watching file" << std::endl;
+  }
+}
+
+Shader::Shader(const char* vertexPath, const char* fragmentPath) {
+  this->vertexPath.assign(vertexPath);
+  this->fragmentPath.assign(fragmentPath);
+
+  inotify_fd = inotify_init1(IN_NONBLOCK);
+
+  if (inotify_fd < 0) {
+    std::cerr << "Error initializing inotify" << std::endl;
+  } else {
+    check_inotify_errors(inotify_add_watch(inotify_fd, vertexPath, IN_MODIFY));
+    check_inotify_errors(inotify_add_watch(inotify_fd, fragmentPath, IN_MODIFY));
+    check_inotify_errors(inotify_add_watch(inotify_fd, "shaders/", IN_MODIFY));
+  }
+
+  load(vertexPath, fragmentPath);
+}
+
+void Shader::reload_changes() {
+  char buffer[EVENT_BUF_LEN];
+
+  int length = read(inotify_fd, buffer, EVENT_BUF_LEN);
+
+  if (length < 0 && errno != EAGAIN) {
+    perror("read");
+  }
+
+  if (length > 0) {
+    std::cerr << "hotreloading shaders" << std::endl;
+    load(vertexPath.c_str(), fragmentPath.c_str());
+  }
+}
+
+void Shader::load(const char* vertexPath, const char* fragmentPath) {
   Shadinclude preprocessor = Shadinclude();
   std::string vertexCode = preprocessor.load(vertexPath);
   std::string fragmentCode = preprocessor.load(fragmentPath);
@@ -11,7 +57,6 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
   const char* vShaderCode = vertexCode.c_str();
   const char* fShaderCode = fragmentCode.c_str();
 
-  // 2. compile shaders
   unsigned int vertex, fragment;
 
   // vertex shader
@@ -34,7 +79,7 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
   glLinkProgram(ID);
   checkCompileErrors(ID, "PROGRAM", "");
 
-  // delete the shaders as they're linked into our program now and no longer necessery
+  // delete the shaders as they're linked into our program now and no longer necessary
   glDeleteShader(vertex);
   glDeleteShader(fragment);
 }

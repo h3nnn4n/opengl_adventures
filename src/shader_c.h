@@ -9,6 +9,8 @@ extern "C" {
 
   Shader* newShader(const char* vertexPath, const char* fragmentPath);
 
+  void Shader_reload_changes(Shader* shader);
+
   unsigned int Shader_get_id(Shader* shader);
 
   void Shader_use(Shader* shader);

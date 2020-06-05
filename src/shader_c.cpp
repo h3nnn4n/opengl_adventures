@@ -6,6 +6,10 @@ extern "C" {
     return new Shader(vertexPath, fragmentPath);
   }
 
+  void Shader_reload_changes(Shader* shader) {
+    shader->reload_changes();
+  }
+
   unsigned int Shader_get_id(Shader* shader) {
     return shader->ID;
   }
