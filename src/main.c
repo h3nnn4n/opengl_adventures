@@ -8,6 +8,7 @@
 #include <cglm/call.h>
 
 #include "camera.h"
+#include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
 #include "light.h"
@@ -57,7 +58,11 @@ int main()
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/shader_obj_color.frag");
 
-  Model* model = newModel("assets/backpack/backpack.obj");
+  Entity* cube = new_entity();
+  load_model(cube, "assets/cube/cube.obj");
+  /*load_model(cube, "assets/backpack/backpack.obj");*/
+  cube->shader = shader;
+  cube->position[2] = 2.0;
 
   ///////////////////////////////
   // Light
@@ -130,24 +135,7 @@ int main()
     refresh_lights();
 
     // Draws
-    vec3 v_scale = GLM_VEC3_ONE_INIT;
-    glm_vec3_scale(v_scale, 0.3, v_scale);
-
-    vec3 v_translate = {
-       0.0,
-       0.0,
-       2.0
-    };
-
-    mat4 m_model = GLM_MAT4_IDENTITY_INIT;
-
-    glm_translate(m_model, v_translate);
-    /*glm_rotate(m_model, deg2rad(25) * timer, GLM_XUP);*/
-    glm_rotate(m_model, deg2rad(180), GLM_YUP);
-    glm_scale(m_model, v_scale);
-
-    Shader_set_matrix4(shader, "model", (float*)m_model);
-    Model_draw(model, shader);
+    draw_entity(cube);
 
     // Update gui
     gui_new_frame();
