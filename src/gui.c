@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 
 #include "camera.h"
+#include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
 #include "light.h"
@@ -98,6 +99,16 @@ void gui_update_fps() {
   igText(buffer);
 
   igCheckbox("wireframe", (_Bool*)&wireframe_mode);
+
+  igEnd();
+}
+
+void gui_update_entity(Entity *entity) {
+  igBegin("Entity", NULL, 0);
+
+  igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
+  igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);
+  igSliderFloat3("scale"    , (float*)entity->scale    ,  0 , 5   , "%4.2f" , 1);
 
   igEnd();
 }

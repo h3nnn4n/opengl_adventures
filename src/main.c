@@ -141,6 +141,7 @@ int main()
     gui_new_frame();
     gui_update_fps();
     gui_update_camera(camera);
+    gui_update_entity(cube);
     gui_update_lights();
     gui_render();
 
