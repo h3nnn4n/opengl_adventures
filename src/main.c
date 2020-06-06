@@ -102,6 +102,7 @@ int main()
   }
 
   glEnable(GL_DEPTH_TEST);
+  glEnable(GL_FRAMEBUFFER_SRGB);
 
   ////////////////////////
   // Main loop
