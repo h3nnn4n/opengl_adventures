@@ -1,7 +1,7 @@
 #ifndef _SETTING_H
 #define _SETTING_H
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
+extern int WINDOW_WIDTH;
+extern int WINDOW_HEIGHT;
 
 #endif
