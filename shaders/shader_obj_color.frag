@@ -6,6 +6,7 @@
 
 in vec3 Normal;
 in vec3 FragPos;
+in vec3 RawPos;
 in vec2 TexCoords;
 
 out vec4 FragColor;
@@ -17,23 +18,25 @@ uniform SpotLight spotLight;
 uniform DirLight dirLight;
 uniform Material material;
 
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+
 #include phong.frag
 
 void main() {
-  vec3 norm = normalize(Normal);
-  /*vec3 norm = vec3(texture(material.texture_normal, TexCoords));*/
+  vec3 normal = normalize(Normal);
   vec3 viewDir = normalize(viewPos - FragPos);
+
   vec3 result = vec3(0, 0, 0);
 
-  result += CalcDirLight(dirLight, norm, viewDir);
+  result += CalcDirLight(dirLight, normal, viewDir);
 
   for(int i = 0; i < NR_POINT_LIGHTS; i++) {
-    result += CalcPointLight(pointLights[i], norm, FragPos, viewDir);
+    result += CalcPointLight(pointLights[i], normal, FragPos, viewDir);
   }
 
-  result += CalcSpotLight(spotLight, norm, FragPos, viewDir);
+  result += CalcSpotLight(spotLight, normal, FragPos, viewDir);
 
   FragColor = vec4(result, 1.0);
-  /*FragColor = vec4(norm, 1.0);*/
-  /*FragColor = vec4(viewDir, 1.0);*/
 }
