@@ -12,6 +12,7 @@
 #include "gui.h"
 #include "input_handling.h"
 #include "light.h"
+#include "manager.h"
 #include "model_c.h"
 #include "settings.h"
 #include "shader_c.h"
@@ -20,10 +21,8 @@
 #include "utils.h"
 
 GLFWwindow *window;
-Camera *camera;
 
-int main()
-{
+int main() {
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -54,7 +53,12 @@ int main()
   stbi_set_flip_vertically_on_load(1);
   gui_init();
 
-  camera = make_camera();
+  {
+    manager = init_manager();
+    Camera* camera = make_camera();
+    Manager_add_camera(manager, camera);
+    Manager_set_active_camera(manager, 0);
+  }
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
   Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
@@ -128,14 +132,12 @@ int main()
     }
 
     // Timer
-    float timer = glfwGetTime();
-    update_delta(timer);
-    Shader_set_float(shader, "time", timer);
+    Manager_tick_timer(manager);
 
-    update_camera(camera, shader);
+    update_camera(manager->active_camera, shader);
 
-    set_position(spot_light, camera->camera_pos);
-    set_direction(spot_light, camera->camera_front);
+    set_position(spot_light, manager->active_camera->camera_pos);
+    set_direction(spot_light, manager->active_camera->camera_front);
 
     refresh_lights();
 
@@ -143,7 +145,7 @@ int main()
     draw_entity(cube);
 
     Shader_use(shader_light);
-    update_camera(camera, shader_light);
+    update_camera(manager->active_camera, shader_light);
     draw_point_lights();
 
     // Update gui
@@ -151,7 +153,7 @@ int main()
 
     gui_new_frame();
     gui_update_fps();
-    gui_update_camera(camera);
+    gui_update_camera(manager->active_camera);
     gui_update_entity(cube);
     gui_update_lights();
     gui_render();

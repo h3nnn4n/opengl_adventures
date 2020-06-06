@@ -4,7 +4,6 @@
 #include <cglm/cglm.h>
 
 #include "shader_c.h"
-#include "time.h"
 #include "utils.h"
 
 typedef struct {

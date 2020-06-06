@@ -10,7 +10,7 @@
 #include "gui.h"
 #include "input_handling.h"
 #include "light.h"
-#include "timer.h"
+#include "manager.h"
 
 struct ImGuiContext *ctx;
 struct ImGuiIO *io;
@@ -97,7 +97,7 @@ void gui_update_camera(Camera *camera) {
 }
 
 void update_rolling_fps_avg() {
-  float ms = delta_time();
+  float ms = manager->delta_time;
   float fps = 1.0f / ms;
 
   if (fps_avg_pivot >= FPS_AVG_BUFFER_SIZE) {
@@ -124,7 +124,7 @@ void update_rolling_fps_avg() {
 void gui_update_fps() {
   igBegin("Window", NULL, 0);
 
-  float ms = delta_time();
+  float ms = manager->delta_time;
   float fps = 1.0 / ms;
 
   update_rolling_fps_avg();

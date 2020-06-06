@@ -1,6 +1,7 @@
 #include <GLFW/glfw3.h>
 
 #include "input_handling.h"
+#include "manager.h"
 
 int firstMouse;
 float lastX;
@@ -8,8 +9,6 @@ float lastY;
 
 int locked_cursor = 1;
 int wireframe_mode = 0;
-
-extern Camera *camera;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (firstMouse) {
@@ -26,14 +25,14 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 
   if (!locked_cursor) return;
 
-  update_camera_target(camera, xoffset, yoffset);
+  update_camera_target(manager->active_camera, xoffset, yoffset);
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
   if (!locked_cursor) return;
 
-  update_camera_fov(camera, xoffset, yoffset);
+  update_camera_fov(manager->active_camera, xoffset, yoffset);
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -64,26 +63,26 @@ void processInput(GLFWwindow *window)
   if (!locked_cursor) return;
 
   if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-    update_camera_position(camera, FRONT);
+    update_camera_position(manager->active_camera, FRONT);
   }
 
   if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-    update_camera_position(camera, BACK);
+    update_camera_position(manager->active_camera, BACK);
   }
 
   if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-    update_camera_position(camera, LEFT);
+    update_camera_position(manager->active_camera, LEFT);
   }
 
   if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-    update_camera_position(camera, RIGHT);
+    update_camera_position(manager->active_camera, RIGHT);
   }
 
   if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
-    update_camera_position(camera, DOWN);
+    update_camera_position(manager->active_camera, DOWN);
   }
 
   if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-    update_camera_position(camera, UP);
+    update_camera_position(manager->active_camera, UP);
   }
 }

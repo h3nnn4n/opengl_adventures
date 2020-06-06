@@ -1,0 +1,33 @@
+#ifndef _MANAGER_H
+#define _MANAGER_H
+
+#include "camera.h"
+
+typedef struct {
+  /////////////////
+  // Camera Stuff
+  //
+  Camera* active_camera;
+  Camera** cameras;
+
+  int camera_count;
+  int max_cameras;
+
+  /////////////////
+  // Timer Stuff
+  //
+  float delta_time;
+  float current_time;
+  float current_frame_time;
+  float last_frame_time;
+
+} Manager;
+
+extern Manager* manager;
+
+Manager* init_manager();
+void Manager_set_active_camera(Manager *manager, int camera_index);
+void Manager_add_camera(Manager *manager, Camera *camera);
+void Manager_tick_timer(Manager* manager);
+
+#endif

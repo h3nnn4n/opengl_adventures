@@ -5,7 +5,7 @@
 
 #include "camera.h"
 #include "settings.h"
-#include "timer.h"
+#include "manager.h"
 #include "utils.h"
 
 Camera* make_camera() {
@@ -65,7 +65,7 @@ void update_camera_fov(Camera *camera, float xoffset, float yoffset) {
 }
 
 void update_camera_position(Camera *camera, Direction direction) {
-  const float camera_speed = 2.5f * delta_time();
+  const float camera_speed = 2.5f * manager->delta_time;
 
   vec3 tmp;
 
