@@ -56,7 +56,7 @@ int main()
 
   camera = make_camera();
 
-  Shader *shader = newShader("shaders/shader.vert", "shaders/shader_obj_color.frag");
+  Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
 
   Entity* cube = new_entity();
   load_model(cube, "assets/cube/cube.obj");
