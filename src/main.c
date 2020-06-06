@@ -27,6 +27,7 @@ int main() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+  glfwWindowHint(GLFW_SAMPLES, 4);
   //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
   window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "LearnOpenGL", NULL, NULL);
@@ -119,6 +120,7 @@ int main() {
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);
+  glEnable(GL_MULTISAMPLE);
 
   ////////////////////////
   // Main loop
@@ -134,8 +136,6 @@ int main() {
     // Clear screen
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    Shader_use(shader);
 
     if (wireframe_mode) {
       glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
