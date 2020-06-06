@@ -63,11 +63,23 @@ int main() {
   Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
   Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
 
-  Entity* cube = new_entity();
-  load_model(cube, "assets/cube/cube.obj");
-  /*load_model(cube, "assets/backpack/backpack.obj");*/
-  cube->shader = shader;
-  cube->position[2] = 2.0;
+  {
+    Entity* cube = new_entity();
+    load_model(cube, "assets/cube/cube.obj");
+    cube->shader = shader;
+    cube->position[2] = 2.0;
+
+    Manager_add_entity(manager, cube);
+  }
+
+  {
+    Entity* cube = new_entity();
+    load_model(cube, "assets/cube/cube.obj");
+    cube->shader = shader;
+    cube->position[2] = 3.0;
+
+    Manager_add_entity(manager, cube);
+  }
 
   ///////////////////////////////
   // Light
@@ -134,18 +146,19 @@ int main() {
     // Timer
     Manager_tick_timer(manager);
 
-    update_camera(manager->active_camera, shader);
+    // Camera
+    Manager_update_active_camera_location(manager);
 
-    set_position(spot_light, manager->active_camera->camera_pos);
-    set_direction(spot_light, manager->active_camera->camera_front);
-
+    // Lights
     refresh_lights();
 
     // Draws
-    draw_entity(cube);
+    Manager_render_entities(manager);
 
+    // Lights (render light positions)
     Shader_use(shader_light);
-    update_camera(manager->active_camera, shader_light);
+    update_camera_projection_matrix(manager->active_camera, shader_light);
+    update_camera_view_matrix(manager->active_camera, shader_light);
     draw_point_lights();
 
     // Update gui
@@ -154,7 +167,7 @@ int main() {
     gui_new_frame();
     gui_update_fps();
     gui_update_camera(manager->active_camera);
-    gui_update_entity(cube);
+    /*gui_update_entity(cube);*/
     gui_update_lights();
     gui_render();
 
@@ -167,10 +180,6 @@ int main() {
 
   Shader_destroy(shader);
   Shader_destroy(shader_light);
-
-  Model_destroy(cube->model);
-
-  free(cube);
 
   return 0;
 }

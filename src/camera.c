@@ -104,17 +104,24 @@ void update_camera_position(Camera *camera, Direction direction) {
   }
 }
 
-void update_camera(Camera *camera, Shader *shader) {
+void update_camera_projection_matrix(Camera *camera, Shader *shader) {
   glm_perspective(
-      deg2rad(camera->zoom),
-      WINDOW_WIDTH / WINDOW_HEIGHT,
-      1,
-      100,
-      camera->projection
-      );
+    deg2rad(camera->zoom),
+    WINDOW_WIDTH / WINDOW_HEIGHT,
+    1,
+    100,
+    camera->projection
+  );
 
   Shader_set_matrix4(shader, "projection", (float*)camera->projection);
+}
 
+void update_camera_view_matrix(Camera *camera, Shader *shader) {
+  Shader_set_matrix4(shader, "view", (float*)camera->view);
+  Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
+}
+
+void update_camera_position_matrix(Camera *camera) {
   vec3 camera_direction;
 
   glm_vec3_sub(camera->camera_pos, camera->camera_target, camera_direction);
@@ -123,12 +130,9 @@ void update_camera(Camera *camera, Shader *shader) {
   glm_vec3_cross(GLM_YUP, camera_direction, camera->camera_right);
   glm_vec3_normalize(camera->camera_right);
 
-  mat4 m_view = GLM_MAT4_IDENTITY_INIT;
+  mat4 identity = GLM_MAT4_IDENTITY_INIT;
+  glm_mat4_copy(identity, camera->view);
 
   glm_vec3_add(camera->camera_pos, camera->camera_front, camera->camera_target);
-  glm_lookat(camera->camera_pos, camera->camera_target, camera->camera_up, m_view);
-
-  Shader_set_matrix4(shader, "view", (float*)m_view);
-
-  Shader_set_vec3(shader, "viewPos", (float*)camera->camera_pos);
+  glm_lookat(camera->camera_pos, camera->camera_target, camera->camera_up, camera->view);
 }
