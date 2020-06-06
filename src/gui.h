@@ -6,6 +6,7 @@
 
 #define CIMGUI_DEFINE_ENUMS_AND_STRUCTS
 #include <cimgui.h>
+#include <cimplot.h>
 
 extern GLFWwindow *window;
 extern struct ImGuiContext* ctx;

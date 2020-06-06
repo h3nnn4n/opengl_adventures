@@ -12,6 +12,7 @@ INCLUDES = -Isrc \
 					 -Ideps/cimgui/ \
 					 -Ideps/cimgui/imgui \
 					 -Ideps/cimgui/imgui/examples/ \
+					 -Ideps/cimplot/ \
 					 -Ideps/assimp/build/include/ \
 					 -Ideps/assimp/include/
 
@@ -47,7 +48,9 @@ CPP_FILES := $(wildcard src/*.cpp)
 IMGUI_FILES := $(wildcard ./deps/cimgui/*.cpp) \
 							 $(wildcard ./deps/cimgui/imgui/*.cpp) \
 							 $(wildcard ./deps/cimgui/imgui/examples/imgui_impl_glfw.cpp) \
-							 $(wildcard ./deps/cimgui/imgui/examples/imgui_impl_opengl3.cpp)
+							 $(wildcard ./deps/cimgui/imgui/examples/imgui_impl_opengl3.cpp) \
+							 $(wildcard ./deps/cimplot/*.cpp) \
+							 $(wildcard ./deps/cimplot/implot/*.cpp) \
 
 SOURCES := $(C_FILES:.c=.o) $(CPP_FILES:.cpp=.o) $(IMGUI_FILES:.cpp=.o)
 OBJS := $(foreach src,$(SOURCES), $(BUILDDIR)/$(src))

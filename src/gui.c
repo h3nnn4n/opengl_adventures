@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -15,6 +17,15 @@ struct ImGuiIO *io;
 
 char *buffer;
 
+#define FPS_BUFFER_SIZE 100
+#define FPS_AVG_BUFFER_SIZE 10
+
+float fps_buffer[FPS_BUFFER_SIZE];
+float fps_index[FPS_BUFFER_SIZE];
+float fps_avg_buffer[FPS_AVG_BUFFER_SIZE];
+int fps_pivot = 0;
+int fps_avg_pivot = 0;
+
 void gui_init() {
   ctx = igCreateContext(NULL);
   io  = igGetIO();
@@ -27,6 +38,12 @@ void gui_init() {
   igStyleColorsDark(NULL);
 
   buffer = malloc(sizeof(char) * 1024);
+
+  memset(fps_buffer, FPS_BUFFER_SIZE, sizeof(float));
+
+  for (int i = 0; i < FPS_BUFFER_SIZE; ++i) {
+    fps_index[i] = (float)i;
+  }
 }
 
 void gui_terminate() {
@@ -79,11 +96,38 @@ void gui_update_camera(Camera *camera) {
   igEnd();
 }
 
+void update_rolling_fps_avg() {
+  float ms = delta_time();
+  float fps = 1.0f / ms;
+
+  if (fps_avg_pivot >= FPS_AVG_BUFFER_SIZE) {
+    fps_avg_pivot = 0;
+  }
+
+  fps_avg_buffer[fps_avg_pivot] = fps;
+  fps_avg_pivot++;
+
+  float avg_fps = 0;
+
+  for (int i = 0; i < FPS_AVG_BUFFER_SIZE; ++i) {
+    avg_fps += fps_avg_buffer[i] / FPS_AVG_BUFFER_SIZE;
+  }
+
+  if (fps_pivot >= FPS_BUFFER_SIZE) {
+    fps_pivot = 0;
+  }
+
+  fps_buffer[fps_pivot] = avg_fps;
+  fps_pivot++;
+}
+
 void gui_update_fps() {
   igBegin("Window", NULL, 0);
 
   float ms = delta_time();
   float fps = 1.0 / ms;
+
+  update_rolling_fps_avg();
 
   sprintf(buffer, "FPS: %6.2f", fps);
   igText(buffer);
@@ -99,6 +143,25 @@ void gui_update_fps() {
   igText(buffer);
 
   igCheckbox("wireframe", (_Bool*)&wireframe_mode);
+
+  ImVec2 size = { 200, 100 };
+  ImVec4 plot_color_line = { 1, 1, 0, 1    };
+  ImVec4 plot_color_fill = { 1, 1, 0, 0.25 };
+
+  ImPlot_SetNextPlotLimits(0, FPS_BUFFER_SIZE, 0, 70, 1);
+
+  ImPlotAxisFlags axis_flags = ImPlotAxisFlags_GridLines | ImPlotAxisFlags_LockMin |  ImPlotAxisFlags_LockMax;
+  ImPlot_BeginPlot("", NULL, NULL, size, ImPlotFlags_MousePos | ImPlotFlags_Crosshairs, 0, axis_flags, 0, 0);
+
+  ImPlot_PushStyleColorVec4(ImPlotCol_Line, plot_color_line);
+  ImPlot_PushStyleColorVec4(ImPlotCol_Line, plot_color_fill);
+  ImPlot_PlotLineFloatPtrFloatPtr("", fps_index, fps_buffer, FPS_BUFFER_SIZE, 0, 4);
+  ImPlot_PopStyleColor(2);
+
+  ImPlot_EndPlot();
+
+  sprintf(buffer, "pivot: %d", fps_pivot);
+  igText(buffer);
 
   igEnd();
 }
