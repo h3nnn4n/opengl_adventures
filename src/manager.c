@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 
 #include <GLFW/glfw3.h>
@@ -18,8 +19,11 @@ Manager* init_manager() {
   manager->cameras = malloc(sizeof(Camera*) * manager->max_cameras);
 
   manager->entity_count = 0;
-  manager->max_entities = 50;
+  manager->max_entities = 500;
   manager->entities = malloc(sizeof(Entity*) * manager->max_entities);
+
+  memset(manager->cameras, 0, sizeof(Camera*) * manager->max_cameras);
+  memset(manager->entities, 0, sizeof(Entity*) * manager->max_entities);
 
   return manager;
 }
@@ -65,6 +69,9 @@ void Manager_render_entities(Manager *manager) {
 
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
+
+    if (entity == NULL) continue;
+    if (!entity->active) continue;
 
     update_camera_projection_matrix(manager->active_camera, entity->shader);
     update_camera_view_matrix(manager->active_camera, entity->shader);

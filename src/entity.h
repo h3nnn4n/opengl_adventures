@@ -15,6 +15,8 @@ typedef struct {
   vec3 rotation;
 
   mat4 m_model;
+
+  int active;
 } Entity;
 
 Entity* new_entity();

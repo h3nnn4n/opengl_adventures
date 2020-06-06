@@ -64,22 +64,20 @@ int main() {
   Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
   Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
 
-  {
-    Entity* cube = new_entity();
-    load_model(cube, "assets/cube/cube.obj");
-    cube->shader = shader;
-    cube->position[2] = 2.0;
+  { // This will go away once we start to load scenes from disk
+    int field_size = 5;
 
-    Manager_add_entity(manager, cube);
-  }
+    for (int x = -field_size; x <= field_size; ++x) {
+      for (int z = -field_size; z <= field_size; ++z) {
+        Entity* cube = new_entity();
+        load_model(cube, "assets/cube/cube.obj");
+        cube->shader = shader;
+        cube->position[0] = x;
+        cube->position[2] = z;
 
-  {
-    Entity* cube = new_entity();
-    load_model(cube, "assets/cube/cube.obj");
-    cube->shader = shader;
-    cube->position[2] = 3.0;
-
-    Manager_add_entity(manager, cube);
+        Manager_add_entity(manager, cube);
+      }
+    }
   }
 
   ///////////////////////////////
