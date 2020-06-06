@@ -4,6 +4,7 @@
 #include <cglm/cglm.h>
 
 #include "shader_c.h"
+#include "model_c.h"
 
 #define NR_POINT_LIGHTS 4
 
@@ -32,8 +33,13 @@ typedef struct {
   int point_light_index;
 
   Shader *shader;
+  Shader *shader_light_obj;
 
   int active;
+
+  int draw;
+
+  Model *model;
 } Light;
 
 extern Light *directional_light;
@@ -45,6 +51,9 @@ Light* make_light(LightType type);
 void destroy_light(Light *light);
 void refresh_lights();
 void refresh_light(Light *light);
+
+void draw_point_lights();
+void load_light_model(Light *light, Shader *shader, char* model_path);
 
 void set_position(Light *light, float* value);
 void set_direction(Light *light, float* value);

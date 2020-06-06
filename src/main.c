@@ -57,6 +57,7 @@ int main()
   camera = make_camera();
 
   Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
+  Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
 
   Entity* cube = new_entity();
   load_model(cube, "assets/cube/cube.obj");
@@ -95,6 +96,9 @@ int main()
     set_position(point_lights[i], (float*)light_positions[i]);
     point_lights[i]->shader = shader;
     point_lights[i]->active = 1;
+    point_lights[i]->draw = 1;
+
+    load_light_model(point_lights[i], shader_light, "assets/cube/cube.obj");
   }
 
   glEnable(GL_DEPTH_TEST);
@@ -137,7 +141,13 @@ int main()
     // Draws
     draw_entity(cube);
 
+    Shader_use(shader_light);
+    update_camera(camera, shader_light);
+    draw_point_lights();
+
     // Update gui
+    Shader_use(shader);
+
     gui_new_frame();
     gui_update_fps();
     gui_update_camera(camera);

@@ -154,3 +154,30 @@ void refresh_light(Light *light) {
       break;
   }
 }
+
+void draw_point_lights() {
+  for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+    Light *light = point_lights[i];
+
+    if (light == NULL || !light->active || !light->draw) continue;
+
+    Shader_use(light->shader_light_obj);
+
+    vec3 v_scale = { 0.2, 0.2, 0.2 };
+    mat4 m_model = GLM_MAT4_IDENTITY_INIT;
+
+    glm_translate(m_model, light->position);
+    glm_scale(m_model, v_scale);
+
+    Shader_set_matrix4(light->shader_light_obj, "model", (float*)m_model);
+
+    Shader_set_vec3(light->shader_light_obj, "lightColor", (float*)light->diffuse);
+
+    Model_draw(light->model, light->shader_light_obj);
+  }
+}
+
+void load_light_model(Light *light, Shader *shader, char* model_path) {
+  light->model = newModel(model_path);
+  light->shader_light_obj = shader;
+}
