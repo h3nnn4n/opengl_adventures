@@ -21,6 +21,8 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
   this->vertexPath.assign(vertexPath);
   this->fragmentPath.assign(fragmentPath);
 
+  std::cout << "Loading " << vertexPath << " - " << fragmentPath << std::endl;
+
   inotify_fd = inotify_init1(IN_NONBLOCK);
 
   if (inotify_fd < 0) {
@@ -44,7 +46,7 @@ void Shader::reload_changes() {
   }
 
   if (length > 0) {
-    std::cerr << "hotreloading shaders" << std::endl;
+    std::cerr << "hot reloading shaders" << std::endl;
     load(vertexPath.c_str(), fragmentPath.c_str());
   }
 }

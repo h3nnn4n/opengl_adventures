@@ -21,7 +21,6 @@ extern "C" {
   void Shader_set_vec3f(Shader* shader, const char* name, float v1, float v2, float v3);
   void Shader_set_matrix4(Shader* shader, const char* name, float* value);
 
-  // TODO
   void Shader_destroy(Shader* shader);
 
 #ifdef __cplusplus

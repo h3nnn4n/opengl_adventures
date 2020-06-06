@@ -12,6 +12,8 @@ extern "C" {
   Model* newModel(char* path);
   void Model_draw(Model* model, Shader* shader);
 
+  void Model_destroy(Model* model);
+
 #ifdef __cplusplus
 }
 #endif

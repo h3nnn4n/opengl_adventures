@@ -8,3 +8,7 @@ Model* newModel(char* path) {
 void Model_draw(Model* model, Shader* shader) {
   model->Draw(shader);
 }
+
+void Model_destroy(Model* model) {
+  delete model;
+}

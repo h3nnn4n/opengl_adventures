@@ -21,10 +21,6 @@ Entity* new_entity() {
   glm_vec3_copy(vec_zero, entity->rotation);
   glm_vec3_copy(vec_zero, entity->position);
 
-  /*glm_vec3_copy(entity->scale   , vec_one );*/
-  /*glm_vec3_copy(entity->rotation, vec_zero);*/
-  /*glm_vec3_copy(entity->position, vec_zero);*/
-
   return entity;
 }
 

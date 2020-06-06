@@ -162,5 +162,12 @@ int main()
   gui_terminate();
   glfwTerminate();
 
+  Shader_destroy(shader);
+  Shader_destroy(shader_light);
+
+  Model_destroy(cube->model);
+
+  free(cube);
+
   return 0;
 }
