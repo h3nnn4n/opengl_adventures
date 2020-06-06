@@ -25,10 +25,9 @@ uniform mat4 projection;
 #include phong.frag
 
 void main() {
-  vec3 normal = normalize(Normal);
+  vec3 normal  = normalize(Normal);
   vec3 viewDir = normalize(viewPos - FragPos);
-
-  vec3 result = vec3(0, 0, 0);
+  vec3 result  = vec3(0, 0, 0);
 
   result += CalcDirLight(dirLight, normal, viewDir);
 
