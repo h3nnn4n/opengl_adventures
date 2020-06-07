@@ -21,6 +21,8 @@ typedef struct {
   mat4 m_model;
 
   int active;
+
+  vec3 color_id;
 } Entity;
 
 Entity* new_entity();

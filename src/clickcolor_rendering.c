@@ -34,6 +34,7 @@ void clickcolor_render_pass() {
     update_camera_projection_matrix(manager->active_camera, shader_colorclicker);
     update_camera_view_matrix(manager->active_camera, shader_colorclicker);
 
+    Shader_set_vec3(shader_colorclicker, "color_id", (float*)entity->color_id);
     draw_entity_with_shader(entity, shader_colorclicker);
   }
 }
