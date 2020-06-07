@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 
 #include "entity.h"
@@ -49,5 +50,8 @@ void draw_entity(Entity *entity) {
 }
 
 void load_model(Entity *entity, char* model_path) {
+  entity->model_path = malloc(sizeof(char) * (strlen(model_path) + 1));
+  memcpy(entity->model_path, model_path, sizeof(char) * (strlen(model_path) + 1));
+
   entity->model = newModel(model_path);
 }

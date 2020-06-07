@@ -13,7 +13,7 @@ void load_scene(Manager *manager) {
   fprintf(stdout, "\n");
 
   size_t plen = -1;
-  char *scene_path = "scenes/test.json";
+  char *scene_path = "scenes/test_scene.json";
   char *json_file = stb_file(scene_path, &plen);
 
   fprintf(stdout, "Loading scene %s of %ld bytes\n", scene_path, plen);
@@ -36,6 +36,7 @@ void load_scene(Manager *manager) {
 
   load_camera(manager, json);
   load_lights(manager, json);
+  load_entities(manager, json);
 
   fprintf(stdout, "\n");
 
@@ -146,6 +147,57 @@ void load_lights(Manager *manager, cJSON *json) {
         break;
     }
   }
+}
+
+void load_entities(Manager *manager, cJSON *json) {
+  cJSON *json_entities = cJSON_GetObjectItemCaseSensitive(json, "entities");
+
+  if (!cJSON_IsArray(json_entities)) {
+    printf("  Entities array not found\n");
+    return;
+  }
+
+  printf("Entities found\n");
+
+  cJSON *json_entity;
+
+  cJSON_ArrayForEach(json_entity, json_entities) {
+    Entity *entity = new_entity();
+    entity->shader = manager->default_shader;
+
+    load_int(json_entity, "active", &entity->active);
+
+    load_vec3(json_entity, "position", (float*)entity->position);
+    load_vec3(json_entity, "scale", (float*)entity->scale);
+    load_vec3(json_entity, "rotation", (float*)entity->rotation);
+
+    load_string(json_entity, "model_path", &entity->model_path);
+
+    load_model(entity, entity->model_path);
+
+    Manager_add_entity(manager, entity);
+  }
+}
+
+int load_string(cJSON *json, const char* value_name, char** value) {
+  cJSON *json_value = cJSON_GetObjectItemCaseSensitive(json, value_name);
+
+  if (cJSON_IsString(json_value)) {
+    int len = sizeof(char) * (strlen(json_value->valuestring) + 1);
+
+    *value = malloc(len);
+    memcpy(*value, json_value->valuestring, len);
+
+    printf("  %s found: %s\n",
+      value_name,
+      *value
+    );
+
+    return 1;
+  }
+
+  printf("  %s was not found\n", value_name);
+  return 0;
 }
 
 int load_float(cJSON *json, const char* value_name, float* value) {

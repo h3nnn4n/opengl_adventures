@@ -1,3 +1,5 @@
+#include <assert.h>
+
 #include <cJSON.h>
 
 #include "camera.h"
@@ -10,6 +12,7 @@ void save_scene(Manager *manager){
 
   save_camera(manager, json);
   save_lights(manager, json);
+  save_entities(manager, json);
 
   /*const char *json_string = cJSON_PrintUnformatted(json);*/
   char *json_string = cJSON_Print(json);
@@ -86,6 +89,30 @@ void save_light(Light *light, cJSON *json) {
   save_vec3(json_light, "specular", (float*)light->specular);
 
   cJSON_AddItemToArray(json, json_light);
+}
+
+void save_entities(Manager *manager, cJSON *json) {
+  cJSON *json_entities = cJSON_AddArrayToObject(json, "entities");
+
+  for (int i = 0; i < manager->entity_count; ++i) {
+    save_entity(manager->entities[i], json_entities);
+  }
+}
+
+void save_entity(Entity *entity, cJSON *json) {
+  cJSON *json_entity = cJSON_CreateObject();
+
+  save_int(json_entity, "active", entity->active);
+
+  save_vec3(json_entity, "position", entity->position);
+  save_vec3(json_entity, "scale", entity->scale);
+  save_vec3(json_entity, "rotation", entity->rotation);
+
+  save_string(json_entity, "model_path", entity->model_path);
+  save_string(json_entity, "frag_shader_path", entity->frag_shader_path);
+  save_string(json_entity, "vertex_shader_path", entity->vertex_shader_path);
+
+  cJSON_AddItemToArray(json, json_entity);
 }
 
 void save_vec3(cJSON *json, const char* value_name, float* vec3) {

@@ -1,0 +1,8528 @@
+{
+	"camera":	{
+		"position":	{
+			"x":	13,
+			"y":	9,
+			"z":	4
+		}
+	},
+	"lights":	[{
+			"type":	"point",
+			"constant":	1,
+			"linear":	0.0900000035762787,
+			"quadratic":	0.029999999329447746,
+			"position":	{
+				"x":	0,
+				"y":	1.6000000238418579,
+				"z":	0
+			},
+			"active":	1,
+			"draw":	1,
+			"ambient":	{
+				"x":	0.019999999552965164,
+				"y":	0.019999999552965164,
+				"z":	0.019999999552965164
+			},
+			"diffuse":	{
+				"x":	0.40000000596046448,
+				"y":	0.40000000596046448,
+				"z":	0.40000000596046448
+			},
+			"specular":	{
+				"x":	0.300000011920929,
+				"y":	0.300000011920929,
+				"z":	0.300000011920929
+			}
+		}, {
+			"type":	"point",
+			"constant":	1,
+			"linear":	0.0900000035762787,
+			"quadratic":	0.029999999329447746,
+			"position":	{
+				"x":	-5,
+				"y":	1.1000000238418579,
+				"z":	-5
+			},
+			"active":	1,
+			"draw":	1,
+			"ambient":	{
+				"x":	0.00999999977648258,
+				"y":	0.00999999977648258,
+				"z":	0.00999999977648258
+			},
+			"diffuse":	{
+				"x":	0,
+				"y":	0.300000011920929,
+				"z":	0.300000011920929
+			},
+			"specular":	{
+				"x":	0.40000000596046448,
+				"y":	0,
+				"z":	0.40000000596046448
+			}
+		}, {
+			"type":	"point",
+			"constant":	1,
+			"linear":	0.0900000035762787,
+			"quadratic":	0.029999999329447746,
+			"position":	{
+				"x":	-5,
+				"y":	1.1000000238418579,
+				"z":	5
+			},
+			"active":	1,
+			"draw":	1,
+			"ambient":	{
+				"x":	0.00999999977648258,
+				"y":	0.00999999977648258,
+				"z":	0.00999999977648258
+			},
+			"diffuse":	{
+				"x":	0.40000000596046448,
+				"y":	0,
+				"z":	0.699999988079071
+			},
+			"specular":	{
+				"x":	0.40000000596046448,
+				"y":	0.40000000596046448,
+				"z":	0
+			}
+		}],
+	"entities":	[{
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"†¬´|∞U",
+			"vertex_shader_path":	"p\u000fRk∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"0 û~∞U",
+			"vertex_shader_path":	"p/ã∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-7,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-6,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-5,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"\u0015kç∞U",
+			"vertex_shader_path":	"∞h\u0002ê∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"†)ˇÇ∞U",
+			"vertex_shader_path":	"@¥ÙÇ∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"Ú\u0003É∞U",
+			"vertex_shader_path":	"–œ9Ö∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"",
+			"vertex_shader_path":	"Ô9ä∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"",
+			"vertex_shader_path":	"ÛÆé∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-4,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-3,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-2,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	" ≤’á∞U",
+			"vertex_shader_path":	"–”Üä∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"PöHÄ∞U",
+			"vertex_shader_path":	"\u0010™tç∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"\u0010™tç∞U",
+			"vertex_shader_path":	"\u0010´\"ç∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"–\u0013—á∞U",
+			"vertex_shader_path":	"\u0010⁄Yk∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"@5Ωà∞U",
+			"vertex_shader_path":	"∞\u000b˝è∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"Äû\u001eâ∞U",
+			"vertex_shader_path":	"–¨Yk∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"†Yk∞U",
+			"vertex_shader_path":	"@>áã∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"P€yà∞U",
+			"vertex_shader_path":	"êŒYk∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"`\u0013zà∞U",
+			"vertex_shader_path":	"∞h\u0002ê∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"êŸYk∞U",
+			"vertex_shader_path":	"5pà∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"êr¬à∞U",
+			"vertex_shader_path":	"‡¬Yk∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"PüYk∞U",
+			"vertex_shader_path":	"Ô9ä∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"0\u000fêâ∞U",
+			"vertex_shader_path":	" &bè∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"PÄXè∞U",
+			"vertex_shader_path":	"@‘”ä∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"p°Yk∞U",
+			"vertex_shader_path":	"@Ä¿ê∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"pêMâ∞U",
+			"vertex_shader_path":	"PËôâ∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"frag_shader_path":	"0wïâ∞U",
+			"vertex_shader_path":	"–*\u001eç∞U"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	2,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	4,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	5,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	6,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	3
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	4
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	5
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	6
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	7,
+				"y":	0,
+				"z":	7
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	1,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	1,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	-1,
+				"y":	1,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	1,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	0,
+				"y":	1,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	1,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	1,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}, {
+			"active":	1,
+			"position":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj"
+		}]
+}

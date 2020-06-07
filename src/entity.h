@@ -10,6 +10,10 @@ typedef struct {
   Model *model;
   Shader *shader;
 
+  char *model_path;
+  char *frag_shader_path;
+  char *vertex_shader_path;
+
   vec3 position;
   vec3 scale;
   vec3 rotation;
