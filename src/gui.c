@@ -267,9 +267,16 @@ void gui_mouse() {
   igBegin("Mouse", NULL, 0);
 
   sprintf(buffer,
-          "position: %4.2f %4.2f",
+          "position: %8.2f %8.2f",
           lastX,
           lastY);
+  igText(buffer);
+
+  sprintf(buffer,
+          "   world: %8.2f %8.2f %8.2f",
+          mouse_world_position[0],
+          mouse_world_position[1],
+          mouse_world_position[2]);
   igText(buffer);
 
   sprintf(buffer, "left: %d", left_mouse_pressed);

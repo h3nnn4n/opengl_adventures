@@ -12,6 +12,8 @@ extern float lastY;
 extern int locked_cursor;
 extern int wireframe_mode;
 
+extern vec3 mouse_world_position;
+
 extern int left_mouse_pressed;
 extern int right_mouse_pressed;
 

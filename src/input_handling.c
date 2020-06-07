@@ -1,5 +1,8 @@
 #include <GLFW/glfw3.h>
 
+#include <cglm/cglm.h>
+
+#include "camera.h"
 #include "input_handling.h"
 #include "manager.h"
 #include "scene_loader.h"
@@ -10,10 +13,47 @@ int firstMouse;
 int left_mouse_pressed;
 int right_mouse_pressed;
 
+vec3 mouse_world_position;
+
 float lastX;
 float lastY;
 
 int wireframe_mode = 0;
+
+// Code from https://antongerdelan.net/opengl/raycasting.html
+void update_mouse_world_position() {
+  float x = (2.0f * lastX) / WINDOW_WIDTH - 1.0f;
+  float y = 1.0f - (2.0f * lastY) / WINDOW_HEIGHT;
+  float z = 1.0f;
+
+  vec3 ray_nds = {x, y, z};
+  vec4 ray_clip = {ray_nds[0], ray_nds[1], -1.0, 1.0};
+
+  /*printf("\n");*/
+  /*printf("rayclip: %5.2f %5.2f %5.2f %5.2f \n",*/
+      /*ray_clip[0], ray_clip[1], ray_clip[2], ray_clip[3]);*/
+
+  mat4 inverse_projection;
+  glm_mat4_inv(manager->active_camera->projection, inverse_projection);
+
+  vec4 ray_eye;
+  glm_mat4_mulv(inverse_projection, ray_clip, ray_eye);
+  ray_eye[2] = -1;
+  ray_eye[3] =  0;
+  /*printf(" rayeye: %5.2f %5.2f %5.2f %5.2f \n",*/
+      /*ray_eye[0], ray_eye[1], ray_eye[2], ray_eye[3]);*/
+
+  mat4 inverse_view;
+  glm_mat4_inv(manager->active_camera->view, inverse_view);
+
+  vec4 ray_world;
+  glm_mat4_mulv(inverse_view, ray_eye, ray_world);
+  glm_vec4_normalize(ray_world);
+
+  for (int i = 0; i < 3; i++) {
+    mouse_world_position[i] = ray_world[i];
+  }
+}
 
 void mouse_click_callback(GLFWwindow* window, int button, int action, int mods) {
   if (button == GLFW_MOUSE_BUTTON_RIGHT) {
@@ -53,6 +93,8 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (manager->game_mode == EDITOR && right_mouse_pressed) {
     update_camera_target(manager->active_camera, xoffset, yoffset);
   }
+
+  update_mouse_world_position();
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {

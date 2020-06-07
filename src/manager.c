@@ -13,7 +13,7 @@ Manager* manager;
 Manager* init_manager() {
   Manager* manager = malloc(sizeof(Manager));
 
-  manager->game_mode = EDITOR;
+  manager->game_mode = IN_GAME;
 
   manager->active_camera = NULL;
   manager->camera_count = 0;
