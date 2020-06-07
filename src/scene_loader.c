@@ -45,7 +45,7 @@ void load_scene(Manager *manager) {
   load_lights(manager, json);
   load_entities(manager, json);
 
-  fprintf(stdout, "\n");
+  /*fprintf(stdout, "\n");*/
 
   cJSON_Delete(json);
 }
@@ -54,11 +54,11 @@ void load_camera(Manager *manager, cJSON *json) {
   cJSON *json_camera = cJSON_GetObjectItemCaseSensitive(json, "camera");
 
   if (!cJSON_IsObject(json_camera)) {
-    printf("  Camera settings not found\n");
+    /*printf("  Camera settings not found\n");*/
     return;
   }
 
-  printf("Camera settings found\n");
+  /*printf("Camera settings found\n");*/
 
   Camera* camera = make_camera();
   Manager_add_camera(manager, camera);
@@ -79,7 +79,7 @@ void load_lights(Manager *manager, cJSON *json) {
   cJSON *json_lights = cJSON_GetObjectItemCaseSensitive(json, "lights");
 
   if (!cJSON_IsArray(json_lights)) {
-    printf("  Lights settings not found\n");
+    /*printf("  Lights settings not found\n");*/
     return;
   }
 
@@ -103,7 +103,7 @@ void load_lights(Manager *manager, cJSON *json) {
       light_type = SPOTLIGHT;
     }
 
-    printf("Light settings found\n");
+    /*printf("Light settings found\n");*/
 
     Light *light = make_light(light_type);
     light->shader = manager->default_shader;
@@ -160,11 +160,11 @@ void load_entities(Manager *manager, cJSON *json) {
   cJSON *json_entities = cJSON_GetObjectItemCaseSensitive(json, "entities");
 
   if (!cJSON_IsArray(json_entities)) {
-    printf("  Entities array not found\n");
+    /*printf("  Entities array not found\n");*/
     return;
   }
 
-  printf("Entities found\n");
+  /*printf("Entities found\n");*/
 
   cJSON *json_entity;
 
@@ -195,15 +195,15 @@ int load_string(cJSON *json, const char* value_name, char** value) {
     *value = malloc(len);
     memcpy(*value, json_value->valuestring, len);
 
-    printf("  %s found: %s\n",
-      value_name,
-      *value
-    );
+    /*printf("  %s found: %s\n",*/
+      /*value_name,*/
+      /**value*/
+    /*);*/
 
     return 1;
   }
 
-  printf("  %s was not found\n", value_name);
+  /*printf("  %s was not found\n", value_name);*/
   return 0;
 }
 
@@ -213,15 +213,15 @@ int load_float(cJSON *json, const char* value_name, float* value) {
   if (cJSON_IsNumber(json_value)) {
     value[0] = json_value->valuedouble;
 
-    printf("  %s found: %4.2f\n",
-      value_name,
-      value[0]
-    );
+    /*printf("  %s found: %4.2f\n",*/
+      /*value_name,*/
+      /*value[0]*/
+    /*);*/
 
     return 1;
   }
 
-  printf("  %s was not found\n", value_name);
+  /*printf("  %s was not found\n", value_name);*/
   return 0;
 }
 
@@ -231,15 +231,15 @@ int load_int(cJSON *json, const char* value_name, int* value) {
   if (cJSON_IsNumber(json_value)) {
     value[0] = json_value->valueint;
 
-    printf("  %s found: %d\n",
-      value_name,
-      value[0]
-    );
+    /*printf("  %s found: %d\n",*/
+      /*value_name,*/
+      /*value[0]*/
+    /*);*/
 
     return 1;
   }
 
-  printf("  %s was not found\n", value_name);
+  /*printf("  %s was not found\n", value_name);*/
   return 0;
 }
 
@@ -247,7 +247,7 @@ int load_vec3(cJSON *json, const char* value_name, float* vec3) {
   cJSON *json_value = cJSON_GetObjectItemCaseSensitive(json, value_name);
 
   if (!cJSON_IsObject(json_value)) {
-    printf("  %s was not found\n", value_name);
+    /*printf("  %s was not found\n", value_name);*/
     return 0;
   }
 
@@ -275,12 +275,12 @@ int load_vec3(cJSON *json, const char* value_name, float* vec3) {
   vec3[1] = y;
   vec3[2] = z;
 
-  printf("  %s found: %4.2f %4.2f %4.2f\n",
-    value_name,
-    vec3[0],
-    vec3[1],
-    vec3[2]
-  );
+  /*printf("  %s found: %4.2f %4.2f %4.2f\n",*/
+    /*value_name,*/
+    /*vec3[0],*/
+    /*vec3[1],*/
+    /*vec3[2]*/
+  /*);*/
 
   return 1;
 }
