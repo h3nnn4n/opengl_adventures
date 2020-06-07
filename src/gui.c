@@ -184,12 +184,8 @@ void gui_update_lights() {
 
   light = directional_light;
   if(light && igCollapsingHeaderBoolPtr("Directional", &show, 0)) {
-    sprintf(buffer,
-          "target: %4.2f %4.2f %4.2f",
-          light->direction[0],
-          light->direction[1],
-          light->direction[2]);
-    igText(buffer);
+    float range = 2;
+    igSliderFloat3("direction", (float*)light->direction, -range, range, "%4.2f", 1);
 
     igCheckbox("active", (_Bool*)&light->active);
 
@@ -201,19 +197,9 @@ void gui_update_lights() {
 
   light = spot_light;
   if(light && igCollapsingHeaderBoolPtr("Spotlight", &show, 0)) {
-    sprintf(buffer,
-          "target: %4.2f %4.2f %4.2f",
-          light->position[0],
-          light->position[1],
-          light->position[2]);
-    igText(buffer);
-
-    sprintf(buffer,
-          "target: %4.2f %4.2f %4.2f",
-          light->direction[0],
-          light->direction[1],
-          light->direction[2]);
-    igText(buffer);
+    float range = 10;
+    igSliderFloat3("position", (float*)light->position, -range, range, "%4.2f", 1);
+    igSliderFloat3("direction", (float*)light->direction, -range, range, "%4.2f", 1);
 
     igCheckbox("active", (_Bool*)&light->active);
 
@@ -240,12 +226,8 @@ void gui_update_lights() {
       if(light && igTreeNodeStr(buffer)) {
         igPushIDInt(i);
 
-        sprintf(buffer,
-              "position: %4.2f %4.2f %4.2f",
-              light->position[0],
-              light->position[1],
-              light->position[2]);
-        igText(buffer);
+        float range = 10;
+        igSliderFloat3("position", (float*)light->position, -range, range, "%4.2f", 1);
 
         igCheckbox("active", (_Bool*)&light->active);
 
