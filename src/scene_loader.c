@@ -85,7 +85,7 @@ void load_lights(Manager *manager, cJSON *json) {
       continue;
     }
 
-    LightType light_type = UNKNOWN_LIGHT;
+    LightType light_type = -1;
 
     if (strcmp(json_type->valuestring, "point") == 0) {
       light_type = POINT;

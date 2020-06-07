@@ -3,6 +3,8 @@
 
 #include <cJSON.h>
 
+#include "manager.h"
+
 void load_scene(Manager *manager);
 void load_camera(Manager *manager, cJSON *json);
 void load_lights(Manager *manager, cJSON *json);

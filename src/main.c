@@ -15,6 +15,7 @@
 #include "manager.h"
 #include "model_c.h"
 #include "scene_loader.h"
+#include "scene_save.h"
 #include "settings.h"
 #include "shader_c.h"
 #include "stb_image.h"
@@ -98,6 +99,8 @@ int main() {
       }
     }
   }
+
+  save_scene(manager);
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);

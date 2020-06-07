@@ -9,7 +9,6 @@
 #define NR_POINT_LIGHTS 4
 
 typedef enum {
-  UNKNOWN_LIGHT,
   SPOTLIGHT,
   DIRECTIONAL,
   POINT,
