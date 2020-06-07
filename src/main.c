@@ -51,6 +51,8 @@ int main() {
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
   glfwSetCursorPosCallback(window, mouse_callback);
   glfwSetScrollCallback(window, scroll_callback);
+  glfwSetMouseButtonCallback(window, mouse_click_callback);
+
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
   stbi_set_flip_vertically_on_load(1);
@@ -121,6 +123,7 @@ int main() {
     gui_update_camera(manager->active_camera);
     /*gui_update_entity(cube);*/
     gui_update_lights();
+    gui_mouse();
     gui_render();
 
     // Draw to screen

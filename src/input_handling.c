@@ -4,10 +4,31 @@
 #include "manager.h"
 
 int firstMouse;
+int left_mouse_pressed;
+int right_mouse_pressed;
+
 float lastX;
 float lastY;
 
 int wireframe_mode = 0;
+
+void mouse_click_callback(GLFWwindow* window, int button, int action, int mods) {
+  if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+    if (action == GLFW_PRESS) {
+      right_mouse_pressed = 1;
+    } else if (action == GLFW_RELEASE) {
+      right_mouse_pressed = 0;
+    }
+  }
+
+  if (button == GLFW_MOUSE_BUTTON_LEFT) {
+    if (action == GLFW_PRESS) {
+      left_mouse_pressed = 1;
+    } else if (action == GLFW_RELEASE) {
+      left_mouse_pressed = 0;
+    }
+  }
+}
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   if (firstMouse) {
@@ -22,7 +43,11 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   lastX = xpos;
   lastY = ypos;
 
-  if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {
+  if (manager->game_mode == FREE_CAMERA) {
+    update_camera_target(manager->active_camera, xoffset, yoffset);
+  }
+
+  if (manager->game_mode == EDITOR && right_mouse_pressed) {
     update_camera_target(manager->active_camera, xoffset, yoffset);
   }
 }
@@ -39,36 +64,32 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 void processInput(GLFWwindow *window) {
-  if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-  }
-
-  if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-  }
-
-  if(glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
-    wireframe_mode = !wireframe_mode;
-  }
-
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
     glfwSetWindowShouldClose(window, 1);
   }
 
   if(glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS) {
     manager->game_mode = IN_GAME;
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
   }
 
   if(glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS) {
     manager->game_mode = IN_MENU;
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
   }
 
   if(glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS) {
     manager->game_mode = FREE_CAMERA;
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
   }
 
   if(glfwGetKey(window, GLFW_KEY_F4) == GLFW_PRESS) {
     manager->game_mode = EDITOR;
+
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
   }
 
   if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {

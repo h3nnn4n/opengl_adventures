@@ -262,3 +262,21 @@ void gui_update_lights() {
 
   igEnd();
 }
+
+void gui_mouse() {
+  igBegin("Mouse", NULL, 0);
+
+  sprintf(buffer,
+          "position: %4.2f %4.2f",
+          lastX,
+          lastY);
+  igText(buffer);
+
+  sprintf(buffer, "left: %d", left_mouse_pressed);
+  igText(buffer);
+
+  sprintf(buffer, "right: %d", right_mouse_pressed);
+  igText(buffer);
+
+  igEnd();
+}
