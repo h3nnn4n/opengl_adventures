@@ -24,13 +24,18 @@
 
 GLFWwindow *window;
 
+/*#define MSAA 8*/
+
 int main() {
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-  glfwWindowHint(GLFW_SAMPLES, 4);
   //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+#ifdef MSAA
+  glfwWindowHint(GLFW_SAMPLES, MSAA);
+#endif
 
   window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "LearnOpenGL", NULL, NULL);
   if (window == NULL) {
@@ -72,7 +77,9 @@ int main() {
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);
+#ifdef MSAA
   glEnable(GL_MULTISAMPLE);
+#endif
 
   ////////////////////////
   // Main loop
