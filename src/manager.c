@@ -13,6 +13,8 @@ Manager* manager;
 Manager* init_manager() {
   Manager* manager = malloc(sizeof(Manager));
 
+  manager->game_mode = EDITOR;
+
   manager->active_camera = NULL;
   manager->camera_count = 0;
   manager->max_cameras = 5;

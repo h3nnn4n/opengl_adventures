@@ -7,7 +7,6 @@ int firstMouse;
 float lastX;
 float lastY;
 
-int locked_cursor = 1;
 int wireframe_mode = 0;
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
@@ -23,16 +22,15 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
   lastX = xpos;
   lastY = ypos;
 
-  if (!locked_cursor) return;
-
-  update_camera_target(manager->active_camera, xoffset, yoffset);
+  if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {
+    update_camera_target(manager->active_camera, xoffset, yoffset);
+  }
 }
 
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
-{
-  if (!locked_cursor) return;
-
-  update_camera_fov(manager->active_camera, xoffset, yoffset);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
+  if (manager->game_mode == FREE_CAMERA) {
+    update_camera_fov(manager->active_camera, xoffset, yoffset);
+  }
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -40,15 +38,12 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
   glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow *window)
-{
+void processInput(GLFWwindow *window) {
   if(glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-    locked_cursor = 1;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
   }
 
   if(glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-    locked_cursor = 0;
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
   }
 
@@ -60,29 +55,45 @@ void processInput(GLFWwindow *window)
     glfwSetWindowShouldClose(window, 1);
   }
 
-  if (!locked_cursor) return;
-
-  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-    update_camera_position(manager->active_camera, FRONT);
+  if(glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS) {
+    manager->game_mode = IN_GAME;
   }
 
-  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-    update_camera_position(manager->active_camera, BACK);
+  if(glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS) {
+    manager->game_mode = IN_MENU;
   }
 
-  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-    update_camera_position(manager->active_camera, LEFT);
+  if(glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS) {
+    manager->game_mode = FREE_CAMERA;
   }
 
-  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-    update_camera_position(manager->active_camera, RIGHT);
+  if(glfwGetKey(window, GLFW_KEY_F4) == GLFW_PRESS) {
+    manager->game_mode = EDITOR;
   }
 
-  if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
-    update_camera_position(manager->active_camera, DOWN);
-  }
+  if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+      update_camera_position(manager->active_camera, FRONT);
+    }
 
-  if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-    update_camera_position(manager->active_camera, UP);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+      update_camera_position(manager->active_camera, BACK);
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+      update_camera_position(manager->active_camera, LEFT);
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+      update_camera_position(manager->active_camera, RIGHT);
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+      update_camera_position(manager->active_camera, DOWN);
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+      update_camera_position(manager->active_camera, UP);
+    }
   }
 }

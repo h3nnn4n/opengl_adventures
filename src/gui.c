@@ -135,12 +135,25 @@ void gui_update_fps() {
   sprintf(buffer, " ms: %6.4f", ms);
   igText(buffer);
 
-  if (locked_cursor) {
-    sprintf(buffer, "cursor: locked");
-  } else {
-    sprintf(buffer, "cursor: free");
+  igText("Game mode: ");
+  igSameLine(0, 0);
+  switch (manager->game_mode) {
+    case IN_GAME:
+      igText("IN_GAME");
+      break;
+
+    case IN_MENU:
+      igText("IN_MENU");
+      break;
+
+    case FREE_CAMERA:
+      igText("FREE_CAMERA");
+      break;
+
+    case EDITOR:
+      igText("EDITOR");
+      break;
   }
-  igText(buffer);
 
   igCheckbox("wireframe", (_Bool*)&wireframe_mode);
 

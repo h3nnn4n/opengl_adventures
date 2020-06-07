@@ -4,6 +4,13 @@
 #include "camera.h"
 #include "entity.h"
 
+typedef enum {
+  IN_GAME,
+  IN_MENU,
+  FREE_CAMERA,
+  EDITOR
+} GameMode;
+
 typedef struct {
   /////////////////
   // Stuff Stuff, aka HACK, aka being lazy
@@ -37,6 +44,8 @@ typedef struct {
 
   int entity_count;
   int max_entities;
+
+  GameMode game_mode;
 } Manager;
 
 extern Manager* manager;
