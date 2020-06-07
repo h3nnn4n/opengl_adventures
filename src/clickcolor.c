@@ -8,15 +8,22 @@
 #include "entity.h"
 #include "input_handling.h"
 #include "manager.h"
+#include "settings.h"
 #include "stb.h"
 
 void clickcolor_event() {
   glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
-  vec3 pixel;
-  glReadPixels(lastX, lastY, 1, 1, GL_RGB, GL_FLOAT, &pixel);
+  vec3 black = GLM_VEC3_ZERO_INIT;
 
-  float distance = 100;
+  vec3 pixel;
+  glReadPixels(lastX, WINDOW_HEIGHT - lastY, 1, 1, GL_RGB, GL_FLOAT, &pixel);
+
+  if (glm_vec3_distance(pixel, black) < 0.001) {
+    return;
+  }
+
+  float distance = 1;
   Entity *best_match = NULL;
 
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
@@ -30,22 +37,19 @@ void clickcolor_event() {
     }
   }
 
-  printf("%6.3f %6.3f %6.3f\n", pixel[0], pixel[1], pixel[2]);
-  printf("%6.3f %6.3f %6.3f\n", best_match->color_id[0], best_match->color_id[1], best_match->color_id[2]);
-
   best_match->active = 0;
 }
 
 void generate_color_id(Entity *entity) {
-  float distance_threshold = 0.025;
-  float distance = 100;
+  float distance_threshold = 0.005;
+  float distance;
 
   do {
     entity->color_id[0] = stb_frand();
     entity->color_id[1] = stb_frand();
     entity->color_id[2] = stb_frand();
 
-    distance = 100;
+    distance = 1;
 
     for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
       Entity *entity_ = manager->entities[entity_index];
@@ -57,6 +61,4 @@ void generate_color_id(Entity *entity) {
       }
     }
   } while (distance < distance_threshold && manager->entity_count > 0);
-
-  printf("%f %f\n", distance, distance_threshold);
 }
