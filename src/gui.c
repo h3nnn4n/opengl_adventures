@@ -11,6 +11,7 @@
 #include "input_handling.h"
 #include "light.h"
 #include "manager.h"
+#include "settings.h"
 
 struct ImGuiContext *ctx;
 struct ImGuiIO *io;
@@ -284,6 +285,27 @@ void gui_mouse() {
 
   sprintf(buffer, "right: %d", right_mouse_pressed);
   igText(buffer);
+
+  igEnd();
+}
+
+void gui_fbo_clickcolor(unsigned int texColorBuffer) {
+  igBegin("FBO Test", NULL, 0);
+
+  ImVec2 size = {WINDOW_WIDTH, WINDOW_HEIGHT};
+  ImVec2 uv0 = {0, 1};
+  ImVec2 uv1 = {1, 0};
+  ImVec4 tint_col = {1, 1, 1, 1};
+  ImVec4 border_col = {1, 0, 0, 1};
+
+  igImage(
+    (void*)(intptr_t)texColorBuffer,
+    size,
+    uv0,
+    uv1,
+    tint_col,
+    border_col
+  );
 
   igEnd();
 }

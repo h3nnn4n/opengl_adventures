@@ -8,10 +8,12 @@
 #include <cglm/call.h>
 
 #include "camera.h"
+#include "clickcolor_rendering.h"
 #include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
 #include "light.h"
+#include "main_render_pass.h"
 #include "manager.h"
 #include "model_c.h"
 #include "scene_loader.h"
@@ -24,7 +26,7 @@
 
 GLFWwindow *window;
 
-/*#define MSAA 8*/
+#define MSAA 4
 
 int main() {
   glfwInit();
@@ -46,8 +48,7 @@ int main() {
 
   glfwMakeContextCurrent(window);
 
-  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-  {
+  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
     printf("Failed to initialize GLAD\n");
     return -1;
   }
@@ -81,6 +82,8 @@ int main() {
   glEnable(GL_MULTISAMPLE);
 #endif
 
+  build_clickcolor_framebuffer();
+
   ////////////////////////
   // Main loop
   //
@@ -90,17 +93,8 @@ int main() {
     glfwPollEvents();
     processInput(window);
 
-    /*Shader_reload_changes(manager->default_shader);*/
-
-    // Clear screen
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    if (wireframe_mode) {
-      glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    } else {
-      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    }
+    Shader_reload_changes(manager->default_shader);
+    Shader_reload_changes(manager->default_shader_light);
 
     // Timer
     Manager_tick_timer(manager);
@@ -108,31 +102,8 @@ int main() {
     // Camera
     Manager_update_active_camera_location(manager);
 
-    // Lights
-    refresh_lights();
-
-    // Draws
-    Manager_render_entities(manager);
-
-    // Lights (render light positions)
-    Shader_use(manager->default_shader_light);
-    update_camera_projection_matrix(manager->active_camera, manager->default_shader_light);
-    update_camera_view_matrix(manager->active_camera, manager->default_shader_light);
-    draw_point_lights();
-
-    // Update gui
-    Shader_use(manager->default_shader);
-
-    gui_new_frame();
-    gui_update_fps();
-    gui_update_camera(manager->active_camera);
-    /*gui_update_entity(cube);*/
-    gui_update_lights();
-    gui_mouse();
-    gui_render();
-
-    // Draw to screen
-    glfwSwapBuffers(window);
+    clickcolor_render_pass();
+    main_render_pass();
   }
 
   gui_terminate();
