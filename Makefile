@@ -86,5 +86,10 @@ $(TARGET): $(OBJS) $(LDSCRIPT)
 
 clean:
 	@echo Cleaning...
+	@rm -rf "$(BUILDDIR)/src/"
+	@rm -f "$(TARGET).o"
+
+superclean:
+	@echo Activating clean slate protocol
 	@rm -rf "$(BUILDDIR)"
 	@rm -f "$(TARGET).o"
