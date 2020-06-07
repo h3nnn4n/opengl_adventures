@@ -2,6 +2,9 @@
 
 #include "input_handling.h"
 #include "manager.h"
+#include "scene_loader.h"
+#include "scene_save.h"
+#include "settings.h"
 
 int firstMouse;
 int left_mouse_pressed;
@@ -90,6 +93,14 @@ void processInput(GLFWwindow *window) {
     manager->game_mode = EDITOR;
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_PRESS) {
+    load_scene(manager);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_F9) == GLFW_PRESS) {
+    save_scene(manager);
   }
 
   if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {
