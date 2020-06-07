@@ -34,6 +34,13 @@ void load_scene(Manager *manager) {
   /*printf(string);*/
   /*printf("\n");*/
 
+  // TODO: We need to free the objects from the old scene before loading the
+  // new ones. aka stop leaking memory
+  // This is a HACK to allow loading new stuff
+
+  manager->camera_count = 0;
+  manager->entity_count = 0;
+
   load_camera(manager, json);
   load_lights(manager, json);
   load_entities(manager, json);
@@ -57,15 +64,15 @@ void load_camera(Manager *manager, cJSON *json) {
   Manager_add_camera(manager, camera);
   Manager_set_active_camera(manager, 0);
 
+  load_float(json_camera , "pitch" , &camera->pitch );
+  load_float(json_camera , "yaw"   , &camera->yaw   );
+  load_float(json_camera , "zoom"  , &camera->zoom  );
 
-  load_float(json_camera, "pitch", &camera->pitch);
-  load_float(json_camera, "yaw", &camera->yaw);
-
-  load_vec3(json_camera, "position", (float*)camera->camera_pos);
-
-  if (load_vec3(json_camera, "target", (float*)camera->camera_front)) {
-    glm_vec3_normalize(camera->camera_front);
-  }
+  load_vec3(json_camera , "position" , camera->camera_pos    );
+  load_vec3(json_camera , "front"    , camera->camera_front  );
+  load_vec3(json_camera , "target"   , camera->camera_target );
+  load_vec3(json_camera , "up"       , camera->camera_up     );
+  load_vec3(json_camera , "right"    , camera->camera_right  );
 }
 
 void load_lights(Manager *manager, cJSON *json) {

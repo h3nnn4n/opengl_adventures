@@ -27,7 +27,15 @@ void save_camera(Manager *manager, cJSON *json) {
   cJSON *json_camera = cJSON_CreateObject();
   cJSON_AddItemToObject(json, "camera", json_camera);
 
-  save_vec3(json_camera, "position", camera->camera_pos);
+  save_float(json_camera , "pitch" , camera->pitch );
+  save_float(json_camera , "yaw"   , camera->yaw   );
+  save_float(json_camera , "zoom"  , camera->zoom  );
+
+  save_vec3(json_camera , "position" , camera->camera_pos    );
+  save_vec3(json_camera , "front"    , camera->camera_front  );
+  save_vec3(json_camera , "target"   , camera->camera_target );
+  save_vec3(json_camera , "up"       , camera->camera_up     );
+  save_vec3(json_camera , "right"    , camera->camera_right  );
 }
 
 void save_lights(Manager *manager, cJSON *json) {
