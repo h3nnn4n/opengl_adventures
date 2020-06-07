@@ -14,6 +14,7 @@
 #include "light.h"
 #include "manager.h"
 #include "model_c.h"
+#include "scene_loader.h"
 #include "settings.h"
 #include "shader_c.h"
 #include "stb_image.h"
@@ -56,13 +57,15 @@ int main() {
 
   {
     manager = init_manager();
-    Camera* camera = make_camera();
-    Manager_add_camera(manager, camera);
-    Manager_set_active_camera(manager, 0);
+
+    Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
+    Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
+
+    manager->default_shader = shader;
+    manager->default_shader_light = shader_light;
   }
 
-  Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
-  Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
+  load_scene(manager);
 
   { // This will go away once we start to load scenes from disk
     int field_size = 5;
@@ -71,49 +74,13 @@ int main() {
       for (int z = -field_size; z <= field_size; ++z) {
         Entity* cube = new_entity();
         load_model(cube, "assets/cube/cube.obj");
-        cube->shader = shader;
+        cube->shader = manager->default_shader;
         cube->position[0] = x;
         cube->position[2] = z;
 
         Manager_add_entity(manager, cube);
       }
     }
-  }
-
-  ///////////////////////////////
-  // Light
-  //
-  directional_light = make_light(DIRECTIONAL);
-  spot_light = make_light(SPOTLIGHT);
-
-  point_lights[0] = make_light(POINT);
-  point_lights[1] = make_light(POINT);
-  point_lights[2] = make_light(POINT);
-  point_lights[3] = make_light(POINT);
-
-  directional_light->shader = shader;
-  spot_light->shader = shader;
-
-  directional_light->active = 1;
-  spot_light->active = 1;
-
-  vec3 light_direction = { -0.2f, -1.0f, -0.3f };
-  set_direction(directional_light, light_direction);
-
-  vec3 light_positions[] = {
-    { 0.7f,  0.2f,  2.0f },
-    { 2.3f, -3.3f, -4.0f },
-    {-4.0f,  2.0f, -12.0f},
-    { 0.0f, -2.0f, -3.0f }
-  };
-
-  for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
-    set_position(point_lights[i], (float*)light_positions[i]);
-    point_lights[i]->shader = shader;
-    point_lights[i]->active = 1;
-    point_lights[i]->draw = 1;
-
-    load_light_model(point_lights[i], shader_light, "assets/cube/cube.obj");
   }
 
   glEnable(GL_DEPTH_TEST);
@@ -129,7 +96,7 @@ int main() {
     glfwPollEvents();
     processInput(window);
 
-    Shader_reload_changes(shader);
+    /*Shader_reload_changes(manager->default_shader);*/
 
     // Clear screen
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -154,13 +121,13 @@ int main() {
     Manager_render_entities(manager);
 
     // Lights (render light positions)
-    Shader_use(shader_light);
-    update_camera_projection_matrix(manager->active_camera, shader_light);
-    update_camera_view_matrix(manager->active_camera, shader_light);
+    Shader_use(manager->default_shader_light);
+    update_camera_projection_matrix(manager->active_camera, manager->default_shader_light);
+    update_camera_view_matrix(manager->active_camera, manager->default_shader_light);
     draw_point_lights();
 
     // Update gui
-    Shader_use(shader);
+    Shader_use(manager->default_shader);
 
     gui_new_frame();
     gui_update_fps();
@@ -175,9 +142,6 @@ int main() {
 
   gui_terminate();
   glfwTerminate();
-
-  Shader_destroy(shader);
-  Shader_destroy(shader_light);
 
   return 0;
 }

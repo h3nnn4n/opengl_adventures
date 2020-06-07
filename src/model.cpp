@@ -17,7 +17,7 @@ void Model::Draw(Shader *shader) {
 }
 
 void Model::loadModel(string const &path) {
-  cout << "Loading " << path << endl;
+  //cout << "Loading " << path << endl;
 
   // read file via ASSIMP
   Assimp::Importer importer;
@@ -34,7 +34,7 @@ void Model::loadModel(string const &path) {
   // process ASSIMP's root node recursively
   processNode(scene->mRootNode, scene);
 
-  cout << "Finished loading " << path << endl;
+  //cout << "Finished loading " << path << endl;
 }
 
 void Model::processNode(aiNode *node, const aiScene *scene) {
@@ -157,7 +157,7 @@ vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type,
       texture.path = str.C_Str();
       textures.push_back(texture);
       textures_loaded.push_back(texture);  // store it as texture loaded for entire model, to ensure we won't unnecesery load duplicate textures.
-      cout << "Loaded " << texture.type << " from " << texture.path << endl;
+      //cout << "Loaded " << texture.type << " from " << texture.path << endl;
     }
   }
   return textures;

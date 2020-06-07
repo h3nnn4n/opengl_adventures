@@ -6,6 +6,14 @@
 
 typedef struct {
   /////////////////
+  // Stuff Stuff, aka HACK, aka being lazy
+  // aka getting things done asap
+  // then fixing it later
+  //
+  Shader* default_shader;
+  Shader* default_shader_light;
+
+  /////////////////
   // Camera Stuff
   //
   Camera* active_camera;

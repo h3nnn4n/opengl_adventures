@@ -14,18 +14,20 @@ INCLUDES = -Isrc \
 					 -Ideps/cimgui/imgui/examples/ \
 					 -Ideps/cimplot/ \
 					 -Ideps/assimp/build/include/ \
-					 -Ideps/assimp/include/
+					 -Ideps/assimp/include/ \
+					 -Ideps/cJSON/
 
 LINKS = -Ldeps/glfw/build/src/ \
 				-Ldeps/glad/src/ \
-				-Ldeps/assimp/build/code/
+				-Ldeps/assimp/build/code/ \
+				-Ldeps/cJSON/build/
 
 CPPFLAGS = -Wall -std=c++11 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
 CFLAGS = -Wall -std=c99 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
 
-LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/ -Ldeps/assimp/build/code/
+LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/ -Ldeps/assimp/build/code/ -Ldeps/cJSON/build/
 
-LIBS = -lm -lglfw -lpthread -ldl -lstdc++ -lassimp
+LIBS = -lm -lglfw -lpthread -ldl -lstdc++ -lassimp -lcjson
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -38,7 +40,7 @@ ifeq ($(UNAME_S),Darwin)
 	CPPFLAGS += -Wno-unused-command-line-argument -Wno-mismatched-tags
 endif
 
-LD_LIBRARY_PATH = deps/glfw/build/src/:deps/assimp/build/code/
+LD_LIBRARY_PATH = deps/glfw/build/src/:deps/assimp/build/code/:deps/cJSON/build/
 
 CC = gcc
 CXX = g++
