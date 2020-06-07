@@ -292,7 +292,7 @@ void gui_mouse() {
 void gui_fbo_clickcolor(unsigned int texColorBuffer) {
   igBegin("FBO Test", NULL, 0);
 
-  ImVec2 size = {WINDOW_WIDTH, WINDOW_HEIGHT};
+  ImVec2 size = {WINDOW_WIDTH / 3.0, WINDOW_HEIGHT / 3.0};
   ImVec2 uv0 = {0, 1};
   ImVec2 uv1 = {1, 0};
   ImVec4 tint_col = {1, 1, 1, 1};
