@@ -18,10 +18,13 @@
       "type": "point",
       "draw": 1,
       "active": 1,
+      "constant": 1,
+      "linear": 0.09,
+      "quadratic": 0.03,
       "ambient": {
-        "x": 0.02,
-        "y": 0.02,
-        "z": 0.02
+        "x": 0.01,
+        "y": 0.01,
+        "z": 0.01
       },
       "diffuse": {
         "x": 0.0,
@@ -34,14 +37,37 @@
         "z": 0.4
       },
       "position": {
-        "x": 4,
-        "y": 2,
-        "z": 4
+        "x": -5.0,
+        "y":  1.1,
+        "z": -5.0
+      }
+    },
+    {
+      "type": "point",
+      "draw": 1,
+      "active": 1,
+      "constant": 1,
+      "linear": 0.09,
+      "quadratic": 0.03,
+      "ambient": {
+        "x": 0.01,
+        "y": 0.01,
+        "z": 0.01
       },
-      "direction": {
-        "x":  1.5,
-        "y": -1.0,
-        "z": -0.1
+      "diffuse": {
+        "x": 0.4,
+        "y": 0.0,
+        "z": 0.7
+      },
+      "specular": {
+        "x": 0.4,
+        "y": 0.4,
+        "z": 0.0
+      },
+      "position": {
+        "x": -5.0,
+        "y":  1.1,
+        "z":  5.0
       }
     }
   ]
