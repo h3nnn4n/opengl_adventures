@@ -2,10 +2,10 @@
 #include <string.h>
 #include <assert.h>
 
+#include "clickcolor.h"
 #include "entity.h"
-
-#include "shader_c.h"
 #include "model_c.h"
+#include "shader_c.h"
 
 #include "utils.h"
 #include "stb.h"
@@ -25,9 +25,7 @@ Entity* new_entity() {
   glm_vec3_copy(vec_zero, entity->position);
   glm_vec3_copy(vec_zero, entity->color_id);
 
-  entity->color_id[0] = stb_frand();
-  entity->color_id[1] = stb_frand();
-  entity->color_id[2] = stb_frand();
+  generate_color_id(entity);
 
   return entity;
 }

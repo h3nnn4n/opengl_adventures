@@ -3,6 +3,7 @@
 #include <cglm/cglm.h>
 
 #include "camera.h"
+#include "clickcolor.h"
 #include "input_handling.h"
 #include "manager.h"
 #include "scene_loader.h"
@@ -67,6 +68,9 @@ void mouse_click_callback(GLFWwindow* window, int button, int action, int mods) 
   if (button == GLFW_MOUSE_BUTTON_LEFT) {
     if (action == GLFW_PRESS) {
       left_mouse_pressed = 1;
+      if (manager->game_mode == EDITOR) {
+        clickcolor_event();
+      }
     } else if (action == GLFW_RELEASE) {
       left_mouse_pressed = 0;
     }

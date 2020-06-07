@@ -162,7 +162,7 @@ void gui_update_fps() {
   ImVec4 plot_color_line = { 1, 1, 0, 1    };
   ImVec4 plot_color_fill = { 1, 1, 0, 0.25 };
 
-  ImPlot_SetNextPlotLimits(0, FPS_BUFFER_SIZE, 0, 70, 1);
+  ImPlot_SetNextPlotLimits(0, FPS_BUFFER_SIZE, 0, 80, 1);
 
   ImPlotAxisFlags axis_flags = ImPlotAxisFlags_GridLines | ImPlotAxisFlags_LockMin |  ImPlotAxisFlags_LockMax;
   ImPlot_BeginPlot("", NULL, NULL, size, ImPlotFlags_MousePos | ImPlotFlags_Crosshairs, 0, axis_flags, 0, 0);
