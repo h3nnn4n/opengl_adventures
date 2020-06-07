@@ -25,6 +25,7 @@ typedef struct {
 
 Entity* new_entity();
 void draw_entity(Entity *entity);
+void draw_entity_with_shader(Entity *entity, Shader *shader);
 void load_model(Entity *entity, char* model_path);
 
 #endif

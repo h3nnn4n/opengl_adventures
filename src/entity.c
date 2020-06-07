@@ -30,7 +30,11 @@ void draw_entity(Entity *entity) {
   assert(entity->model);
   assert(entity->shader);
 
-  Shader_use(entity->shader);
+  draw_entity_with_shader(entity, entity->shader);
+}
+
+void draw_entity_with_shader(Entity *entity, Shader *shader) {
+  Shader_use(shader);
 
   mat4 identity_matrix = GLM_MAT4_IDENTITY_INIT;
 
@@ -44,9 +48,9 @@ void draw_entity(Entity *entity) {
 
   glm_scale(entity->m_model, entity->scale);
 
-  Shader_set_matrix4(entity->shader, "model", (float*)entity->m_model);
+  Shader_set_matrix4(shader, "model", (float*)entity->m_model);
 
-  Model_draw(entity->model, entity->shader);
+  Model_draw(entity->model, shader);
 }
 
 void load_model(Entity *entity, char* model_path) {

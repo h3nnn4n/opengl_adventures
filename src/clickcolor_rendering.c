@@ -10,7 +10,11 @@
 unsigned int framebuffer;
 unsigned int texColorBuffer;
 
+Shader *shader_colorclicker;
+
 void clickcolor_render_pass() {
+  Shader_reload_changes(shader_colorclicker);
+
   // Bind to the funky click color texture
   glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
@@ -19,7 +23,19 @@ void clickcolor_render_pass() {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   // Draws
-  Manager_render_entities(manager);
+  Shader_use(shader_colorclicker);
+
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+
+    if (entity == NULL) continue;
+    if (!entity->active) continue;
+
+    update_camera_projection_matrix(manager->active_camera, shader_colorclicker);
+    update_camera_view_matrix(manager->active_camera, shader_colorclicker);
+
+    draw_entity_with_shader(entity, shader_colorclicker);
+  }
 }
 
 void build_clickcolor_framebuffer() {
@@ -46,4 +62,7 @@ void build_clickcolor_framebuffer() {
   glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
 
   glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+  shader_colorclicker = newShader("shaders/clickcolor/shader.vert",
+                                  "shaders/clickcolor/shader.frag");
 }

@@ -24,6 +24,8 @@ void main_render_pass() {
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   }
 
+  Shader_use(manager->default_shader);
+
   // Lights
   refresh_lights();
 
