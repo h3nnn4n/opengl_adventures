@@ -68,7 +68,7 @@ int main() {
   load_scene(manager);
 
   { // This will go away once we start to load scenes from disk
-    int field_size = 5;
+    int field_size = 7;
 
     for (int x = -field_size; x <= field_size; ++x) {
       for (int z = -field_size; z <= field_size; ++z) {
@@ -76,6 +76,22 @@ int main() {
         load_model(cube, "assets/cube/cube.obj");
         cube->shader = manager->default_shader;
         cube->position[0] = x;
+        cube->position[2] = z;
+
+        Manager_add_entity(manager, cube);
+      }
+    }
+
+    field_size = 1;
+    for (int x = -field_size; x <= field_size; ++x) {
+      for (int z = -field_size; z <= field_size; ++z) {
+        if (x == 0 && z == 0) continue;
+
+        Entity* cube = new_entity();
+        load_model(cube, "assets/cube/cube.obj");
+        cube->shader = manager->default_shader;
+        cube->position[0] = x;
+        cube->position[1] = 1;
         cube->position[2] = z;
 
         Manager_add_entity(manager, cube);
