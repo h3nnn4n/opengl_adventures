@@ -174,9 +174,6 @@ void gui_update_fps() {
 
   ImPlot_EndPlot();
 
-  sprintf(buffer, "pivot: %d", fps_pivot);
-  igText(buffer);
-
   igEnd();
 }
 
