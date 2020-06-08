@@ -63,6 +63,8 @@ void gui_new_frame() {
 }
 
 void gui_render() {
+  if (manager->game_mode != EDITOR) return;
+
   gui_new_frame();
 
   // Update gui
