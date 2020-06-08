@@ -37,19 +37,4 @@ void main_render_pass() {
   update_camera_projection_matrix(manager->active_camera, manager->default_shader_light);
   update_camera_view_matrix(manager->active_camera, manager->default_shader_light);
   draw_point_lights();
-
-  // Update gui
-  Shader_use(manager->default_shader);
-
-  gui_new_frame();
-  gui_update_fps();
-  gui_update_camera(manager->active_camera);
-  /*gui_update_entity(cube);*/
-  gui_update_lights();
-  gui_mouse();
-  gui_fbo_clickcolor(texColorBuffer);
-  gui_render();
-
-  // Draw to screen
-  glfwSwapBuffers(window);
 }

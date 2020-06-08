@@ -102,8 +102,13 @@ int main() {
     // Camera
     Manager_update_active_camera_location(manager);
 
+    // Render calls
     clickcolor_render_pass();
     main_render_pass();
+    gui_render();
+
+    // Draw to screen
+    glfwSwapBuffers(window);
   }
 
   gui_terminate();

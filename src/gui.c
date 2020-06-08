@@ -6,6 +6,7 @@
 #include <GLFW/glfw3.h>
 
 #include "camera.h"
+#include "clickcolor_rendering.h"
 #include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
@@ -55,15 +56,27 @@ void gui_terminate() {
   free(buffer);
 }
 
-void gui_render() {
-  igRender();
-  ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData());
-}
-
 void gui_new_frame() {
   ImGui_ImplOpenGL3_NewFrame();
   ImGui_ImplGlfw_NewFrame();
   igNewFrame();
+}
+
+void gui_render() {
+  gui_new_frame();
+
+  // Update gui
+  Shader_use(manager->default_shader);
+
+  gui_update_fps();
+  gui_update_camera(manager->active_camera);
+  /*gui_update_entity(cube);*/
+  gui_update_lights();
+  gui_mouse();
+  gui_fbo_clickcolor(texColorBuffer);
+
+  igRender();
+  ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData());
 }
 
 void gui_update_camera(Camera *camera) {
