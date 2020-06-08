@@ -107,7 +107,7 @@ void update_camera_position(Camera *camera, Direction direction) {
 void update_camera_projection_matrix(Camera *camera, Shader *shader) {
   glm_perspective(
     deg2rad(camera->zoom),
-    WINDOW_WIDTH / WINDOW_HEIGHT,
+    (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT,
     1,
     100,
     camera->projection
