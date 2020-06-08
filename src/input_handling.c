@@ -124,9 +124,9 @@ void processInput(GLFWwindow *window) {
   }
 
   if(glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS) {
-    manager->game_mode = IN_MENU;
+    /*manager->game_mode = IN_MENU;*/
 
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    /*glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);*/
   }
 
   if(glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS) {
