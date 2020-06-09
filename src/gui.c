@@ -141,7 +141,7 @@ void update_rolling_fps_avg() {
 }
 
 void gui_update_fps() {
-  igBegin("Window", NULL, 0);
+  if (!igBegin("Window", NULL, 0)) return igEnd();
 
   float ms = manager->delta_time;
   float fps = 1.0 / ms;
