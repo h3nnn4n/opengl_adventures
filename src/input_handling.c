@@ -14,6 +14,8 @@ int firstMouse;
 int left_mouse_pressed;
 int right_mouse_pressed;
 
+int ctrl_key_pressed;
+
 vec3 mouse_world_position;
 
 float lastX;
@@ -68,7 +70,8 @@ void mouse_click_callback(GLFWwindow* window, int button, int action, int mods) 
   if (button == GLFW_MOUSE_BUTTON_LEFT) {
     if (action == GLFW_PRESS) {
       left_mouse_pressed = 1;
-      if (manager->game_mode == EDITOR) {
+
+      if (manager->game_mode == EDITOR && ctrl_key_pressed) {
         clickcolor_event();
       }
     } else if (action == GLFW_RELEASE) {
@@ -127,6 +130,12 @@ void processInput(GLFWwindow *window) {
     /*manager->game_mode = IN_MENU;*/
 
     /*glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);*/
+  }
+
+  if(glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
+    ctrl_key_pressed = 1;
+  } else if(glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE) {
+    ctrl_key_pressed = 0;
   }
 
   if(glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS) {

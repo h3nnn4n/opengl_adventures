@@ -222,6 +222,7 @@ void gui_update_entity(Entity *entity) {
     }
   } else {
     igText("Nothing selected");
+    igText("Use left ctrl + left mouse click to select");
   }
 
   igEnd();
