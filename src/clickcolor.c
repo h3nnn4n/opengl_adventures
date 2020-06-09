@@ -13,12 +13,15 @@
 #include "stb.h"
 
 void clickcolor_event() {
-  glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-
-  vec3 black = GLM_VEC3_ZERO_INIT;
-
   vec3 pixel;
+  vec3 black = GLM_VEC3_ZERO_INIT;
+  vec3 normal = GLM_VEC3_ZERO_INIT;
+
+  glBindFramebuffer(GL_FRAMEBUFFER, color_id_framebuffer);
   glReadPixels(lastX, WINDOW_HEIGHT - lastY, 1, 1, GL_RGB, GL_FLOAT, &pixel);
+
+  glBindFramebuffer(GL_FRAMEBUFFER, normals_framebuffer);
+  glReadPixels(lastX, WINDOW_HEIGHT - lastY, 1, 1, GL_RGB, GL_FLOAT, &normal);
 
   if (glm_vec3_distance(pixel, black) < 0.001) {
     return;
@@ -42,7 +45,12 @@ void clickcolor_event() {
     }
   }
 
-  selected_entity=best_match;
+  selected_entity.entity = best_match;
+
+  glm_vec3_copy(normal, selected_entity.normal);
+
+  selected_entity.screen_click_position[0] = lastX;
+  selected_entity.screen_click_position[1] = lastY;
 }
 
 void generate_color_id(Entity *entity) {

@@ -75,10 +75,10 @@ void gui_render() {
 
   gui_update_fps();
   gui_update_camera(manager->active_camera);
-  gui_update_entity(selected_entity);
+  gui_update_entity();
   gui_update_lights();
   gui_mouse();
-  gui_fbo_clickcolor(texColorBuffer);
+  gui_fbo_clickcolor();
 
   igRender();
   ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData());
@@ -195,7 +195,9 @@ void gui_update_fps() {
   igEnd();
 }
 
-void gui_update_entity(Entity *entity) {
+void gui_update_entity() {
+  Entity *entity = selected_entity.entity;
+
   igBegin("Entity", NULL, 0);
 
   if (entity != NULL) {
@@ -218,7 +220,7 @@ void gui_update_entity(Entity *entity) {
     if (igSmallButton("delete")) {
       Manager_destroy_entity(manager, entity);
 
-      selected_entity = NULL;
+      selected_entity.entity = NULL;
     }
   } else {
     igText("Nothing selected");
@@ -327,8 +329,8 @@ void gui_mouse() {
   igEnd();
 }
 
-void gui_fbo_clickcolor(unsigned int texColorBuffer) {
-  igBegin("FBO Test", NULL, 0);
+void gui_fbo_clickcolor() {
+  igBegin("Clickcolor FBO debug", NULL, 0);
 
   ImVec2 size = {WINDOW_WIDTH / 3.0, WINDOW_HEIGHT / 3.0};
   ImVec2 uv0 = {0, 1};
@@ -336,14 +338,19 @@ void gui_fbo_clickcolor(unsigned int texColorBuffer) {
   ImVec4 tint_col = {1, 1, 1, 1};
   ImVec4 border_col = {1, 0, 0, 1};
 
-  igImage(
-    (void*)(intptr_t)texColorBuffer,
-    size,
-    uv0,
-    uv1,
-    tint_col,
-    border_col
-  );
+  static int fbo = 0;
+  igText("buffer select:"); igSameLine(0, 1);
+  igRadioButtonIntPtr("color_id", &fbo, 0); igSameLine(0, 1);
+  igRadioButtonIntPtr("normals", &fbo, 1);
+
+  switch (fbo) {
+    case 0:
+      igImage( (void*)(intptr_t)color_id_texColorBuffer, size, uv0, uv1, tint_col, border_col);
+      break;
+    case 1:
+      igImage( (void*)(intptr_t)normals_texColorBuffer, size, uv0, uv1, tint_col, border_col);
+      break;
+  }
 
   igEnd();
 }

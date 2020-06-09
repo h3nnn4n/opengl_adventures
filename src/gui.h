@@ -26,10 +26,10 @@ void gui_terminate();
 void gui_render();
 void gui_new_frame();
 void gui_update_camera(Camera *camera);
-void gui_update_entity(Entity *entity);
+void gui_update_entity();
 void gui_update_fps();
 void gui_mouse();
-void gui_fbo_clickcolor(unsigned int texColorBuffer);
+void gui_fbo_clickcolor();
 void gui_update_lights();
 
 #endif

@@ -3,7 +3,13 @@
 
 #include "entity.h"
 
-extern Entity *selected_entity;
+typedef struct {
+  Entity *entity;
+  vec3 normal;
+  vec2 screen_click_position;
+} SelectedEntity;
+
+extern SelectedEntity selected_entity;
 
 void snap_to_grid(Entity *entity);
 
