@@ -16,6 +16,7 @@ Entity* new_entity() {
   entity->model  = NULL;
   entity->shader = NULL;
   entity->active = 1;
+  entity->deleted = 0;
 
   vec3 vec_one  = GLM_VEC3_ONE_INIT;
   vec3 vec_zero = GLM_VEC3_ZERO_INIT;
@@ -28,6 +29,13 @@ Entity* new_entity() {
   generate_color_id(entity);
 
   return entity;
+}
+
+void destroy_entity(Entity *entity) {
+  entity->deleted = 1;
+
+  // We leak everything else, since they will be in a catalog eventually
+  free(entity);
 }
 
 void draw_entity(Entity *entity) {

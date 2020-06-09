@@ -68,6 +68,8 @@ void gui_render() {
 
   gui_new_frame();
 
+  /*_Bool show = 1; igShowDemoWindow(&show);*/
+
   // Update gui
   Shader_use(manager->default_shader);
 
@@ -197,9 +199,26 @@ void gui_update_entity(Entity *entity) {
   igBegin("Entity", NULL, 0);
 
   if (entity != NULL) {
+    igCheckbox("active", (_Bool*)&entity->active);
     igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
     igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);
     igSliderFloat3("scale"    , (float*)entity->scale    ,  0 , 5   , "%4.2f" , 1);
+    igColorEdit3("color_id", (float*)entity->color_id, 0);
+    igInputText("model_path", entity->model_path, strlen(entity->model_path), 0, NULL, NULL);
+
+    if (entity->frag_shader_path != NULL && entity->vertex_shader_path != NULL) {
+      igInputText("frag_shader_path", entity->frag_shader_path, strlen(entity->frag_shader_path), 0, NULL, NULL);
+      igInputText("vertex_shader_path", entity->vertex_shader_path, strlen(entity->vertex_shader_path), 0, NULL, NULL);
+    }
+
+    igText("model: %p", entity->model);
+    igText("shader: %p", entity->shader);
+
+    if (igSmallButton("delete")) {
+      Manager_destroy_entity(manager, entity);
+
+      selected_entity = NULL;
+    }
   } else {
     igText("Nothing selected");
   }

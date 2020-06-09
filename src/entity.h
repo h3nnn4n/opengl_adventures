@@ -21,6 +21,7 @@ typedef struct {
   mat4 m_model;
 
   int active;
+  int deleted;
 
   vec3 color_id;
 } Entity;
@@ -29,5 +30,6 @@ Entity* new_entity();
 void draw_entity(Entity *entity);
 void draw_entity_with_shader(Entity *entity, Shader *shader);
 void load_model(Entity *entity, char* model_path);
+void destroy_entity(Entity *entity);
 
 #endif

@@ -30,6 +30,10 @@ void clickcolor_event() {
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
 
+    if (entity == NULL) continue;
+    if (!entity->active) continue;
+    if (entity->deleted) continue;
+
     float new_distance = glm_vec3_distance(pixel, entity->color_id);
 
     if (new_distance < distance) {

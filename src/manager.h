@@ -58,6 +58,7 @@ void Manager_add_camera(Manager *manager, Camera *camera);
 void Manager_tick_timer(Manager* manager);
 
 void Manager_add_entity(Manager *manager, Entity *entity);
+void Manager_destroy_entity(Manager *manager, Entity *entity);
 void Manager_render_entities(Manager *manager);
 
 void Manager_update_active_camera_location(Manager *manager);

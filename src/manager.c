@@ -66,6 +66,15 @@ void Manager_add_entity(Manager *manager, Entity *entity) {
   manager->entity_count++;
 }
 
+void Manager_destroy_entity(Manager *manager, Entity *entity) {
+  for (int i = 0; i < manager->entity_count; ++i) {
+    if (entity == manager->entities[i]) {
+      destroy_entity(entity);
+      manager->entities[i] = NULL;
+    }
+  }
+}
+
 void Manager_render_entities(Manager *manager) {
   assert(manager);
 
@@ -74,6 +83,7 @@ void Manager_render_entities(Manager *manager) {
 
     if (entity == NULL) continue;
     if (!entity->active) continue;
+    if (entity->deleted) continue;
 
     update_camera_projection_matrix(manager->active_camera, entity->shader);
     update_camera_view_matrix(manager->active_camera, entity->shader);
