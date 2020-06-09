@@ -7,6 +7,7 @@
 
 #include "camera.h"
 #include "clickcolor_rendering.h"
+#include "editor.h"
 #include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
@@ -72,7 +73,7 @@ void gui_render() {
 
   gui_update_fps();
   gui_update_camera(manager->active_camera);
-  /*gui_update_entity(cube);*/
+  gui_update_entity(selected_entity);
   gui_update_lights();
   gui_mouse();
   gui_fbo_clickcolor(texColorBuffer);
@@ -195,9 +196,13 @@ void gui_update_fps() {
 void gui_update_entity(Entity *entity) {
   igBegin("Entity", NULL, 0);
 
-  igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
-  igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);
-  igSliderFloat3("scale"    , (float*)entity->scale    ,  0 , 5   , "%4.2f" , 1);
+  if (entity != NULL) {
+    igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
+    igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);
+    igSliderFloat3("scale"    , (float*)entity->scale    ,  0 , 5   , "%4.2f" , 1);
+  } else {
+    igText("Nothing selected");
+  }
 
   igEnd();
 }

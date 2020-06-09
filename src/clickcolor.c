@@ -5,6 +5,7 @@
 
 #include "clickcolor_rendering.h"
 #include "clickcolor.h"
+#include "editor.h"
 #include "entity.h"
 #include "input_handling.h"
 #include "manager.h"
@@ -37,7 +38,7 @@ void clickcolor_event() {
     }
   }
 
-  best_match->active = 0;
+  selected_entity=best_match;
 }
 
 void generate_color_id(Entity *entity) {
