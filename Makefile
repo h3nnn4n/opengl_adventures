@@ -9,6 +9,7 @@ INCLUDES = -Isrc \
 					 -Ideps/glad/include/ \
 					 -Ideps/glfw/include/ \
 					 -Ideps/cglm/include/ \
+					 -Ideps/glm/ \
 					 -Ideps/cimgui/ \
 					 -Ideps/cimgui/imgui \
 					 -Ideps/cimgui/imgui/examples/ \

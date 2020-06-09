@@ -13,3 +13,9 @@
 [submodule "deps/cJSON"]
 	path = deps/cJSON
 	url = https://github.com/DaveGamble/cJSON
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://github.com/g-truc/glm
+[submodule "deps/assimp"]
+	path = deps/assimp
+	url = https://github.com/assimp/assimp
