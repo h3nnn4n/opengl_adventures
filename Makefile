@@ -55,7 +55,7 @@ IMGUI_FILES := $(wildcard ./deps/cimgui/*.cpp) \
 							 $(wildcard ./deps/cimplot/*.cpp) \
 							 $(wildcard ./deps/cimplot/implot/*.cpp) \
 
-SOURCES := $(C_FILES:.c=.o) $(CPP_FILES:.cpp=.o) $(IMGUI_FILES:.cpp=.o)
+SOURCES := $(CPP_FILES:.cpp=.o) $(C_FILES:.c=.o) $(IMGUI_FILES:.cpp=.o)
 OBJS := $(foreach src,$(SOURCES), $(BUILDDIR)/$(src))
 
 all: build
