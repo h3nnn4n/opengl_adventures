@@ -5,4 +5,6 @@
 
 extern Entity *selected_entity;
 
+void snap_to_grid(Entity *entity);
+
 #endif

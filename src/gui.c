@@ -214,6 +214,7 @@ void gui_update_entity(Entity *entity) {
     igText("model: %p", entity->model);
     igText("shader: %p", entity->shader);
 
+    if (igSmallButton("snap")) snap_to_grid(entity);
     if (igSmallButton("delete")) {
       Manager_destroy_entity(manager, entity);
 
