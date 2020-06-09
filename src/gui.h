@@ -25,11 +25,18 @@ void gui_init();
 void gui_terminate();
 void gui_render();
 void gui_new_frame();
+
 void gui_update_camera(Camera *camera);
 void gui_update_entity();
 void gui_update_fps();
 void gui_mouse();
 void gui_fbo_clickcolor();
 void gui_update_lights();
+void gui_main_menu();
+
+void save_scene_gui();
+void load_scene_gui();
+
+void toggle(bool *value);
 
 #endif

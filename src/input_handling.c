@@ -117,7 +117,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void processInput(GLFWwindow *window) {
   if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-    glfwSetWindowShouldClose(window, 1);
+    /*glfwSetWindowShouldClose(window, 1);*/
   }
 
   if(glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS) {
@@ -151,11 +151,11 @@ void processInput(GLFWwindow *window) {
   }
 
   if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_PRESS) {
-    load_scene(manager);
+    load_scene(manager, manager->current_scene_name);
   }
 
   if (glfwGetKey(window, GLFW_KEY_F9) == GLFW_PRESS) {
-    save_scene(manager);
+    save_scene(manager, manager->current_scene_name);
   }
 
   if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {

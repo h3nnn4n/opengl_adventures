@@ -24,8 +24,11 @@ Manager* init_manager() {
   manager->max_entities = 500;
   manager->entities = malloc(sizeof(Entity*) * manager->max_entities);
 
+  manager->current_scene_name = malloc(sizeof(char) * SCENE_NAME_BUFFER_SIZE);
+
   memset(manager->cameras, 0, sizeof(Camera*) * manager->max_cameras);
   memset(manager->entities, 0, sizeof(Entity*) * manager->max_entities);
+  memset(manager->current_scene_name, 0, sizeof(char) * SCENE_NAME_BUFFER_SIZE);
 
   return manager;
 }

@@ -4,6 +4,8 @@
 #include "camera.h"
 #include "entity.h"
 
+#define SCENE_NAME_BUFFER_SIZE 256
+
 typedef enum {
   IN_GAME,
   IN_MENU,
@@ -19,6 +21,11 @@ typedef struct {
   //
   Shader* default_shader;
   Shader* default_shader_light;
+
+  /////////////////
+  // Scene Stuff
+  //
+  char *current_scene_name;
 
   /////////////////
   // Camera Stuff

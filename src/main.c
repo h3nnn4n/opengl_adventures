@@ -74,7 +74,7 @@ int main() {
     manager->default_shader_light = shader_light;
   }
 
-  load_scene(manager);
+  load_scene(manager, "scenes/test_scene.json");
 
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);

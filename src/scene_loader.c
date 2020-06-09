@@ -9,11 +9,14 @@
 #include "scene_loader.h"
 #include "stb.h"
 
-void load_scene(Manager *manager) {
+void load_scene(Manager *manager, char *scene_path) {
   fprintf(stdout, "\n");
 
+  if (scene_path == NULL) {
+    scene_path = manager->current_scene_name;
+  }
+
   size_t plen = -1;
-  char *scene_path = "scenes/test_scene.json";
   char *json_file = stb_file(scene_path, &plen);
 
   fprintf(stdout, "Loading scene %s of %ld bytes\n", scene_path, plen);
@@ -27,6 +30,8 @@ void load_scene(Manager *manager) {
       abort();
     }
   }
+
+  memcpy(manager->current_scene_name, scene_path, strlen(scene_path));
 
   /*printf("yay\n");*/
 

@@ -7,7 +7,7 @@
 #include "light.h"
 #include "manager.h"
 
-void save_scene(Manager *manager);
+void save_scene(Manager *manager, char *scene_path);
 void save_camera(Manager *manager, cJSON *json);
 void save_lights(Manager *manager, cJSON *json);
 void save_light(Light *light, cJSON *json);

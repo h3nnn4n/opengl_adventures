@@ -1,6 +1,7 @@
+#include <assert.h>
+#include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -13,6 +14,8 @@
 #include "input_handling.h"
 #include "light.h"
 #include "manager.h"
+#include "scene_loader.h"
+#include "scene_save.h"
 #include "settings.h"
 
 struct ImGuiContext *ctx;
@@ -28,6 +31,8 @@ float fps_index[FPS_BUFFER_SIZE];
 float fps_avg_buffer[FPS_AVG_BUFFER_SIZE];
 int fps_pivot = 0;
 int fps_avg_pivot = 0;
+
+int menu_file;
 
 void gui_init() {
   ctx = igCreateContext(NULL);
@@ -73,6 +78,7 @@ void gui_render() {
   // Update gui
   Shader_use(manager->default_shader);
 
+  gui_main_menu();
   gui_update_fps();
   gui_update_camera(manager->active_camera);
   gui_update_entity();
@@ -113,6 +119,21 @@ void gui_update_camera(Camera *camera) {
   igText(buffer);
 
   igEnd();
+}
+
+void gui_main_menu() {
+  if (igBeginMainMenuBar()) {
+    if (igBeginMenu("File", 1)) {
+      if (igMenuItemBool("Save Scene", NULL, false, true)) save_scene_gui();
+      if (igMenuItemBool("Load Scene", NULL, false, true)) load_scene_gui();
+      if (igMenuItemBool("Reload Scene", NULL, false, true)) load_scene(manager, manager->current_scene_name);
+      igSeparator();
+      if (igMenuItemBool("Exit", NULL, false, true)) glfwSetWindowShouldClose(window, 1);
+      igEndMenu();
+    }
+
+    igEndMainMenuBar();
+  }
 }
 
 void update_rolling_fps_avg() {
@@ -183,14 +204,16 @@ void gui_update_fps() {
   ImPlot_SetNextPlotLimits(0, FPS_BUFFER_SIZE, 0, 80, 1);
 
   ImPlotAxisFlags axis_flags = ImPlotAxisFlags_GridLines | ImPlotAxisFlags_LockMin |  ImPlotAxisFlags_LockMax;
-  ImPlot_BeginPlot("", NULL, NULL, size, ImPlotFlags_MousePos | ImPlotFlags_Crosshairs, 0, axis_flags, 0, 0);
+  int plot = ImPlot_BeginPlot("", NULL, NULL, size, ImPlotFlags_MousePos | ImPlotFlags_Crosshairs, 0, axis_flags, 0, 0);
 
-  ImPlot_PushStyleColorVec4(ImPlotCol_Line, plot_color_line);
-  ImPlot_PushStyleColorVec4(ImPlotCol_Line, plot_color_fill);
-  ImPlot_PlotLineFloatPtrFloatPtr("", fps_index, fps_buffer, FPS_BUFFER_SIZE, 0, 4);
-  ImPlot_PopStyleColor(2);
+  if (plot) {
+    ImPlot_PushStyleColorVec4(ImPlotCol_Line, plot_color_line);
+    ImPlot_PushStyleColorVec4(ImPlotCol_Line, plot_color_fill);
+    ImPlot_PlotLineFloatPtrFloatPtr("", fps_index, fps_buffer, FPS_BUFFER_SIZE, 0, 4);
+    ImPlot_PopStyleColor(2);
 
-  ImPlot_EndPlot();
+    ImPlot_EndPlot();
+  }
 
   igEnd();
 }
@@ -353,4 +376,18 @@ void gui_fbo_clickcolor() {
   }
 
   igEnd();
+}
+
+void save_scene_gui() {
+  // TODO: Not important for now
+}
+
+void load_scene_gui() {
+  // TODO: Not important for now
+}
+
+void toggle(bool *value) {
+  assert(value);
+
+  *value = !(*value);
 }

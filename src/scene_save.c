@@ -7,7 +7,7 @@
 #include "scene_save.h"
 #include "stb.h"
 
-void save_scene(Manager *manager){
+void save_scene(Manager *manager, char *scene_path){
   cJSON *json = cJSON_CreateObject();
 
   save_camera(manager, json);
@@ -18,7 +18,7 @@ void save_scene(Manager *manager){
   char *json_string = cJSON_Print(json);
   printf(json_string);
 
-  stb_filewritestr("scenes/test_scene.json", json_string);
+  stb_filewritestr(scene_path, json_string);
 }
 
 void save_camera(Manager *manager, cJSON *json) {
