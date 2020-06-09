@@ -6,6 +6,11 @@
 #include "shader_c.h"
 #include "model_c.h"
 
+typedef enum {
+  BLOCK,
+  PLAYER,
+} EntityType;
+
 typedef struct {
   Model *model;
   Shader *shader;
@@ -24,6 +29,8 @@ typedef struct {
   int deleted;
 
   vec3 color_id;
+
+  EntityType *type;
 } Entity;
 
 Entity* new_entity();

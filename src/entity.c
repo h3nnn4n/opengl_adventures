@@ -17,6 +17,7 @@ Entity* new_entity() {
   entity->shader = NULL;
   entity->active = 1;
   entity->deleted = 0;
+  entity->type = BLOCK;
 
   vec3 vec_one  = GLM_VEC3_ONE_INIT;
   vec3 vec_zero = GLM_VEC3_ZERO_INIT;
