@@ -14,6 +14,7 @@
 #include "input_handling.h"
 #include "light.h"
 #include "manager.h"
+#include "player.h"
 #include "scene_loader.h"
 #include "scene_save.h"
 #include "settings.h"
@@ -29,7 +30,8 @@ char *buffer;
 float fps_buffer[FPS_BUFFER_SIZE];
 float fps_index[FPS_BUFFER_SIZE];
 float fps_avg_buffer[FPS_AVG_BUFFER_SIZE];
-int fps_pivot = 0; int fps_avg_pivot = 0; 
+int fps_pivot = 0;
+int fps_avg_pivot = 0;
 int menu_file;
 
 void gui_init() {
@@ -232,19 +234,73 @@ void gui_update_entity() {
     }
 
     igCheckbox("active", (_Bool*)&entity->active);
-    igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
-    igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);
-    igSliderFloat3("scale"    , (float*)entity->scale    ,  0 , 5   , "%4.2f" , 1);
-    igColorEdit3("color_id", (float*)entity->color_id, 0);
-    igInputText("model_path", entity->model_path, strlen(entity->model_path), 0, NULL, NULL);
 
-    if (entity->frag_shader_path != NULL && entity->vertex_shader_path != NULL) {
-      igInputText("frag_shader_path", entity->frag_shader_path, strlen(entity->frag_shader_path), 0, NULL, NULL);
-      igInputText("vertex_shader_path", entity->vertex_shader_path, strlen(entity->vertex_shader_path), 0, NULL, NULL);
+    if (igTreeNodeStr("Transform")) {
+      igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
+      igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);
+      igSliderFloat3("scale"    , (float*)entity->scale    ,  0 , 5   , "%4.2f" , 1);
+
+      igColorEdit3("color_id", (float*)entity->color_id, 0);
+
+      igTreePop();
     }
 
-    igText("model: %p", entity->model);
-    igText("shader: %p", entity->shader);
+    if (igTreeNodeStr("Material")) {
+      igInputText("model_path", entity->model_path, strlen(entity->model_path), 0, NULL, NULL);
+
+      if (entity->frag_shader_path != NULL && entity->vertex_shader_path != NULL) {
+        igInputText("frag_shader_path", entity->frag_shader_path, strlen(entity->frag_shader_path), 0, NULL, NULL);
+        igInputText("vertex_shader_path", entity->vertex_shader_path, strlen(entity->vertex_shader_path), 0, NULL, NULL);
+      }
+
+      igText("model: %p", entity->model);
+      igText("shader: %p", entity->shader);
+
+      igTreePop();
+    }
+
+    if (entity->data == NULL) {
+      igText("no data");
+    } else if (igTreeNodeStr("Data")) {
+      if (entity->type == PLAYER) {
+        PlayerData *data = entity->data;
+
+        switch (data->state) {
+          case IDLE:
+            igText("state: IDLE");
+            break;
+          case MOVING:
+            igText("state: MOVING");
+            break;
+        }
+
+        switch (data->move_direction) {
+          case LEFT:
+            igText("move_direction: LEFT");
+            break;
+          case RIGHT:
+            igText("move_direction: RIGHT");
+            break;
+          case FRONT:
+            igText("move_direction: FRONT");
+            break;
+          case BACK:
+            igText("move_direction: BACK");
+            break;
+          default:
+            igText("move_direction: %d", data->move_direction);
+            break;
+        }
+
+        igSliderFloat("progress", &data->progress, 0, 1, "%f", 1);
+        igSliderFloat("move_speed", &data->move_speed, 0, 10, "%4.2f", 1);
+
+        igSliderFloat3("current_grid_pos", (float*)data->current_grid_pos, -10, 10, "%4.2f", 1);
+        igSliderFloat3("moving_to_grid_pos", (float*)data->moving_to_grid_pos, -10, 10, "%4.2f", 1);
+
+        igTreePop();
+      }
+    }
 
     if (igSmallButton("snap")) snap_to_grid(entity);
     if (igSmallButton("delete")) {
