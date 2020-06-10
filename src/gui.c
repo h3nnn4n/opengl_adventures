@@ -246,6 +246,9 @@ void gui_update_entity() {
     }
 
     if (igTreeNodeStr("Material")) {
+      igColorEdit3("color", (float*)entity->color, 0);
+      igSliderFloat("shininess", &entity->shininess, 0, 128, "%f", 1);
+
       igInputText("model_path", entity->model_path, strlen(entity->model_path), 0, NULL, NULL);
 
       if (entity->frag_shader_path != NULL && entity->vertex_shader_path != NULL) {

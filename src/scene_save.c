@@ -123,10 +123,25 @@ void save_entity(Entity *entity, cJSON *json) {
   save_string(json_entity, "frag_shader_path", entity->frag_shader_path);
   save_string(json_entity, "vertex_shader_path", entity->vertex_shader_path);
 
+  save_material(entity, json_entity);
+  save_player(entity, json_entity);
+
+  cJSON_AddItemToArray(json, json_entity);
+}
+
+void save_material(Entity *entity, cJSON *json) {
+  cJSON *json_material = cJSON_CreateObject();
+  cJSON_AddItemToObject(json, "material", json_material);
+
+  save_vec3(json_material, "color", entity->color);
+  save_float(json_material, "shininess", entity->shininess);
+}
+
+void save_player(Entity *entity, cJSON *json) {
   if (entity->type == PLAYER) {
     PlayerData *player_data = entity->data;
     cJSON *json_player_data = cJSON_CreateObject();
-    cJSON_AddItemToObject(json_entity, "player_data", json_player_data);
+    cJSON_AddItemToObject(json, "player_data", json_player_data);
     assert(player_data);
 
     save_int(json_player_data, "state", player_data->state);
@@ -138,8 +153,6 @@ void save_entity(Entity *entity, cJSON *json) {
     save_float(json_player_data, "progress", player_data->progress);
     save_float(json_player_data, "move_speed", player_data->move_speed);
   }
-
-  cJSON_AddItemToArray(json, json_entity);
 }
 
 void save_vec3(cJSON *json, const char* value_name, float* vec3) {

@@ -69,8 +69,6 @@ void Mesh::Draw(Shader *shader) {
     glBindTexture(GL_TEXTURE_2D, textures[i].id);
   }
 
-  shader->setFloat("material.shininess", 32.0f);
-
   glActiveTexture(GL_TEXTURE0);
 
   // draw mesh

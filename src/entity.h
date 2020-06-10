@@ -14,6 +14,8 @@ typedef enum {
 typedef struct {
   Model *model;
   Shader *shader;
+  vec3 color;
+  float shininess;
 
   char *model_path;
   char *frag_shader_path;

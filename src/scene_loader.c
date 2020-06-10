@@ -193,6 +193,13 @@ void load_entities(Manager *manager, cJSON *json) {
 
     load_model(entity, entity->model_path);
 
+    {
+      cJSON *json_material = cJSON_GetObjectItemCaseSensitive(json_entity, "material");
+
+      load_float(json_material, "shininess", (float*)&entity->shininess);
+      load_vec3(json_material, "color", (float*)entity->color);
+    }
+
     if (entity->type == PLAYER) {
       cJSON *json_player_data = cJSON_GetObjectItemCaseSensitive(json_entity, "player_data");
       PlayerData *player_data = malloc(sizeof(PlayerData));

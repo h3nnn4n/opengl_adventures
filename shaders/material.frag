@@ -4,4 +4,6 @@ struct Material {
   sampler2D texture_normal;
 
   float     shininess;
+
+  vec3      color;
 };

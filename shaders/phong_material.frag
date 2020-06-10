@@ -37,5 +37,7 @@ void main() {
 
   result += CalcSpotLight(spotLight, normal, FragPos, viewDir);
 
+  result *= material.color;
+
   FragColor = vec4(result, 1.0);
 }

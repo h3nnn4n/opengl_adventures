@@ -20,9 +20,12 @@ Entity* new_entity() {
   entity->deleted = 0;
   entity->type = BLOCK;
 
+  entity->shininess = 16;
+
   vec3 vec_one  = GLM_VEC3_ONE_INIT;
   vec3 vec_zero = GLM_VEC3_ZERO_INIT;
 
+  glm_vec3_copy(vec_one , entity->color   );
   glm_vec3_copy(vec_one , entity->scale   );
   glm_vec3_copy(vec_zero, entity->rotation);
   glm_vec3_copy(vec_zero, entity->position);
@@ -62,6 +65,8 @@ void draw_entity_with_shader(Entity *entity, Shader *shader) {
 
   glm_scale(entity->m_model, entity->scale);
 
+  Shader_set_float(shader, "material.shininess", entity->shininess);
+  Shader_set_vec3(shader, "material.color", (float*)entity->color);
   Shader_set_matrix4(shader, "model", (float*)entity->m_model);
 
   Model_draw(entity->model, shader);
