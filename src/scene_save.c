@@ -4,6 +4,7 @@
 
 #include "camera.h"
 #include "manager.h"
+#include "player.h"
 #include "scene_save.h"
 #include "stb.h"
 
@@ -121,6 +122,22 @@ void save_entity(Entity *entity, cJSON *json) {
   save_string(json_entity, "model_path", entity->model_path);
   save_string(json_entity, "frag_shader_path", entity->frag_shader_path);
   save_string(json_entity, "vertex_shader_path", entity->vertex_shader_path);
+
+  if (entity->type == PLAYER) {
+    PlayerData *player_data = entity->data;
+    cJSON *json_player_data = cJSON_CreateObject();
+    cJSON_AddItemToObject(json_entity, "player_data", json_player_data);
+    assert(player_data);
+
+    save_int(json_player_data, "state", player_data->state);
+    save_int(json_player_data, "move_direction", player_data->move_direction);
+
+    save_vec3(json_player_data, "current_grid_pos", player_data->current_grid_pos);
+    save_vec3(json_player_data, "moving_to_grid_pos", player_data->moving_to_grid_pos);
+
+    save_float(json_player_data, "progress", player_data->progress);
+    save_float(json_player_data, "move_speed", player_data->move_speed);
+  }
 
   cJSON_AddItemToArray(json, json_entity);
 }

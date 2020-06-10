@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -7,6 +8,7 @@
 #include "light.h"
 #include "manager.h"
 #include "scene_loader.h"
+#include "player.h"
 #include "stb.h"
 
 void load_scene(Manager *manager, char *scene_path) {
@@ -190,6 +192,24 @@ void load_entities(Manager *manager, cJSON *json) {
     load_string(json_entity, "vertex_shader_path", &entity->vertex_shader_path);
 
     load_model(entity, entity->model_path);
+
+    if (entity->type == PLAYER) {
+      cJSON *json_player_data = cJSON_GetObjectItemCaseSensitive(json_entity, "player_data");
+      PlayerData *player_data = malloc(sizeof(PlayerData));
+      assert(player_data);
+      entity->data = player_data;
+
+      load_int(json_player_data, "state", (int*)&player_data->state);
+      assert(player_data->state == IDLE || player_data->state == MOVING);
+
+      load_int(json_player_data, "move_direction", (int*)&player_data->move_direction);
+
+      load_vec3(json_player_data, "current_grid_pos", (float*)player_data->current_grid_pos);
+      load_vec3(json_player_data, "moving_to_grid_pos", (float*)player_data->moving_to_grid_pos);
+
+      load_float(json_player_data, "progress", (float*)&player_data->progress);
+      load_float(json_player_data, "move_speed", (float*)&player_data->move_speed);
+    }
 
     Manager_add_entity(manager, entity);
   }

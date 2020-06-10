@@ -10368,9 +10368,9 @@
 			"active":	1,
 			"deleted":	0,
 			"position":	{
-				"x":	3,
+				"x":	5,
 				"y":	1,
-				"z":	3
+				"z":	2
 			},
 			"scale":	{
 				"x":	1,
@@ -10384,6 +10384,22 @@
 			},
 			"model_path":	"assets/cube/cube.obj",
 			"frag_shader_path":	"shaders/phong_material.frag",
-			"vertex_shader_path":	"shaders/shader.vert"
+			"vertex_shader_path":	"shaders/shader.vert",
+			"player_data":	{
+				"state":	1,
+				"move_direction":	0,
+				"current_grid_pos":	{
+					"x":	5,
+					"y":	1,
+					"z":	2
+				},
+				"moving_to_grid_pos":	{
+					"x":	5,
+					"y":	1,
+					"z":	2
+				},
+				"progress":	0,
+				"move_speed":	5
+			}
 		}]
 }
