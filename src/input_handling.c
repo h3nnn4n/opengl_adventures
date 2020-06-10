@@ -6,9 +6,11 @@
 #include "clickcolor.h"
 #include "input_handling.h"
 #include "manager.h"
+#include "player.h"
 #include "scene_loader.h"
 #include "scene_save.h"
 #include "settings.h"
+#include "utils.h"
 
 int firstMouse;
 int left_mouse_pressed;
@@ -159,28 +161,52 @@ void processInput(GLFWwindow *window) {
   }
 
   if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-      update_camera_position(manager->active_camera, FRONT);
-    }
+    handle_camera_movements(window);
+  } else if (manager->game_mode == IN_GAME) {
+    handle_player_movements(window);
+  }
+}
 
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-      update_camera_position(manager->active_camera, BACK);
-    }
+void handle_player_movements(GLFWwindow* window) {
+  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    move_player(manager, FRONT);
+  }
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-      update_camera_position(manager->active_camera, LEFT);
-    }
+  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+    move_player(manager, BACK);
+  }
 
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-      update_camera_position(manager->active_camera, RIGHT);
-    }
+  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+    move_player(manager, LEFT);
+  }
 
-    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
-      update_camera_position(manager->active_camera, DOWN);
-    }
+  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+    move_player(manager, RIGHT);
+  }
+}
 
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-      update_camera_position(manager->active_camera, UP);
-    }
+void handle_camera_movements(GLFWwindow* window) {
+  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    update_camera_position(manager->active_camera, FRONT);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+    update_camera_position(manager->active_camera, BACK);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+    update_camera_position(manager->active_camera, LEFT);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+    update_camera_position(manager->active_camera, RIGHT);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+    update_camera_position(manager->active_camera, DOWN);
+  }
+
+  if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+    update_camera_position(manager->active_camera, UP);
   }
 }

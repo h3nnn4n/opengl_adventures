@@ -16,6 +16,7 @@
 #include "main_render_pass.h"
 #include "manager.h"
 #include "model_c.h"
+#include "player.h"
 #include "scene_loader.h"
 #include "scene_save.h"
 #include "settings.h"
@@ -76,6 +77,16 @@ int main() {
 
   load_scene(manager, "scenes/test_scene.json");
 
+  {
+    Entity *player = Manager_get_first_entity_by_type(manager, PLAYER);
+
+    PlayerData *player_data = malloc(sizeof(PlayerData));
+    player->data = player_data;
+
+    player_data->move_speed = 5;
+    player_data->state = IDLE;
+  }
+
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);
 #ifdef MSAA
@@ -98,6 +109,9 @@ int main() {
 
     // Timer
     Manager_tick_timer(manager);
+
+    // Entity stuff
+    Manager_update_entities(manager);
 
     // Camera
     Manager_update_active_camera_location(manager);

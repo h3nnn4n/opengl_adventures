@@ -29,9 +29,7 @@ char *buffer;
 float fps_buffer[FPS_BUFFER_SIZE];
 float fps_index[FPS_BUFFER_SIZE];
 float fps_avg_buffer[FPS_AVG_BUFFER_SIZE];
-int fps_pivot = 0;
-int fps_avg_pivot = 0;
-
+int fps_pivot = 0; int fps_avg_pivot = 0; 
 int menu_file;
 
 void gui_init() {
@@ -224,6 +222,15 @@ void gui_update_entity() {
   igBegin("Entity", NULL, 0);
 
   if (entity != NULL) {
+    switch (entity->type) {
+      case BLOCK:
+        igText("type: BLOCK");
+        break;
+      case PLAYER:
+        igText("type: PLAYER");
+        break;
+    }
+
     igCheckbox("active", (_Bool*)&entity->active);
     igSliderFloat3("position" , (float*)entity->position , -5 , 5   , "%4.2f" , 1);
     igSliderFloat3("rotation" , (float*)entity->rotation ,  0 , 180 , "%4.2f" , 1);

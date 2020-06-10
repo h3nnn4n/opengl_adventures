@@ -7,6 +7,7 @@
 #include "camera.h"
 #include "entity.h"
 #include "manager.h"
+#include "player.h"
 
 Manager* manager;
 
@@ -100,4 +101,22 @@ void Manager_update_active_camera_location(Manager *manager) {
   assert(manager->active_camera);
 
   update_camera_position_matrix(manager->active_camera);
+}
+
+Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type) {
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+
+    if (entity->type == type) return entity;
+  }
+
+  return NULL;
+}
+
+void Manager_update_entities(Manager *manager) {
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+
+    if (entity->type == PLAYER) player_update(entity);
+  }
 }

@@ -110,7 +110,9 @@ void save_entities(Manager *manager, cJSON *json) {
 void save_entity(Entity *entity, cJSON *json) {
   cJSON *json_entity = cJSON_CreateObject();
 
+  save_int(json_entity, "type", entity->type);
   save_int(json_entity, "active", entity->active);
+  save_int(json_entity, "deleted", entity->deleted);
 
   save_vec3(json_entity, "position", entity->position);
   save_vec3(json_entity, "scale", entity->scale);
@@ -124,6 +126,8 @@ void save_entity(Entity *entity, cJSON *json) {
 }
 
 void save_vec3(cJSON *json, const char* value_name, float* vec3) {
+  assert(vec3);
+
   cJSON *json_vec3 = cJSON_CreateObject();
   cJSON_AddItemToObject(json, value_name, json_vec3);
 
@@ -141,5 +145,6 @@ void save_int(cJSON *json, const char* value_name, int value) {
 }
 
 void save_string(cJSON *json, const char* value_name, const char* value) {
+  assert(value);
   cJSON_AddStringToObject(json, value_name, value);
 }

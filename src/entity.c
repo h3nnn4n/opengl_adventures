@@ -13,6 +13,7 @@
 Entity* new_entity() {
   Entity* entity = malloc(sizeof(Entity));
 
+  entity->data = NULL;
   entity->model  = NULL;
   entity->shader = NULL;
   entity->active = 1;

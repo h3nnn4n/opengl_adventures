@@ -177,13 +177,17 @@ void load_entities(Manager *manager, cJSON *json) {
     Entity *entity = new_entity();
     entity->shader = manager->default_shader;
 
+    load_int(json_entity, "type", (int*)&entity->type);
     load_int(json_entity, "active", &entity->active);
+    load_int(json_entity, "deleted", &entity->deleted);
 
     load_vec3(json_entity, "position", (float*)entity->position);
     load_vec3(json_entity, "scale", (float*)entity->scale);
     load_vec3(json_entity, "rotation", (float*)entity->rotation);
 
     load_string(json_entity, "model_path", &entity->model_path);
+    load_string(json_entity, "frag_shader_path", &entity->frag_shader_path);
+    load_string(json_entity, "vertex_shader_path", &entity->vertex_shader_path);
 
     load_model(entity, entity->model_path);
 

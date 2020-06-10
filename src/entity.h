@@ -30,7 +30,9 @@ typedef struct {
 
   vec3 color_id;
 
-  EntityType *type;
+  EntityType type;
+
+  void *data;
 } Entity;
 
 Entity* new_entity();

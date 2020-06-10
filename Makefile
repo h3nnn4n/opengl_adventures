@@ -62,6 +62,8 @@ all: build
 
 build: $(TARGET)
 
+rebuild: clean $(TARGET)
+
 run: $(TARGET)
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) $(CURDIR)/$(TARGET)
 
