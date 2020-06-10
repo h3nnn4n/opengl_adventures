@@ -61,7 +61,7 @@ void move_player(Manager *manager, Direction direction) {
       data->moving_to_grid_pos[1] = round(entity->position[1]);
       data->moving_to_grid_pos[2] = round(entity->position[2]);
 
-      data->moving_to_grid_pos[2] += 1;
+      data->moving_to_grid_pos[2] -= 1;
       data->move_direction = direction;
       break;
 
@@ -77,7 +77,7 @@ void move_player(Manager *manager, Direction direction) {
       data->moving_to_grid_pos[1] = round(entity->position[1]);
       data->moving_to_grid_pos[2] = round(entity->position[2]);
 
-      data->moving_to_grid_pos[2] -= 1;
+      data->moving_to_grid_pos[2] += 1;
       data->move_direction = direction;
       break;
 
