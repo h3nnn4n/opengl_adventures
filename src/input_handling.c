@@ -4,6 +4,7 @@
 
 #include "camera.h"
 #include "clickcolor.h"
+#include "editor.h"
 #include "input_handling.h"
 #include "manager.h"
 #include "player.h"

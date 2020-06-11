@@ -23,6 +23,7 @@
 #include "scene_save.h"
 #include "settings.h"
 #include "shader_c.h"
+#include "skybox.h"
 #include "timer.h"
 #include "utils.h"
 
@@ -88,6 +89,7 @@ int main() {
   glCullFace(GL_BACK);
 
   build_clickcolor_framebuffer();
+  make_skybox();
 
   ////////////////////////
   // Main loop
@@ -111,9 +113,10 @@ int main() {
     Manager_update_active_camera_location(manager);
 
     // Render calls
-    clickcolor_render_pass();
-    main_render_pass();
-    gui_render();
+    /*clickcolor_render_pass();*/
+    /*main_render_pass();*/
+    render_skybox();
+    /*gui_render();*/
 
     // Draw to screen
     glfwSwapBuffers(window);
