@@ -275,6 +275,9 @@ void gui_update_entity() {
           case MOVING:
             igText("state: MOVING");
             break;
+          case FALLING:
+            igText("state: FALLING");
+            break;
         }
 
         switch (data->move_direction) {

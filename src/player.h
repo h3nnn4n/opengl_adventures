@@ -8,7 +8,8 @@
 
 typedef enum {
   IDLE,
-  MOVING
+  MOVING,
+  FALLING
 } PlayerState;
 
 typedef struct {

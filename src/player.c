@@ -1,6 +1,8 @@
 #include <assert.h>
 #include <math.h>
 
+#include <cglm/cglm.h>
+
 #include "manager.h"
 #include "player.h"
 
@@ -63,6 +65,19 @@ void move_player(Manager *manager, Direction direction) {
   }
 }
 
+void update_position(Entity *player) {
+  PlayerData *pdata = player->data;
+
+  pdata->progress -= manager->delta_time * pdata->move_speed;
+
+  glm_vec3_lerp(
+    pdata->current_grid_pos,
+    pdata->moving_to_grid_pos,
+    1 - pdata->progress,
+    player->position
+  );
+}
+
 void player_update(Entity *player) {
   assert(player->data);
 
@@ -71,20 +86,42 @@ void player_update(Entity *player) {
   switch (pdata->state) {
     case MOVING:
       if (pdata->progress > 0) {
-        pdata->progress -= manager->delta_time * pdata->move_speed;
-
-        glm_vec3_lerp(
-          pdata->current_grid_pos,
-          pdata->moving_to_grid_pos,
-          1 - pdata->progress,
-          player->position
-        );
+        update_position(player);
       } else {
         glm_vec3_copy(pdata->moving_to_grid_pos, player->position);
         pdata->state = IDLE;
       }
       break;
     case IDLE:
+      {
+        vec3 position_below = { player->position[0],
+                                player->position[1] - 1,
+                                player->position[2] };
+
+        int has_support = Manager_has_entity_at_position(manager, position_below);
+
+        if (!has_support) {
+          init_move(player);
+          pdata->move_direction = DOWN;
+          pdata->moving_to_grid_pos[1] -= 1;
+          pdata->state = FALLING;
+        }
+      }
+      break;
+    case FALLING:
+      if (pdata->progress > 0) {
+        update_position(player);
+      } else {
+        glm_vec3_copy(pdata->moving_to_grid_pos, player->position);
+
+        int cant_move = Manager_has_entity_at_position(manager, pdata->moving_to_grid_pos);
+        if (cant_move) {
+          pdata->state = IDLE;
+        }
+      }
+      break;
+    default:
+      assert(false); // fail loudly and soon
       break;
   }
 }
