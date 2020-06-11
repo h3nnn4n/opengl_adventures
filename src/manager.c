@@ -6,6 +6,7 @@
 
 #include "camera.h"
 #include "entity.h"
+#include "grid.h"
 #include "manager.h"
 #include "player.h"
 
@@ -26,10 +27,12 @@ Manager* init_manager() {
   manager->entities = malloc(sizeof(Entity*) * manager->max_entities);
 
   manager->current_scene_name = malloc(sizeof(char) * SCENE_NAME_BUFFER_SIZE);
+  manager->grid = malloc(sizeof(Grid));
 
   memset(manager->cameras, 0, sizeof(Camera*) * manager->max_cameras);
   memset(manager->entities, 0, sizeof(Entity*) * manager->max_entities);
   memset(manager->current_scene_name, 0, sizeof(char) * SCENE_NAME_BUFFER_SIZE);
+  memset(manager->grid, 0, sizeof(Grid));
 
   return manager;
 }
