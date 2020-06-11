@@ -4,6 +4,7 @@
 
 #include <cJSON.h>
 
+#include "box.h"
 #include "camera.h"
 #include "light.h"
 #include "manager.h"
@@ -192,34 +193,59 @@ void load_entities(Manager *manager, cJSON *json) {
     load_string(json_entity, "vertex_shader_path", &entity->vertex_shader_path);
 
     load_model(entity, entity->model_path);
-
-    {
-      cJSON *json_material = cJSON_GetObjectItemCaseSensitive(json_entity, "material");
-
-      load_float(json_material, "shininess", (float*)&entity->shininess);
-      load_vec3(json_material, "color", (float*)entity->color);
-    }
-
-    if (entity->type == PLAYER) {
-      cJSON *json_player_data = cJSON_GetObjectItemCaseSensitive(json_entity, "player_data");
-      PlayerData *player_data = malloc(sizeof(PlayerData));
-      assert(player_data);
-      entity->data = player_data;
-
-      load_int(json_player_data, "state", (int*)&player_data->state);
-      assert(player_data->state == IDLE || player_data->state == MOVING);
-
-      load_int(json_player_data, "move_direction", (int*)&player_data->move_direction);
-
-      load_vec3(json_player_data, "current_grid_pos", (float*)player_data->current_grid_pos);
-      load_vec3(json_player_data, "moving_to_grid_pos", (float*)player_data->moving_to_grid_pos);
-
-      load_float(json_player_data, "progress", (float*)&player_data->progress);
-      load_float(json_player_data, "move_speed", (float*)&player_data->move_speed);
-    }
+    load_material (json_entity, entity);
+    load_player_data(json_entity, entity);
+    load_box_data(json_entity, entity);
 
     Manager_add_entity(manager, entity);
   }
+}
+
+void load_material (cJSON *json_entity, Entity *entity) {
+  cJSON *json_material = cJSON_GetObjectItemCaseSensitive(json_entity, "material");
+
+  load_float(json_material, "shininess", (float*)&entity->shininess);
+  load_vec3(json_material, "color", (float*)entity->color);
+}
+
+void load_player_data(cJSON *json_entity, Entity *entity) {
+  if (entity->type != PLAYER) return;
+
+  cJSON *json_player_data = cJSON_GetObjectItemCaseSensitive(json_entity, "player_data");
+  PlayerData *player_data = malloc(sizeof(PlayerData));
+  assert(player_data);
+  entity->data = player_data;
+
+  load_int(json_player_data, "state", (int*)&player_data->state);
+  assert(player_data->state == IDLE || player_data->state == MOVING);
+
+  load_int(json_player_data, "move_direction", (int*)&player_data->move_direction);
+
+  load_vec3(json_player_data, "current_grid_pos", (float*)player_data->current_grid_pos);
+  load_vec3(json_player_data, "moving_to_grid_pos", (float*)player_data->moving_to_grid_pos);
+
+  load_float(json_player_data, "progress", (float*)&player_data->progress);
+  load_float(json_player_data, "move_speed", (float*)&player_data->move_speed);
+}
+
+void load_box_data(cJSON *json_entity, Entity *entity) {
+  if (entity->type != BOX) return;
+
+  cJSON *json_box_data = cJSON_GetObjectItemCaseSensitive(json_entity, "box_data");
+  BoxData *box_data = malloc(sizeof(BoxData));
+  assert(box_data);
+  entity->data = box_data;
+
+  load_int(json_box_data, "state", (int*)&box_data->state);
+  assert(box_data->state == STOPPED || box_data->state == BEING_PUSHED);
+
+  load_int(json_box_data, "move_direction", (int*)&box_data->move_direction);
+
+  load_vec3(json_box_data, "current_grid_pos", (float*)box_data->current_grid_pos);
+  load_vec3(json_box_data, "moving_to_grid_pos", (float*)box_data->moving_to_grid_pos);
+
+  load_float(json_box_data, "progress", (float*)&box_data->progress);
+  load_float(json_box_data, "move_speed", (float*)&box_data->move_speed);
 }
 
 int load_string(cJSON *json, const char* value_name, char** value) {

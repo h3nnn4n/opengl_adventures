@@ -27,4 +27,6 @@ typedef struct {
 void move_player(Manager *manager, Direction direction);
 void player_update(Entity *player);
 
+int can_push_entity(Manager *manager, Entity *entity, Direction push_direction);
+
 #endif

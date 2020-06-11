@@ -125,6 +125,7 @@ void save_entity(Entity *entity, cJSON *json) {
 
   save_material(entity, json_entity);
   save_player(entity, json_entity);
+  save_box(entity, json_entity);
 
   cJSON_AddItemToArray(json, json_entity);
 }
@@ -153,6 +154,24 @@ void save_player(Entity *entity, cJSON *json) {
     save_float(json_player_data, "progress", player_data->progress);
     save_float(json_player_data, "move_speed", player_data->move_speed);
   }
+}
+
+void save_box(Entity *entity, cJSON *json) {
+  if (entity->type != BOX) return;
+
+  PlayerData *box_data = entity->data;
+  cJSON *json_box_data = cJSON_CreateObject();
+  cJSON_AddItemToObject(json, "box_data", json_box_data);
+  assert(box_data);
+
+  save_int(json_box_data, "state", box_data->state);
+  save_int(json_box_data, "move_direction", box_data->move_direction);
+
+  save_vec3(json_box_data, "current_grid_pos", box_data->current_grid_pos);
+  save_vec3(json_box_data, "moving_to_grid_pos", box_data->moving_to_grid_pos);
+
+  save_float(json_box_data, "progress", box_data->progress);
+  save_float(json_box_data, "move_speed", box_data->move_speed);
 }
 
 void save_vec3(cJSON *json, const char* value_name, float* vec3) {

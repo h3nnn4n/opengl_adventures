@@ -231,6 +231,12 @@ void gui_update_entity() {
       case PLAYER:
         igText("type: PLAYER");
         break;
+      case TARGET:
+        igText("type: TARGET");
+        break;
+      case BOX:
+        igText("type: BOX");
+        break;
     }
 
     igCheckbox("active", (_Bool*)&entity->active);

@@ -3,6 +3,7 @@
 
 #include <cglm/cglm.h>
 
+#include "box.h"
 #include "manager.h"
 #include "player.h"
 
@@ -36,21 +37,23 @@ void move_player(Manager *manager, Direction direction) {
   init_move(entity);
   data->move_direction = direction;
 
+  vec3 offset = GLM_VEC3_ZERO_INIT;
+
   switch (direction) {
     case LEFT:
-      data->moving_to_grid_pos[0] -= 1;
+      offset[0] -= 1;
       break;
 
     case RIGHT:
-      data->moving_to_grid_pos[0] += 1;
+      offset[0] += 1;
       break;
 
     case FRONT:
-      data->moving_to_grid_pos[2] -= 1;
+      offset[2] -= 1;
       break;
 
     case BACK:
-      data->moving_to_grid_pos[2] += 1;
+      offset[2] += 1;
       break;
 
     default:
@@ -58,11 +61,80 @@ void move_player(Manager *manager, Direction direction) {
       break;
   }
 
-  int cant_move = Manager_has_entity_at_position(manager, data->moving_to_grid_pos);
+  glm_vec3_add(data->moving_to_grid_pos, offset, data->moving_to_grid_pos);
+
+  Entity *obstacle = Manager_entity_at_position(manager, data->moving_to_grid_pos);
+
+  int cant_move = (
+    obstacle != NULL && (
+      obstacle->type == BLOCK || (
+        obstacle->type == BOX &&
+        !can_push_entity(manager, obstacle, direction)
+      )
+    )
+  );
 
   if (cant_move) {
     data->state = IDLE;
+  } else {
+    if (obstacle != NULL && obstacle->type == BOX && can_push_entity(manager, obstacle, direction)) {
+      BoxData *bdata = obstacle->data;
+
+      bdata->state = BEING_PUSHED;
+      bdata->progress = 1;
+      bdata->move_speed = bdata->move_speed;
+
+      bdata->current_grid_pos[0] = round(obstacle->position[0]);
+      bdata->current_grid_pos[1] = round(obstacle->position[1]);
+      bdata->current_grid_pos[2] = round(obstacle->position[2]);
+
+      bdata->moving_to_grid_pos[0] = round(obstacle->position[0]);
+      bdata->moving_to_grid_pos[1] = round(obstacle->position[1]);
+      bdata->moving_to_grid_pos[2] = round(obstacle->position[2]);
+
+      glm_vec3_add(bdata->moving_to_grid_pos, offset, bdata->moving_to_grid_pos);
+    }
   }
+}
+
+int can_push_entity(Manager *manager, Entity *entity, Direction push_direction) {
+  if (entity->type != BOX) return 0;
+
+  vec3 push_position = { entity->position[0],
+                         entity->position[1],
+                         entity->position[2] };
+
+  switch (push_direction) {
+    case LEFT:
+      push_position[0] -= 1;
+      break;
+
+    case RIGHT:
+      push_position[0] += 1;
+      break;
+
+    case FRONT:
+      push_position[2] -= 1;
+      break;
+
+    case BACK:
+      push_position[2] += 1;
+      break;
+
+    default:
+      assert(false); // fail loudly and soon
+      break;
+  }
+
+  Entity *obstacle = Manager_entity_at_position(manager, push_position);
+
+  int can_be_pushed = (
+    obstacle == NULL || (
+      obstacle->type == TARGET
+    )
+  );
+
+  return can_be_pushed;
 }
 
 void update_position(Entity *player) {

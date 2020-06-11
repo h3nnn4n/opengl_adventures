@@ -16,6 +16,7 @@ void save_entity(Entity *entity, cJSON *json);
 
 void save_material(Entity *entity, cJSON *json);
 void save_player(Entity *entity, cJSON *json);
+void save_box(Entity *entity, cJSON *json);
 
 void save_vec3(cJSON *json, const char* value_name, float *vec3);
 void save_float(cJSON *json, const char* value_name, float value);

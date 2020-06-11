@@ -9,6 +9,8 @@
 typedef enum {
   BLOCK,
   PLAYER,
+  TARGET,
+  BOX,
 } EntityType;
 
 typedef struct {

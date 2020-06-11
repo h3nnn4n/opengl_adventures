@@ -4,6 +4,7 @@
 
 #include <GLFW/glfw3.h>
 
+#include "box.h"
 #include "camera.h"
 #include "entity.h"
 #include "manager.h"
@@ -118,6 +119,7 @@ void Manager_update_entities(Manager *manager) {
     Entity *entity = manager->entities[entity_index];
 
     if (entity->type == PLAYER) player_update(entity);
+    if (entity->type == BOX) box_update(entity);
   }
 }
 

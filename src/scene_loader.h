@@ -10,6 +10,10 @@ void load_camera(Manager *manager, cJSON *json);
 void load_lights(Manager *manager, cJSON *json);
 void load_entities(Manager *manager, cJSON *json);
 
+void load_material (cJSON *json_entity, Entity *entity);
+void load_player_data(cJSON *json_entity, Entity *entity);
+void load_box_data(cJSON *json_entity, Entity *entity);
+
 int load_string(cJSON *json, const char* value_name, char** value);
 int load_vec3(cJSON *json, const char* value_name, float* vec3);
 int load_float(cJSON *json, const char* value_name, float* value);
