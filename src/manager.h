@@ -72,5 +72,7 @@ void Manager_update_entities(Manager *manager);
 void Manager_update_active_camera_location(Manager *manager);
 
 Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type);
+Entity* Manager_entity_at_position(Manager *manager, vec3 position);
+int Manager_has_entity_at_position(Manager *manager, vec3 position);
 
 #endif

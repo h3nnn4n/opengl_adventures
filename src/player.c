@@ -4,6 +4,21 @@
 #include "manager.h"
 #include "player.h"
 
+void init_move(Entity *entity) {
+  PlayerData *data = entity->data;
+
+  data->state = MOVING;
+  data->progress = 1;
+
+  data->current_grid_pos[0] = round(entity->position[0]);
+  data->current_grid_pos[1] = round(entity->position[1]);
+  data->current_grid_pos[2] = round(entity->position[2]);
+
+  data->moving_to_grid_pos[0] = round(entity->position[0]);
+  data->moving_to_grid_pos[1] = round(entity->position[1]);
+  data->moving_to_grid_pos[2] = round(entity->position[2]);
+}
+
 void move_player(Manager *manager, Direction direction) {
   Entity *entity = Manager_get_first_entity_by_type(manager, PLAYER);
 
@@ -16,73 +31,35 @@ void move_player(Manager *manager, Direction direction) {
 
   if (data->state != IDLE) return;
 
+  init_move(entity);
+  data->move_direction = direction;
+
   switch (direction) {
     case LEFT:
-      data->state = MOVING;
-      data->progress = 1;
-
-      data->current_grid_pos[0] = round(entity->position[0]);
-      data->current_grid_pos[1] = round(entity->position[1]);
-      data->current_grid_pos[2] = round(entity->position[2]);
-
-      data->moving_to_grid_pos[0] = round(entity->position[0]);
-      data->moving_to_grid_pos[1] = round(entity->position[1]);
-      data->moving_to_grid_pos[2] = round(entity->position[2]);
-
       data->moving_to_grid_pos[0] -= 1;
-      data->move_direction = direction;
       break;
 
     case RIGHT:
-      data->state = MOVING;
-      data->progress = 1;
-
-      data->current_grid_pos[0] = round(entity->position[0]);
-      data->current_grid_pos[1] = round(entity->position[1]);
-      data->current_grid_pos[2] = round(entity->position[2]);
-
-      data->moving_to_grid_pos[0] = round(entity->position[0]);
-      data->moving_to_grid_pos[1] = round(entity->position[1]);
-      data->moving_to_grid_pos[2] = round(entity->position[2]);
-
       data->moving_to_grid_pos[0] += 1;
-      data->move_direction = direction;
       break;
 
     case FRONT:
-      data->state = MOVING;
-      data->progress = 1;
-
-      data->current_grid_pos[0] = round(entity->position[0]);
-      data->current_grid_pos[1] = round(entity->position[1]);
-      data->current_grid_pos[2] = round(entity->position[2]);
-
-      data->moving_to_grid_pos[0] = round(entity->position[0]);
-      data->moving_to_grid_pos[1] = round(entity->position[1]);
-      data->moving_to_grid_pos[2] = round(entity->position[2]);
-
       data->moving_to_grid_pos[2] -= 1;
-      data->move_direction = direction;
       break;
 
     case BACK:
-      data->state = MOVING;
-      data->progress = 1;
-
-      data->current_grid_pos[0] = round(entity->position[0]);
-      data->current_grid_pos[1] = round(entity->position[1]);
-      data->current_grid_pos[2] = round(entity->position[2]);
-
-      data->moving_to_grid_pos[0] = round(entity->position[0]);
-      data->moving_to_grid_pos[1] = round(entity->position[1]);
-      data->moving_to_grid_pos[2] = round(entity->position[2]);
-
       data->moving_to_grid_pos[2] += 1;
-      data->move_direction = direction;
       break;
 
     default:
+      assert(false); // fail loudly and soon
       break;
+  }
+
+  int cant_move = Manager_has_entity_at_position(manager, data->moving_to_grid_pos);
+
+  if (cant_move) {
+    data->state = IDLE;
   }
 }
 

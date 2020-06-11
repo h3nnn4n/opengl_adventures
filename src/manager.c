@@ -120,3 +120,19 @@ void Manager_update_entities(Manager *manager) {
     if (entity->type == PLAYER) player_update(entity);
   }
 }
+
+int Manager_has_entity_at_position(Manager *manager, vec3 position) {
+  return Manager_entity_at_position(manager, position) != NULL;
+}
+
+Entity* Manager_entity_at_position(Manager *manager, vec3 position) {
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+
+    if (glm_vec3_eqv_eps(entity->position, position)) {
+      return entity;
+    }
+  }
+
+  return NULL;
+}
