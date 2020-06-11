@@ -309,9 +309,9 @@ void gui_update_entity() {
 
         igSliderFloat3("current_grid_pos", (float*)data->current_grid_pos, -10, 10, "%4.2f", 1);
         igSliderFloat3("moving_to_grid_pos", (float*)data->moving_to_grid_pos, -10, 10, "%4.2f", 1);
-
-        igTreePop();
       }
+
+      igTreePop();
     }
 
     if (igSmallButton("snap")) snap_to_grid(entity);

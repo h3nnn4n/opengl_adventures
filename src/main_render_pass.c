@@ -33,8 +33,10 @@ void main_render_pass() {
   Manager_render_entities(manager);
 
   // Lights (render light positions)
-  Shader_use(manager->default_shader_light);
-  update_camera_projection_matrix(manager->active_camera, manager->default_shader_light);
-  update_camera_view_matrix(manager->active_camera, manager->default_shader_light);
-  draw_point_lights();
+  if (manager->game_mode == EDITOR) {
+    Shader_use(manager->default_shader_light);
+    update_camera_projection_matrix(manager->active_camera, manager->default_shader_light);
+    update_camera_view_matrix(manager->active_camera, manager->default_shader_light);
+    draw_point_lights();
+  }
 }

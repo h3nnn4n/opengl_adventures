@@ -107,6 +107,7 @@ void Manager_update_active_camera_location(Manager *manager) {
 Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type) {
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
 
     if (entity->type == type) return entity;
   }
@@ -117,6 +118,7 @@ Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type) {
 void Manager_update_entities(Manager *manager) {
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
 
     if (entity->type == PLAYER) player_update(entity);
     if (entity->type == BOX) box_update(entity);
@@ -130,6 +132,7 @@ int Manager_has_entity_at_position(Manager *manager, vec3 position) {
 Entity* Manager_entity_at_position(Manager *manager, vec3 position) {
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
 
     if (glm_vec3_eqv_eps(entity->position, position)) {
       return entity;
