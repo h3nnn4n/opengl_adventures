@@ -67,6 +67,7 @@ void generate_color_id(Entity *entity) {
 
     for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
       Entity *entity_ = manager->entities[entity_index];
+      if (entity_ == NULL) continue;
 
       float new_distance = glm_vec3_distance(entity->color_id, entity_->color_id);
 

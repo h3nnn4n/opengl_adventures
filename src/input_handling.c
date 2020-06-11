@@ -17,6 +17,7 @@ int left_mouse_pressed;
 int right_mouse_pressed;
 
 int ctrl_key_pressed;
+int alt_key_pressed;
 
 vec3 mouse_world_position;
 
@@ -73,8 +74,14 @@ void mouse_click_callback(GLFWwindow* window, int button, int action, int mods) 
     if (action == GLFW_PRESS) {
       left_mouse_pressed = 1;
 
-      if (manager->game_mode == EDITOR && ctrl_key_pressed) {
-        clickcolor_event();
+      if (manager->game_mode == EDITOR) {
+        if (ctrl_key_pressed || alt_key_pressed) {
+          clickcolor_event();
+        }
+
+        if (alt_key_pressed) {
+          add_new_block(manager);
+        }
       }
     } else if (action == GLFW_RELEASE) {
       left_mouse_pressed = 0;
@@ -138,6 +145,12 @@ void processInput(GLFWwindow *window) {
     ctrl_key_pressed = 1;
   } else if(glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE) {
     ctrl_key_pressed = 0;
+  }
+
+  if(glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS) {
+    alt_key_pressed = 1;
+  } else if(glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_RELEASE) {
+    alt_key_pressed = 0;
   }
 
   if(glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS) {

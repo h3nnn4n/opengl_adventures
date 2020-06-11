@@ -2,6 +2,7 @@
 #define _EDITOR_H
 
 #include "entity.h"
+#include "manager.h"
 
 typedef struct {
   Entity *entity;
@@ -12,5 +13,6 @@ typedef struct {
 extern SelectedEntity selected_entity;
 
 void snap_to_grid(Entity *entity);
+void add_new_block(Manager *manager);
 
 #endif
