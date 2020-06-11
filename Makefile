@@ -72,6 +72,9 @@ rebuild: clean $(TARGET)
 run: $(TARGET)
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) $(CURDIR)/$(TARGET)
 
+gdb: $(TARGET)
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH) gdb $(CURDIR)/$(TARGET)
+
 $(BUILDDIR)/%.o: %.c
 	@echo $(ECHOFLAGS) "[CC]\t$<"
 	@mkdir -p "$(dir $@)"
