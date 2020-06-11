@@ -78,11 +78,14 @@ int main() {
 
   load_scene(manager, "scenes/test_scene.json");
 
+  glEnable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);
 #ifdef MSAA
   glEnable(GL_MULTISAMPLE);
 #endif
+
+  glCullFace(GL_BACK);
 
   build_clickcolor_framebuffer();
 
