@@ -3,6 +3,8 @@
 #include <cglm/cglm.h>
 #include <cglm/call.h>
 
+#include <stb.h>
+
 #include "camera.h"
 #include "settings.h"
 #include "manager.h"

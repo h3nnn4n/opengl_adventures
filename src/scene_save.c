@@ -2,11 +2,12 @@
 
 #include <cJSON.h>
 
+#include <stb.h>
+
 #include "camera.h"
 #include "manager.h"
 #include "player.h"
 #include "scene_save.h"
-#include "stb.h"
 
 void save_scene(Manager *manager, char *scene_path){
   cJSON *json = cJSON_CreateObject();

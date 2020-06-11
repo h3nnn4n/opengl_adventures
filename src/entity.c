@@ -2,13 +2,14 @@
 #include <string.h>
 #include <assert.h>
 
+#include <stb.h>
+
 #include "clickcolor.h"
 #include "entity.h"
 #include "model_c.h"
 #include "shader_c.h"
 
 #include "utils.h"
-#include "stb.h"
 
 Entity* new_entity() {
   Entity* entity = malloc(sizeof(Entity));

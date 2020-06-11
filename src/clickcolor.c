@@ -3,6 +3,8 @@
 #include <cglm/cglm.h>
 #include <cglm/call.h>
 
+#include <stb.h>
+
 #include "clickcolor_rendering.h"
 #include "clickcolor.h"
 #include "editor.h"
@@ -10,7 +12,6 @@
 #include "input_handling.h"
 #include "manager.h"
 #include "settings.h"
-#include "stb.h"
 
 void clickcolor_event() {
   vec3 pixel;

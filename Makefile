@@ -16,7 +16,8 @@ INCLUDES = -Isrc \
 					 -Ideps/cimplot/ \
 					 -Ideps/assimp/build/include/ \
 					 -Ideps/assimp/include/ \
-					 -Ideps/cJSON/
+					 -Ideps/cJSON/ \
+					 -Ideps/stb/
 
 LINKS = -Ldeps/glfw/build/src/ \
 				-Ldeps/glad/src/ \
@@ -48,6 +49,7 @@ CXX = g++
 
 C_FILES := $(wildcard src/*.c) deps/glad/src/glad.c
 CPP_FILES := $(wildcard src/*.cpp)
+STB_FILES := $(wildcard deps/stb/*.c)
 IMGUI_FILES := $(wildcard ./deps/cimgui/*.cpp) \
 							 $(wildcard ./deps/cimgui/imgui/*.cpp) \
 							 $(wildcard ./deps/cimgui/imgui/examples/imgui_impl_glfw.cpp) \
@@ -55,7 +57,10 @@ IMGUI_FILES := $(wildcard ./deps/cimgui/*.cpp) \
 							 $(wildcard ./deps/cimplot/*.cpp) \
 							 $(wildcard ./deps/cimplot/implot/*.cpp) \
 
-SOURCES := $(CPP_FILES:.cpp=.o) $(C_FILES:.c=.o) $(IMGUI_FILES:.cpp=.o)
+SOURCES := $(STB_FILES:.c=.o) \
+	         $(CPP_FILES:.cpp=.o) \
+					 $(IMGUI_FILES:.cpp=.o) \
+					 $(C_FILES:.c=.o)
 OBJS := $(foreach src,$(SOURCES), $(BUILDDIR)/$(src))
 
 all: build

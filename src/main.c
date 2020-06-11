@@ -7,6 +7,8 @@
 #include <cglm/cglm.h>
 #include <cglm/call.h>
 
+#include <stb_image.h>
+
 #include "camera.h"
 #include "clickcolor_rendering.h"
 #include "entity.h"
@@ -21,7 +23,6 @@
 #include "scene_save.h"
 #include "settings.h"
 #include "shader_c.h"
-#include "stb_image.h"
 #include "timer.h"
 #include "utils.h"
 

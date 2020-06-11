@@ -1,10 +1,10 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <stb_image.h>
 
 #include "model.hpp"
 #include "shader.hpp"
-#include "stb_image.h"
 
 Model::Model(char *path) {
   loadModel(path);

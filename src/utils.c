@@ -4,6 +4,7 @@
 
 #include "utils.h"
 
-float deg2rad(float degrees) {
-  return degrees * GLM_PI / 180.0;
-}
+// STB already defines it, good
+/*float deg2rad(float degrees) {*/
+  /*return degrees * GLM_PI / 180.0;*/
+/*}*/

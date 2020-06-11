@@ -4,13 +4,14 @@
 
 #include <cJSON.h>
 
+#include <stb.h>
+
 #include "box.h"
 #include "camera.h"
 #include "light.h"
 #include "manager.h"
 #include "scene_loader.h"
 #include "player.h"
-#include "stb.h"
 
 void load_scene(Manager *manager, char *scene_path) {
   fprintf(stdout, "\n");

@@ -5,6 +5,8 @@
 #include <cglm/cglm.h>
 #include <cglm/call.h>
 
+#include <stb.h>
+
 #include "light.h"
 #include "shader_c.h"
 #include "utils.h"
