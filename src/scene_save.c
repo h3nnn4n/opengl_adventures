@@ -110,6 +110,8 @@ void save_entities(Manager *manager, cJSON *json) {
 }
 
 void save_entity(Entity *entity, cJSON *json) {
+  if (entity == NULL) return;
+
   cJSON *json_entity = cJSON_CreateObject();
 
   save_int(json_entity, "type", entity->type);

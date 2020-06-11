@@ -13888,96 +13888,6 @@
 			"position":	{
 				"x":	-1,
 				"y":	1,
-				"z":	0
-			},
-			"scale":	{
-				"x":	1,
-				"y":	1,
-				"z":	1
-			},
-			"rotation":	{
-				"x":	0,
-				"y":	0,
-				"z":	0
-			},
-			"model_path":	"assets/cube/cube.obj",
-			"frag_shader_path":	"shaders/phong_material.frag",
-			"vertex_shader_path":	"shaders/shader.vert",
-			"material":	{
-				"color":	{
-					"x":	1,
-					"y":	1,
-					"z":	1
-				},
-				"shininess":	16
-			}
-		}, {
-			"type":	0,
-			"active":	1,
-			"deleted":	0,
-			"position":	{
-				"x":	-1,
-				"y":	1,
-				"z":	1
-			},
-			"scale":	{
-				"x":	1,
-				"y":	1,
-				"z":	1
-			},
-			"rotation":	{
-				"x":	0,
-				"y":	0,
-				"z":	0
-			},
-			"model_path":	"assets/cube/cube.obj",
-			"frag_shader_path":	"shaders/phong_material.frag",
-			"vertex_shader_path":	"shaders/shader.vert",
-			"material":	{
-				"color":	{
-					"x":	1,
-					"y":	1,
-					"z":	1
-				},
-				"shininess":	16
-			}
-		}, {
-			"type":	0,
-			"active":	1,
-			"deleted":	0,
-			"position":	{
-				"x":	0,
-				"y":	1,
-				"z":	-1
-			},
-			"scale":	{
-				"x":	1,
-				"y":	1,
-				"z":	1
-			},
-			"rotation":	{
-				"x":	0,
-				"y":	0,
-				"z":	0
-			},
-			"model_path":	"assets/cube/cube.obj",
-			"frag_shader_path":	"shaders/phong_material.frag",
-			"vertex_shader_path":	"shaders/shader.vert",
-			"material":	{
-				"color":	{
-					"x":	1,
-					"y":	1,
-					"z":	1
-				},
-				"shininess":	16
-			}
-		}, {
-			"type":	0,
-			"active":	1,
-			"deleted":	0,
-			"position":	{
-				"x":	0,
-				"y":	1,
 				"z":	1
 			},
 			"scale":	{
@@ -14009,36 +13919,6 @@
 				"x":	1,
 				"y":	1,
 				"z":	-1
-			},
-			"scale":	{
-				"x":	1,
-				"y":	1,
-				"z":	1
-			},
-			"rotation":	{
-				"x":	0,
-				"y":	0,
-				"z":	0
-			},
-			"model_path":	"assets/cube/cube.obj",
-			"frag_shader_path":	"shaders/phong_material.frag",
-			"vertex_shader_path":	"shaders/shader.vert",
-			"material":	{
-				"color":	{
-					"x":	1,
-					"y":	1,
-					"z":	1
-				},
-				"shininess":	16
-			}
-		}, {
-			"type":	0,
-			"active":	1,
-			"deleted":	0,
-			"position":	{
-				"x":	1,
-				"y":	1,
-				"z":	0
 			},
 			"scale":	{
 				"x":	1,
@@ -14096,7 +13976,7 @@
 			"active":	1,
 			"deleted":	0,
 			"position":	{
-				"x":	5,
+				"x":	-5,
 				"y":	1,
 				"z":	5
 			},
@@ -14123,18 +14003,18 @@
 			},
 			"player_data":	{
 				"state":	0,
-				"move_direction":	3,
+				"move_direction":	0,
 				"current_grid_pos":	{
-					"x":	4,
+					"x":	-5,
 					"y":	1,
-					"z":	5
+					"z":	6
 				},
 				"moving_to_grid_pos":	{
-					"x":	5,
+					"x":	-5,
 					"y":	1,
 					"z":	5
 				},
-				"progress":	-0.0385894775390625,
+				"progress":	-0.002979278564453125,
 				"move_speed":	5
 			}
 		}, {
@@ -14142,9 +14022,9 @@
 			"active":	1,
 			"deleted":	0,
 			"position":	{
-				"x":	1,
+				"x":	0,
 				"y":	1,
-				"z":	2
+				"z":	0
 			},
 			"scale":	{
 				"x":	1,
@@ -14171,16 +14051,16 @@
 				"state":	0,
 				"move_direction":	2,
 				"current_grid_pos":	{
-					"x":	2,
-					"y":	1,
-					"z":	2
-				},
-				"moving_to_grid_pos":	{
 					"x":	1,
 					"y":	1,
-					"z":	2
+					"z":	0
 				},
-				"progress":	-0.0092926025390625,
+				"moving_to_grid_pos":	{
+					"x":	0,
+					"y":	1,
+					"z":	0
+				},
+				"progress":	-0.00901603698730469,
 				"move_speed":	5
 			}
 		}, {
