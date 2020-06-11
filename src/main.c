@@ -113,10 +113,10 @@ int main() {
     Manager_update_active_camera_location(manager);
 
     // Render calls
-    /*clickcolor_render_pass();*/
-    /*main_render_pass();*/
-    render_skybox();
-    /*gui_render();*/
+    clickcolor_render_pass();
+    main_render_pass();
+    /*render_skybox();*/
+    gui_render();
 
     // Draw to screen
     glfwSwapBuffers(window);
