@@ -6,21 +6,6 @@
 
 #define SCENE_NAME_BUFFER_SIZE 256
 
-typedef struct {
-  float x;
-  float y;
-  float z;
-} Key;
-
-typedef struct {
-  Key key;
-  Entity *value;
-} Hash;
-
-typedef struct {
-  Hash *hash;
-} Grid;
-
 typedef enum {
   IN_GAME,
   IN_MENU,
@@ -67,12 +52,7 @@ typedef struct {
   int entity_count;
   int max_entities;
 
-  /////////////////
-  // Game state
-  //
   GameMode game_mode;
-
-  Grid *grid;
 } Manager;
 
 extern Manager* manager;
