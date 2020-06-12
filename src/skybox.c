@@ -59,28 +59,18 @@ float skyboxVertices[] = {
 
 void make_skybox() {
   // Model stuff
-  /*unsigned int skyboxVAO, skyboxVBO;*/
-/*glGenVertexArrays(1, &skyboxVAO);*/
   glGenVertexArrays(1, &skybox_VAO);
-/*glGenBuffers(1, &skyboxVBO);*/
   glGenBuffers(1, &skybox_VBO);
-/*glBindVertexArray(skyboxVAO);*/
   glBindVertexArray(skybox_VAO);
 
-/*glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);*/
   glBindBuffer(GL_ARRAY_BUFFER, skybox_VBO);
-/*glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);*/
   glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
 
-/*glEnableVertexAttribArray(0);*/
   glEnableVertexAttribArray(0);
-/*glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);*/
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 
   // Texture stuff
-/*glGenTextures(1, &textureID);*/
   glGenTextures(1, &skybox_textureID);
-/*glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);*/
   glBindTexture(GL_TEXTURE_CUBE_MAP, skybox_textureID);
 
   int width, height, nrChannels;
@@ -94,6 +84,8 @@ void make_skybox() {
     "assets/skybox/front.jpg",
     "assets/skybox/back.jpg"
   };
+
+  stbi_set_flip_vertically_on_load(0);
 
   for(GLuint i = 0; i < 6; i++) {
     data = stbi_load(faces[i], &width, &height, &nrChannels, 0);
@@ -125,9 +117,6 @@ void make_skybox() {
 void render_skybox() {
   Shader_reload_changes(shader_skybox);
 
-  glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
   glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
   glDepthFunc(GL_LEQUAL);
@@ -136,6 +125,14 @@ void render_skybox() {
 
   update_camera_projection_matrix(manager->active_camera, shader_skybox);
   update_camera_view_matrix(manager->active_camera, shader_skybox);
+
+  {
+    mat3 view3 = GLM_MAT3_ZERO_INIT;
+    mat4 view = GLM_MAT4_ZERO_INIT;
+    glm_mat4_pick3(manager->active_camera->view, view3);
+    glm_mat4_ins3(view3, view);
+    Shader_set_matrix4(shader_skybox, "view", (float*)view);
+  }
 
   glBindVertexArray(skybox_VAO);
   glActiveTexture(GL_TEXTURE0);

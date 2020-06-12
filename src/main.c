@@ -115,7 +115,7 @@ int main() {
     // Render calls
     clickcolor_render_pass();
     main_render_pass();
-    /*render_skybox();*/
+    render_skybox();
     gui_render();
 
     // Draw to screen
