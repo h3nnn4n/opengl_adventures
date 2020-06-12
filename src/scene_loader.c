@@ -14,6 +14,8 @@
 #include "player.h"
 
 void load_scene(Manager *manager, char *scene_path) {
+  Manager_destroy_entities(manager);
+
   fprintf(stdout, "\n");
 
   if (scene_path == NULL) {

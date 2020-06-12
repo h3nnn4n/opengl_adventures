@@ -38,9 +38,11 @@ Entity* new_entity() {
 }
 
 void destroy_entity(Entity *entity) {
+  assert(entity);
   entity->deleted = 1;
 
-  // We leak everything else, since they will be in a catalog eventually
+  if (entity->data != NULL) free(entity->data);
+
   free(entity);
 }
 

@@ -141,3 +141,12 @@ Entity* Manager_entity_at_position(Manager *manager, vec3 position) {
 
   return NULL;
 }
+
+void Manager_destroy_entities(Manager *manager) {
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
+
+    destroy_entity(entity);
+  }
+}
