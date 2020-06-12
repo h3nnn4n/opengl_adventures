@@ -15,16 +15,15 @@ using namespace std;
 class Model
 {
   public:
-    // stores all the textures loaded so far, optimization to make sure
-    // textures aren't loaded more than once.
     vector<Texture> textures_loaded;
+    string path;
 
     Model(char *path);
     void Draw(Shader *shader);
+
   private:
-    // model data
-    vector<Mesh> meshes;
     string directory;
+    vector<Mesh> meshes;
 
     void loadModel(string const &path);
     void processNode(aiNode *node, const aiScene *scene);

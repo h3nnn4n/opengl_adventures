@@ -7,6 +7,8 @@
 #include "shader.hpp"
 
 Model::Model(char *path) {
+  this->path = string(path);
+
   loadModel(path);
 }
 
