@@ -77,12 +77,12 @@ void make_skybox() {
   unsigned char *data;
 
   char *faces[6] = {
-    "assets/skybox/right.jpg",
-    "assets/skybox/left.jpg",
-    "assets/skybox/top.jpg",
-    "assets/skybox/bottom.jpg",
-    "assets/skybox/front.jpg",
-    "assets/skybox/back.jpg"
+    "assets/skybox_space/space_right.jpg",
+    "assets/skybox_space/space_left.jpg",
+    "assets/skybox_space/space_up.jpg",
+    "assets/skybox_space/space_down.jpg",
+    "assets/skybox_space/space_front.jpg",
+    "assets/skybox_space/space_back.jpg"
   };
 
   stbi_set_flip_vertically_on_load(0);
