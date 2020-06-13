@@ -35,7 +35,7 @@ void gui_fbo_clickcolor();
 void gui_update_lights();
 void gui_main_menu();
 
-void save_scene_gui();
+void save_as_scene_gui();
 void load_scene_gui();
 
 void toggle(bool *value);

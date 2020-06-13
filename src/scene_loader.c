@@ -14,10 +14,6 @@
 #include "player.h"
 
 void load_scene(Manager *manager, char *scene_path) {
-  Manager_destroy_entities(manager);
-  Manager_destroy_cameras(manager);
-  Manager_destroy_lights(manager);
-
   fprintf(stdout, "\n");
 
   if (scene_path == NULL) {
@@ -26,6 +22,15 @@ void load_scene(Manager *manager, char *scene_path) {
 
   size_t plen = -1;
   char *json_file = stb_file(scene_path, &plen);
+
+  if (plen == -1) {
+    fprintf(stdout, "Unable to load Scene %s of %ld bytes\n", scene_path, plen);
+    return;
+  }
+
+  Manager_destroy_entities(manager);
+  Manager_destroy_cameras(manager);
+  Manager_destroy_lights(manager);
 
   fprintf(stdout, "Loading scene %s of %ld bytes\n", scene_path, plen);
 

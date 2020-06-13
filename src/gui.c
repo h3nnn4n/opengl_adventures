@@ -35,6 +35,7 @@ int fps_avg_pivot = 0;
 int menu_file;
 
 _Bool loadScenePopupOpen = 0;
+_Bool saveAsScenePopupOpen = 0;
 
 void gui_init() {
   ctx = igCreateContext(NULL);
@@ -135,10 +136,17 @@ void gui_current_scene() {
 
 void gui_main_menu() {
   load_scene_gui();
+  save_as_scene_gui();
 
   if (igBeginMainMenuBar()) {
     if (igBeginMenu("File", 1)) {
-      if (igMenuItemBool("Save Scene", NULL, false, true)) save_scene_gui();
+      if (igMenuItemBool("Save Scene", NULL, false, true)) {
+        save_scene(manager, manager->current_scene_name);
+      }
+
+      if (igMenuItemBool("Save Scene as", NULL, false, true)) {
+        saveAsScenePopupOpen = 1;
+      }
 
       if (igMenuItemBool("Load Scene", NULL, false, true)) {
         loadScenePopupOpen = 1;
@@ -148,6 +156,9 @@ void gui_main_menu() {
       igSeparator();
       if (igMenuItemBool("Exit", NULL, false, true)) glfwSetWindowShouldClose(window, 1);
       igEndMenu();
+    }
+
+    if (igBeginMenu("Edit", 1)) {
     }
 
     igEndMainMenuBar();
@@ -471,8 +482,39 @@ void gui_fbo_clickcolor() {
   igEnd();
 }
 
-void save_scene_gui() {
-  // TODO: Not important for now
+void save_as_scene_gui() {
+  if (saveAsScenePopupOpen)
+    igOpenPopup("Save Scene as");
+
+  if (igBeginPopupModal("Save Scene as", NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
+    static char buffer[256] = "scenes/level_?_?json";
+    igInputText(
+      "scene name",
+      buffer,
+      256,
+      0,
+      NULL,
+      NULL
+    );
+
+    igSeparator();
+
+    if (igSmallButton("Save as")) {
+      save_scene(manager, buffer);
+      load_scene(manager, buffer);
+      igCloseCurrentPopup();
+      saveAsScenePopupOpen = 0;
+    }
+
+    igSameLine(0, 5);
+
+    if (igSmallButton("Cancel")) {
+      igCloseCurrentPopup();
+      saveAsScenePopupOpen = 0;
+    }
+
+    igEndPopup();
+  }
 }
 
 void load_scene_gui() {
@@ -480,7 +522,7 @@ void load_scene_gui() {
     igOpenPopup("Load scene");
 
   if (igBeginPopupModal("Load scene", NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
-    static char buffer[256] = "scenes/level_1.json";
+    static char buffer[256] = "scenes/level_?_?.json";
     igInputText(
       "scene name",
       buffer,
