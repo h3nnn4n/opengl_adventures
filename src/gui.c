@@ -34,6 +34,8 @@ int fps_pivot = 0;
 int fps_avg_pivot = 0;
 int menu_file;
 
+_Bool loadScenePopupOpen = 0;
+
 void gui_init() {
   ctx = igCreateContext(NULL);
   io  = igGetIO();
@@ -122,10 +124,16 @@ void gui_update_camera(Camera *camera) {
 }
 
 void gui_main_menu() {
+  load_scene_gui();
+
   if (igBeginMainMenuBar()) {
     if (igBeginMenu("File", 1)) {
       if (igMenuItemBool("Save Scene", NULL, false, true)) save_scene_gui();
-      if (igMenuItemBool("Load Scene", NULL, false, true)) load_scene_gui();
+
+      if (igMenuItemBool("Load Scene", NULL, false, true)) {
+        loadScenePopupOpen = 1;
+      }
+
       if (igMenuItemBool("Reload Scene", NULL, false, true)) load_scene(manager, manager->current_scene_name);
       igSeparator();
       if (igMenuItemBool("Exit", NULL, false, true)) glfwSetWindowShouldClose(window, 1);
@@ -458,7 +466,37 @@ void save_scene_gui() {
 }
 
 void load_scene_gui() {
-  // TODO: Not important for now
+  if (loadScenePopupOpen)
+    igOpenPopup("Load scene");
+
+  if (igBeginPopupModal("Load scene", NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
+    static char buffer[256] = "scenes/level_1.json";
+    igInputText(
+      "scene name",
+      buffer,
+      256,
+      0,
+      NULL,
+      NULL
+    );
+
+    igSeparator();
+
+    if (igSmallButton("Load")) {
+      load_scene(manager, buffer);
+      igCloseCurrentPopup();
+      loadScenePopupOpen = 0;
+    }
+
+    igSameLine(0, 5);
+
+    if (igSmallButton("Cancel")) {
+      igCloseCurrentPopup();
+      loadScenePopupOpen = 0;
+    }
+
+    igEndPopup();
+  }
 }
 
 void toggle(bool *value) {
