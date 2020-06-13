@@ -35,6 +35,11 @@ Camera* make_camera() {
   return camera;
 }
 
+void destroy_camera(Camera *camera) {
+  free(camera);
+  camera = NULL;
+}
+
 void update_camera_target(Camera *camera, float xoffset, float yoffset) {
   const float sensitivity = 0.1f;
   xoffset *= sensitivity;

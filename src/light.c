@@ -50,6 +50,7 @@ Light* make_light(LightType type) {
 void destroy_light(Light *light) {
   assert(light);
   free(light);
+  light = NULL;
 }
 
 void refresh_lights() {

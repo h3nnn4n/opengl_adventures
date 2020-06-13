@@ -15,6 +15,8 @@
 
 void load_scene(Manager *manager, char *scene_path) {
   Manager_destroy_entities(manager);
+  Manager_destroy_cameras(manager);
+  Manager_destroy_lights(manager);
 
   fprintf(stdout, "\n");
 

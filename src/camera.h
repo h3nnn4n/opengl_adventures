@@ -24,6 +24,7 @@ typedef struct {
 } Camera;
 
 Camera* make_camera();
+void destroy_camera(Camera *camera);
 void update_camera_target(Camera *camera, float xoffset, float yoffset);
 void update_camera_fov(Camera *camera, float xoffset, float yoffset);
 void update_camera_target(Camera *camera, float xoffset, float yoffset);

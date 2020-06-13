@@ -7,6 +7,7 @@
 #include "box.h"
 #include "camera.h"
 #include "entity.h"
+#include "light.h"
 #include "manager.h"
 #include "player.h"
 
@@ -80,6 +81,15 @@ void Manager_destroy_entity(Manager *manager, Entity *entity) {
   }
 }
 
+void Manager_destroy_camera(Manager *manager, Camera *camera) {
+  for (int i = 0; i < manager->camera_count; ++i) {
+    if (camera == manager->cameras[i]) {
+      destroy_camera(camera);
+      manager->cameras[i] = NULL;
+    }
+  }
+}
+
 void Manager_render_entities(Manager *manager) {
   assert(manager);
 
@@ -148,5 +158,27 @@ void Manager_destroy_entities(Manager *manager) {
     if (entity == NULL) continue;
 
     destroy_entity(entity);
+  }
+}
+
+void Manager_destroy_cameras(Manager *manager) {
+  for (int i = 0; i < manager->camera_count; ++i) {
+    Camera *camera = manager->cameras[i];
+    if (camera == NULL) continue;
+
+    destroy_camera(camera);
+  }
+
+  manager->camera_count = 0;
+}
+
+void Manager_destroy_lights(Manager *manager) {
+  if (directional_light != NULL) destroy_light(directional_light);
+  if (spot_light != NULL) destroy_light(spot_light);
+
+  for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
+    Light *light = point_lights[i];
+
+    if (light != NULL) free(light);
   }
 }
