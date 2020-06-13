@@ -43,17 +43,17 @@ void update_mouse_world_position() {
   mat4 inverse_projection;
   glm_mat4_inv(manager->active_camera->projection, inverse_projection);
 
-  vec4 ray_eye;
+  vec4 ray_eye = GLM_VEC4_ZERO_INIT;
   glm_mat4_mulv(inverse_projection, ray_clip, ray_eye);
   ray_eye[2] = -1;
   ray_eye[3] =  0;
   /*printf(" rayeye: %5.2f %5.2f %5.2f %5.2f \n",*/
       /*ray_eye[0], ray_eye[1], ray_eye[2], ray_eye[3]);*/
 
-  mat4 inverse_view;
+  mat4 inverse_view = GLM_MAT4_ZERO_INIT;
   glm_mat4_inv(manager->active_camera->view, inverse_view);
 
-  vec4 ray_world;
+  vec4 ray_world = GLM_VEC4_ZERO_INIT;
   glm_mat4_mulv(inverse_view, ray_eye, ray_world);
   glm_vec4_normalize(ray_world);
 

@@ -22,6 +22,10 @@ Entity* new_entity() {
   entity->deleted = 0;
   entity->type = BLOCK;
 
+  entity->model_path = NULL;
+  entity->frag_shader_path = NULL;
+  entity->vertex_shader_path = NULL;
+
   entity->shininess = 16;
 
   vec3 vec_one  = GLM_VEC3_ONE_INIT;
@@ -43,6 +47,10 @@ void destroy_entity(Entity *entity) {
   entity->deleted = 1;
 
   if (entity->data != NULL) free(entity->data);
+
+  if (entity->model_path != NULL) free(entity->model_path);
+  if (entity->frag_shader_path != NULL) free(entity->frag_shader_path);
+  if (entity->vertex_shader_path != NULL) free(entity->vertex_shader_path);
 
   free(entity);
 }

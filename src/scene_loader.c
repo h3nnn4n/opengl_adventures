@@ -61,6 +61,7 @@ void load_scene(Manager *manager, char *scene_path) {
   /*fprintf(stdout, "\n");*/
 
   cJSON_Delete(json);
+  free(json_file);
 }
 
 void load_camera(Manager *manager, cJSON *json) {
