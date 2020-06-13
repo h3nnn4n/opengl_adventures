@@ -15,7 +15,6 @@ using namespace std;
 class Model
 {
   public:
-    vector<Texture> textures_loaded;
     string path;
 
     Model(char *path);
@@ -30,7 +29,5 @@ class Model
     Mesh processMesh(aiMesh *mesh, const aiScene *scene);
     vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
 };
-
-unsigned int TextureFromFile(const char *path, const string &directory, string typeName);
 
 #endif
