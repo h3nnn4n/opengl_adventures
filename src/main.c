@@ -14,6 +14,7 @@
 #include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
+#include "game.h"
 #include "light.h"
 #include "main_render_pass.h"
 #include "manager.h"
@@ -110,6 +111,7 @@ int main() {
 
     // Entity stuff
     Manager_update_entities(manager);
+    game_logic(manager);
 
     // Camera
     Manager_update_active_camera_location(manager);

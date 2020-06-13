@@ -17,6 +17,7 @@ Manager* init_manager() {
   Manager* manager = malloc(sizeof(Manager));
 
   manager->game_mode = IN_GAME;
+  manager->game_state = PLAYING;
 
   manager->active_camera = NULL;
   manager->camera_count = 0;
@@ -122,6 +123,25 @@ Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type) {
     if (entity == NULL) continue;
 
     if (entity->type == type) return entity;
+  }
+
+  return NULL;
+}
+
+Entity* Manager_get_entity_by_type(Manager *manager, EntityType type, Entity *starting_entity) {
+  if (starting_entity == NULL) return Manager_get_first_entity_by_type(manager, type);
+
+  int found_last = false;
+
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
+    if (entity == starting_entity) {
+      found_last = true;
+      continue;
+    }
+
+    if (entity->type == type && found_last) return entity;
   }
 
   return NULL;

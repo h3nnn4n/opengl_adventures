@@ -13,6 +13,11 @@ typedef enum {
   EDITOR
 } GameMode;
 
+typedef enum {
+  PLAYING,
+  WON,
+} GameState;
+
 typedef struct {
   /////////////////
   // Stuff Stuff, aka HACK, aka being lazy
@@ -28,6 +33,7 @@ typedef struct {
   char *current_scene_name;
   char **scene_sequence;
   int current_scene_index;
+  int number_of_scenes;
 
   /////////////////
   // Camera Stuff
@@ -55,6 +61,7 @@ typedef struct {
   int max_entities;
 
   GameMode game_mode;
+  GameState game_state;
 } Manager;
 
 extern Manager* manager;
@@ -73,6 +80,8 @@ void Manager_update_entities(Manager *manager);
 void Manager_update_active_camera_location(Manager *manager);
 
 Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type);
+Entity* Manager_get_entity_by_type(Manager *manager, EntityType type, Entity *starting_entity);
+
 Entity* Manager_entity_at_position(Manager *manager, vec3 position);
 int Manager_has_entity_at_position(Manager *manager, vec3 position);
 

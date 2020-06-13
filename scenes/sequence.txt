@@ -1,4 +1,2 @@
 scenes/level_1.json
 scenes/level_2.json
-scenes/level_1.json
-scenes/level_2.json
