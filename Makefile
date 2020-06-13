@@ -24,10 +24,12 @@ LINKS = -Ldeps/glfw/build/src/ \
 				-Ldeps/assimp/build/code/ \
 				-Ldeps/cJSON/build/
 
-CPPFLAGS = -Wall -std=c++11 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
-CFLAGS = -Wall -std=c99 -O2 $(OPTIONS) $(LINKS) $(INCLUDES)
+CPPFLAGS = -Wall -std=c++11 $(OPTIMIZATION) $(OPTIONS) $(LINKS) $(INCLUDES)
+CFLAGS = -Wall -std=c99 $(OPTIMIZATION) $(OPTIONS) $(LINKS) $(INCLUDES)
 
-LDFLAGS = -O2 -Wl,-Ldeps/glfw/build/src/ -Ldeps/assimp/build/code/ -Ldeps/cJSON/build/
+OPTIMIZATION=-O0 -g
+
+LDFLAGS = $(OPTIMIZATION) -Wl,-Ldeps/glfw/build/src/ -Ldeps/assimp/build/code/ -Ldeps/cJSON/build/
 
 LIBS = -lm -lglfw -lpthread -ldl -lstdc++ -lassimp -lcjson
 
