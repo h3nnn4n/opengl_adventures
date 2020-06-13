@@ -82,6 +82,7 @@ void gui_render() {
 
   gui_main_menu();
   gui_update_fps();
+  gui_current_scene();
   gui_update_camera(manager->active_camera);
   gui_update_entity();
   gui_update_lights();
@@ -120,6 +121,15 @@ void gui_update_camera(Camera *camera) {
           camera->zoom);
   igText(buffer);
 
+  igEnd();
+}
+
+void gui_current_scene() {
+  if (!igBegin("Current Scene", NULL, 0)) return igEnd();
+
+  igText("scene name: %s", manager->current_scene_name);
+  igText("entity count: %d", manager->entity_count);
+  igText("max entities: %d", manager->max_entities);
   igEnd();
 }
 

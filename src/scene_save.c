@@ -197,6 +197,5 @@ void save_int(cJSON *json, const char* value_name, int value) {
 }
 
 void save_string(cJSON *json, const char* value_name, const char* value) {
-  assert(value);
   cJSON_AddStringToObject(json, value_name, value);
 }

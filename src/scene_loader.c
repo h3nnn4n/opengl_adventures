@@ -39,6 +39,7 @@ void load_scene(Manager *manager, char *scene_path) {
     }
   }
 
+  memset(manager->current_scene_name, 0, sizeof(char) * SCENE_NAME_BUFFER_SIZE);
   memcpy(manager->current_scene_name, scene_path, strlen(scene_path));
 
   /*printf("yay\n");*/

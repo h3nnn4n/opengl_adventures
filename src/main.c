@@ -21,6 +21,7 @@
 #include "player.h"
 #include "scene_loader.h"
 #include "scene_save.h"
+#include "scenes.h"
 #include "settings.h"
 #include "shader_c.h"
 #include "skybox.h"
@@ -75,9 +76,10 @@ int main() {
 
     manager->default_shader = shader;
     manager->default_shader_light = shader_light;
-  }
 
-  load_scene(manager, "scenes/test_scene.json");
+    load_scene_sequence(manager, "scenes/sequence.txt");
+    load_scene_number(manager, 0);
+  }
 
   glEnable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);

@@ -23,11 +23,13 @@ Manager* init_manager() {
   manager->max_cameras = 5;
   manager->cameras = malloc(sizeof(Camera*) * manager->max_cameras);
 
+  manager->scene_sequence = NULL;
+  manager->current_scene_index = 0;
+  manager->current_scene_name = malloc(sizeof(char) * SCENE_NAME_BUFFER_SIZE);
+
   manager->entity_count = 0;
   manager->max_entities = 500;
   manager->entities = malloc(sizeof(Entity*) * manager->max_entities);
-
-  manager->current_scene_name = malloc(sizeof(char) * SCENE_NAME_BUFFER_SIZE);
 
   memset(manager->cameras, 0, sizeof(Camera*) * manager->max_cameras);
   memset(manager->entities, 0, sizeof(Entity*) * manager->max_entities);

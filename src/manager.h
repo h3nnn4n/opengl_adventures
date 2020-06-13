@@ -26,6 +26,8 @@ typedef struct {
   // Scene Stuff
   //
   char *current_scene_name;
+  char **scene_sequence;
+  int current_scene_index;
 
   /////////////////
   // Camera Stuff
