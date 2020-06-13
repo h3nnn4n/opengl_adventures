@@ -20,6 +20,9 @@ int right_mouse_pressed;
 int ctrl_key_pressed;
 int alt_key_pressed;
 
+int f5_key_pressed;
+int f9_key_pressed;
+
 vec3 mouse_world_position;
 
 float lastX;
@@ -167,11 +170,23 @@ void processInput(GLFWwindow *window) {
   }
 
   if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_PRESS) {
-    load_scene(manager, manager->current_scene_name);
+    if (!f5_key_pressed) {
+      load_scene(manager, manager->current_scene_name);
+    }
+
+    f5_key_pressed = 1;
+  } else if (glfwGetKey(window, GLFW_KEY_F5) == GLFW_RELEASE) {
+    f5_key_pressed = 0;
   }
 
   if (glfwGetKey(window, GLFW_KEY_F9) == GLFW_PRESS) {
-    save_scene(manager, manager->current_scene_name);
+    if (!f9_key_pressed) {
+      save_scene(manager, manager->current_scene_name);
+    }
+
+    f9_key_pressed = 1;
+  } else if (glfwGetKey(window, GLFW_KEY_F9) == GLFW_RELEASE) {
+    f9_key_pressed = 0;
   }
 
   if (manager->game_mode == FREE_CAMERA || manager->game_mode == EDITOR) {
