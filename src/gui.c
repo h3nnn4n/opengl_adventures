@@ -501,7 +501,7 @@ void save_as_scene_gui() {
     igOpenPopup("Save Scene as");
 
   if (igBeginPopupModal("Save Scene as", NULL, ImGuiWindowFlags_AlwaysAutoResize)) {
-    static char buffer[256] = "scenes/level_?_?json";
+    static char buffer[256] = "scenes/level_?_?.json";
     igInputText(
       "scene name",
       buffer,
