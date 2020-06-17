@@ -27,7 +27,6 @@ void check_scene_win_conditions(Manager *manager) {
          target = Manager_get_entity_by_type(manager, TARGET, target)) {
 
       if (target && glm_vec3_eqv_eps(box->position, target->position)) {
-        printf("win\n");
         checked = true;
         break;
       }

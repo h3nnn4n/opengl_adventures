@@ -1,8 +1,10 @@
+#include <assert.h>
 #include <stdio.h>
 #include <math.h>
 
 #include <cglm/cglm.h>
 
+#include "box.h"
 #include "editor.h"
 #include "entity.h"
 #include "manager.h"
@@ -55,4 +57,38 @@ void clear_blocks(Manager *manager) {
   load_model(entity, "assets/cube/cube.obj");
 
   Manager_add_entity(manager, entity);
+}
+
+void change_entity_type_type(Entity *entity, EntityType type) {
+  printf("%d %d\n", entity->type, type);
+
+  if (entity->type == type) return;
+
+  entity->type = type;
+
+  switch (type) {
+    case BOX:
+      if (entity->data != NULL) free(entity->data);
+
+      BoxData *box_data = malloc(sizeof(BoxData));
+      assert(box_data);
+      entity->data = box_data;
+
+      box_data->state = STOPPED;
+      box_data->move_direction = LEFT;
+
+      break;
+
+    case BLOCK:
+      if (entity->data != NULL) free(entity->data);
+      break;
+
+    case TARGET:
+      if (entity->data != NULL) free(entity->data);
+      break;
+
+    case PLAYER:
+      assert(false); // TODO
+      break;
+  }
 }

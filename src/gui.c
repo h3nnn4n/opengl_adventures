@@ -363,6 +363,13 @@ void gui_update_entity() {
 
       selected_entity.entity = NULL;
     }
+
+    igText("Change entity type to:");
+    if (igSmallButton("BLOCK")) change_entity_type_type(entity, BLOCK);
+    igSameLine(0, 5);
+    if (igSmallButton("BOX")) change_entity_type_type(entity, BOX);
+    igSameLine(0, 5);
+    if (igSmallButton("TARGET")) change_entity_type_type(entity, TARGET);
   } else {
     igText("Nothing selected");
     igText("Use left ctrl + left mouse click to select");
