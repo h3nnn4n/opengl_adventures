@@ -229,7 +229,11 @@ void load_player_data(cJSON *json_entity, Entity *entity) {
   entity->data = player_data;
 
   load_int(json_player_data, "state", (int*)&player_data->state);
-  assert(player_data->state == IDLE || player_data->state == MOVING);
+  assert(
+    player_data->state == IDLE ||
+    player_data->state == MOVING ||
+    player_data->state == FALLING
+  );
 
   load_int(json_player_data, "move_direction", (int*)&player_data->move_direction);
 

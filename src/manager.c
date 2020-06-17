@@ -156,6 +156,8 @@ Entity* Manager_get_entity_by_type(Manager *manager, EntityType type, Entity *st
 }
 
 void Manager_update_entities(Manager *manager) {
+  if (manager->game_mode == EDITOR) return;
+
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
     if (entity == NULL) continue;
