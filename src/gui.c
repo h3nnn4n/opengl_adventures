@@ -172,6 +172,7 @@ void gui_main_menu() {
     }
 
     if (igBeginMenu("Edit", 1)) {
+      igEndMenu();
     }
 
     igEndMainMenuBar();
