@@ -89,6 +89,8 @@ void gui_render() {
   gui_update_lights();
   gui_mouse();
   gui_fbo_clickcolor();
+  gui_tools();
+
 
   igRender();
   ImGui_ImplOpenGL3_RenderDrawData(igGetDrawData());
@@ -125,12 +127,23 @@ void gui_update_camera(Camera *camera) {
   igEnd();
 }
 
+int entity_gap_count(Manager *manager) {
+  int count = 0;
+
+  for (int i = 0; i < manager->entity_count; ++i) {
+    if (manager->entities[i] == NULL) count += 1;
+  }
+
+  return count;
+}
+
 void gui_current_scene() {
   if (!igBegin("Current Scene", NULL, 0)) return igEnd();
 
   igText("scene name: %s", manager->current_scene_name);
   igText("entity count: %d", manager->entity_count);
   igText("max entities: %d", manager->max_entities);
+  igText("gap count: %d", entity_gap_count(manager));
   igEnd();
 }
 
@@ -549,6 +562,16 @@ void load_scene_gui() {
 
     igEndPopup();
   }
+}
+
+void gui_tools() {
+  if (!igBegin("Tools", NULL, 0)) return igEnd();
+
+  if (igSmallButton("Clear Blocks")) {
+    clear_blocks(manager);
+  }
+
+  igEnd();
 }
 
 void toggle(bool *value) {

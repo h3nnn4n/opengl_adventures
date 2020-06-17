@@ -11,7 +11,7 @@ uniform float mode;
 
 void main() {
   vec4 color = vec4(color_id, 1.0);
-  vec4 normal = vec4(Normal, 1.0);
+  vec4 normal = vec4(Normal * 0.5 + 0.5, 1.0);
 
   FragColor = mode * normal + (1.0f - mode) * color;
 }

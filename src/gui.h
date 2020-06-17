@@ -34,6 +34,7 @@ void gui_mouse();
 void gui_fbo_clickcolor();
 void gui_update_lights();
 void gui_main_menu();
+void gui_tools();
 
 void save_as_scene_gui();
 void load_scene_gui();

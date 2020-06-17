@@ -69,6 +69,14 @@ void Manager_add_entity(Manager *manager, Entity *entity) {
   assert(manager);
   assert(entity);
 
+  for (int i = 0; i < manager->entity_count; ++i) {
+    if (manager->entities[i] != NULL) continue;
+
+    manager->entities[i] = entity;
+    /*printf("foudn a gap at %p %i\n", manager->entities[i], i);*/
+    return;
+  }
+
   assert(manager->entity_count < manager->max_entities);
 
   manager->entities[manager->entity_count] = entity;
@@ -180,6 +188,9 @@ void Manager_destroy_entities(Manager *manager) {
     if (entity == NULL) continue;
 
     destroy_entity(entity);
+
+    entity->deleted = 1;
+    manager->entities[entity_index] = NULL;
   }
 }
 

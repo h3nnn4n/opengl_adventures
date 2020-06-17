@@ -48,6 +48,13 @@ void clickcolor_event() {
 
   selected_entity.entity = best_match;
 
+  glm_vec3_subs(normal, 0.5, normal);
+  glm_vec3_scale(normal, 2.0, normal);
+
+  for (int i = 0; i < 3; i++) {
+    normal[i] = round(normal[i]);
+  }
+
   glm_vec3_copy(normal, selected_entity.normal);
 
   selected_entity.screen_click_position[0] = lastX;
@@ -57,6 +64,8 @@ void clickcolor_event() {
 void generate_color_id(Entity *entity) {
   float distance_threshold = 0.005;
   float distance;
+
+  int retry_count = 0;
 
   do {
     entity->color_id[0] = stb_frand();
@@ -68,6 +77,7 @@ void generate_color_id(Entity *entity) {
     for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
       Entity *entity_ = manager->entities[entity_index];
       if (entity_ == NULL) continue;
+      if (entity_ == entity) continue;
 
       float new_distance = glm_vec3_distance(entity->color_id, entity_->color_id);
 
@@ -75,5 +85,7 @@ void generate_color_id(Entity *entity) {
         distance = new_distance;
       }
     }
-  } while (distance < distance_threshold && manager->entity_count > 0);
+
+    retry_count += 1;
+  } while (distance < distance_threshold && manager->entity_count > 1);
 }
