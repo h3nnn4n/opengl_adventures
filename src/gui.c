@@ -6,6 +6,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "box.h"
 #include "camera.h"
 #include "clickcolor_rendering.h"
 #include "editor.h"
@@ -326,6 +327,44 @@ void gui_update_entity() {
             break;
           case FALLING:
             igText("state: FALLING");
+            break;
+        }
+
+        switch (data->move_direction) {
+          case LEFT:
+            igText("move_direction: LEFT");
+            break;
+          case RIGHT:
+            igText("move_direction: RIGHT");
+            break;
+          case FRONT:
+            igText("move_direction: FRONT");
+            break;
+          case BACK:
+            igText("move_direction: BACK");
+            break;
+          default:
+            igText("move_direction: %d", data->move_direction);
+            break;
+        }
+
+        igSliderFloat("progress", &data->progress, 0, 1, "%f", 1);
+        igSliderFloat("move_speed", &data->move_speed, 0, 10, "%4.2f", 1);
+
+        igSliderFloat3("current_grid_pos", (float*)data->current_grid_pos, -10, 10, "%4.2f", 1);
+        igSliderFloat3("moving_to_grid_pos", (float*)data->moving_to_grid_pos, -10, 10, "%4.2f", 1);
+      } else if (entity->type == BOX) {
+        BoxData *data = entity->data;
+
+        switch (data->state) {
+          case STOPPED:
+            igText("state: STOPPED");
+            break;
+          case BEING_PUSHED:
+            igText("state: BEING_PUSHED");
+            break;
+          case BOX_FALLING:
+            igText("state: BOX_FALLING");
             break;
         }
 
