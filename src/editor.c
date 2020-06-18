@@ -73,9 +73,7 @@ void change_entity_type_type(Entity *entity, EntityType type) {
       BoxData *box_data = malloc(sizeof(BoxData));
       assert(box_data);
       entity->data = box_data;
-
-      box_data->state = STOPPED;
-      box_data->move_direction = LEFT;
+      memset(box_data, 0, sizeof(BoxData));
 
       break;
 
