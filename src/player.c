@@ -82,7 +82,7 @@ void move_player(Manager *manager, Direction direction) {
 
       bdata->state = BEING_PUSHED;
       bdata->progress = 1;
-      bdata->move_speed = bdata->move_speed;
+      bdata->move_speed = data->move_speed;
 
       bdata->current_grid_pos[0] = round(obstacle->position[0]);
       bdata->current_grid_pos[1] = round(obstacle->position[1]);
