@@ -1,22 +1,22 @@
 {
 	"camera":	{
-		"pitch":	-65.400382995605469,
-		"yaw":	-95.7014694213867,
+		"pitch":	-58.000492095947266,
+		"yaw":	-78.101722717285156,
 		"zoom":	29,
 		"position":	{
-			"x":	-1.110964298248291,
-			"y":	19.220266342163086,
-			"z":	7.3067913055419922
+			"x":	-4.574181079864502,
+			"y":	16.470848083496094,
+			"z":	8.82948875427246
 		},
 		"front":	{
-			"x":	-0.041354924440383911,
-			"y":	-0.909238874912262,
-			"z":	-0.414215475320816
+			"x":	0.10925447940826416,
+			"y":	-0.848052740097046,
+			"z":	-0.51852697134017944
 		},
 		"target":	{
-			"x":	-1.1523191928863525,
-			"y":	18.311027526855469,
-			"z":	6.89257574081421
+			"x":	-4.4649267196655273,
+			"y":	15.622795104980469,
+			"z":	8.3109617233276367
 		},
 		"up":	{
 			"x":	0,
@@ -24,9 +24,9 @@
 			"z":	0
 		},
 		"right":	{
-			"x":	0.99505311250686646,
-			"y":	0,
-			"z":	-0.0993451699614525
+			"x":	0.97851520776748657,
+			"y":	-0,
+			"z":	0.20617450773715973
 		}
 	},
 	"lights":	[{
@@ -454,7 +454,7 @@
 			"position":	{
 				"x":	-3,
 				"y":	1,
-				"z":	1
+				"z":	-1
 			},
 			"scale":	{
 				"x":	1,
@@ -479,18 +479,18 @@
 			},
 			"player_data":	{
 				"state":	0,
-				"move_direction":	2,
+				"move_direction":	0,
 				"current_grid_pos":	{
-					"x":	-2,
+					"x":	-3,
 					"y":	1,
-					"z":	1
+					"z":	0
 				},
 				"moving_to_grid_pos":	{
 					"x":	-3,
 					"y":	1,
-					"z":	1
+					"z":	-1
 				},
-				"progress":	-9.918212890625e-05,
+				"progress":	-0.0831451416015625,
 				"move_speed":	5
 			}
 		}, {
@@ -1273,16 +1273,16 @@
 				"state":	0,
 				"move_direction":	2,
 				"current_grid_pos":	{
-					"x":	-2,
+					"x":	-1,
 					"y":	1,
 					"z":	1
 				},
 				"moving_to_grid_pos":	{
-					"x":	-3,
+					"x":	-2,
 					"y":	1,
 					"z":	1
 				},
-				"progress":	-0.10000000149011612,
+				"progress":	-0.00069522857666015625,
 				"move_speed":	5
 			}
 		}, {
@@ -1312,6 +1312,762 @@
 					"z":	0
 				},
 				"shininess":	4.3686008453369141
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-4,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-4,
+				"y":	1,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-4,
+				"y":	1,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-4,
+				"y":	1,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-4,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-3,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-2,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-1,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	0,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	1,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	2,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-3,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-2,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	-1,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	0,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	1,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	2,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	0,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	1,
+				"z":	-2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	1,
+				"z":	-1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	1,
+				"z":	0
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	1,
+				"z":	1
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
+			}
+		}, {
+			"type":	0,
+			"active":	1,
+			"deleted":	0,
+			"position":	{
+				"x":	3,
+				"y":	1,
+				"z":	2
+			},
+			"scale":	{
+				"x":	1,
+				"y":	1,
+				"z":	1
+			},
+			"rotation":	{
+				"x":	0,
+				"y":	0,
+				"z":	0
+			},
+			"model_path":	"assets/cube/cube.obj",
+			"material":	{
+				"color":	{
+					"x":	1,
+					"y":	1,
+					"z":	1
+				},
+				"shininess":	16
 			}
 		}]
 }
