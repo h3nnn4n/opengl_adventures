@@ -63,7 +63,10 @@ void move_player(Manager *manager, Direction direction) {
 
   glm_vec3_add(data->moving_to_grid_pos, offset, data->moving_to_grid_pos);
 
-  Entity *obstacle = Manager_entity_at_position(manager, data->moving_to_grid_pos);
+  Entity *obstacle = Manager_entity_at_position_of_type(manager, data->moving_to_grid_pos, BOX);
+
+  if (obstacle == NULL)
+    obstacle = Manager_entity_at_position_of_type(manager, data->moving_to_grid_pos, BLOCK);
 
   int cant_move = (
     obstacle != NULL && (

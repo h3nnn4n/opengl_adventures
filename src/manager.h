@@ -83,7 +83,10 @@ Entity* Manager_get_first_entity_by_type(Manager *manager, EntityType type);
 Entity* Manager_get_entity_by_type(Manager *manager, EntityType type, Entity *starting_entity);
 
 Entity* Manager_entity_at_position(Manager *manager, vec3 position);
+Entity* Manager_next_entity_at_position(Manager *manager, vec3 position, Entity *last_entity);
+Entity* Manager_entity_at_position_of_type(Manager *manager, vec3 position, EntityType type);
 int Manager_has_entity_at_position(Manager *manager, vec3 position);
+int Manager_entity_at_position_count(Manager *manager, vec3 position);
 
 void Manager_destroy_entity(Manager *manager, Entity *entity);
 void Manager_destroy_entities(Manager *manager);

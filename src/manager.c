@@ -171,12 +171,59 @@ int Manager_has_entity_at_position(Manager *manager, vec3 position) {
   return Manager_entity_at_position(manager, position) != NULL;
 }
 
+int Manager_entity_at_position_count(Manager *manager, vec3 position) {
+  int count = 0;
+
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
+
+    if (glm_vec3_eqv_eps(entity->position, position)) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
 Entity* Manager_entity_at_position(Manager *manager, vec3 position) {
   for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
     Entity *entity = manager->entities[entity_index];
     if (entity == NULL) continue;
 
     if (glm_vec3_eqv_eps(entity->position, position)) {
+      return entity;
+    }
+  }
+
+  return NULL;
+}
+
+Entity* Manager_entity_at_position_of_type(Manager *manager, vec3 position, EntityType type) {
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
+
+    if (entity->type == type && glm_vec3_eqv_eps(entity->position, position)) {
+      return entity;
+    }
+  }
+
+  return NULL;
+}
+
+Entity* Manager_next_entity_at_position(Manager *manager, vec3 position, Entity *last_entity) {
+  int found_first = 0;
+
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+    if (entity == NULL) continue;
+    if (entity == last_entity) {
+      found_first = 1;
+      continue;
+    }
+
+    if (found_first && glm_vec3_eqv_eps(entity->position, position)) {
       return entity;
     }
   }
