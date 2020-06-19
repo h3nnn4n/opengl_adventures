@@ -8,12 +8,13 @@
 #include "directional_shadow.h"
 #include "light.h"
 #include "manager.h"
+#include "settings.h"
 #include "shader_c.h"
 
 unsigned int depthMapFBO;
 unsigned int depthMap;
 
-const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
+unsigned int shadow_map_scale = 4;
 
 Shader *shader_directional_shadow;
 
@@ -25,7 +26,8 @@ void build_directional_shadow_map() {
   glBindTexture(GL_TEXTURE_2D, depthMap);
 
   glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
-               SHADOW_WIDTH, SHADOW_HEIGHT, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+               WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale,
+               0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -51,7 +53,7 @@ void render_directional_shadow_map() {
 
   Shader_use(shader_directional_shadow);
 
-  glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
+  glViewport(0, 0, WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale);
   glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
   glClear(GL_DEPTH_BUFFER_BIT);
 

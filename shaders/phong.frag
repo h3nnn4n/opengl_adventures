@@ -13,10 +13,10 @@ float ShadowCalculation(vec4 fragPosLightSpace) {
 
   float bias = 0.0025f;
   float shadow = 0.0;
-  vec2 texelSize = 0.75f / textureSize(shadowMap, 0);
-
-  int sample_range = 3;
+  int sample_range = 5;
   float sample_count = 0.0f;
+
+  vec2 texelSize = 0.25f / textureSize(shadowMap, 0);
 
   for (int x = -sample_range; x <= sample_range; ++x) {
     for (int y = -sample_range; y <= sample_range; ++y) {
