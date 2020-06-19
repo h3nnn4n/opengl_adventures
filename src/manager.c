@@ -255,12 +255,21 @@ void Manager_destroy_cameras(Manager *manager) {
 }
 
 void Manager_destroy_lights(Manager *manager) {
-  if (directional_light != NULL) destroy_light(directional_light);
-  if (spot_light != NULL) destroy_light(spot_light);
+  if (directional_light != NULL) {
+    destroy_light(directional_light);
+    directional_light = NULL;
+  }
+  if (spot_light != NULL) {
+    destroy_light(spot_light);
+    spot_light = NULL;
+  }
 
   for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
     Light *light = point_lights[i];
 
-    if (light != NULL) free(light);
+    if (light != NULL) {
+      free(light);
+      point_lights[i] = NULL;
+    }
   }
 }
