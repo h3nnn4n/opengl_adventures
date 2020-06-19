@@ -12,6 +12,8 @@ float ShadowCalculation(vec4 fragPosLightSpace) {
   float bias = 0.0005f;
   float shadow = currentDepth - bias > closestDepth  ? 1.0 : 0.0;
 
+  if (projCoords.z > 1.0) shadow = 0.0;
+
   return shadow;
 }
 
