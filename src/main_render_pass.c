@@ -3,15 +3,18 @@
 
 #include "camera.h"
 #include "clickcolor_rendering.h"
+#include "directional_shadow.h"
 #include "entity.h"
 #include "gui.h"
 #include "input_handling.h"
 #include "light.h"
 #include "manager.h"
+#include "settings.h"
 #include "shader_c.h"
 
 void main_render_pass() {
   // Bind to screen buffer
+  glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
   glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
   // Clear screen
@@ -25,6 +28,8 @@ void main_render_pass() {
   }
 
   Shader_use(manager->default_shader);
+
+  bind_directional_shadow_map(manager->default_shader);
 
   // Lights
   refresh_lights();

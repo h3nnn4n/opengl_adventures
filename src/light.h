@@ -15,6 +15,10 @@ typedef enum {
 } LightType;
 
 typedef struct {
+  mat4 shadow_projection;
+  mat4 shadow_view;
+  mat4 light_space_matrix;
+
   vec3 position;
   vec3 direction;
 

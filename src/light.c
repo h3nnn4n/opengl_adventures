@@ -20,6 +20,11 @@ Light* make_light(LightType type) {
 
   light->light_type = type;
 
+  mat4 identity = GLM_MAT4_IDENTITY_INIT;
+  glm_mat4_copy(identity, light->shadow_projection);
+  glm_mat4_copy(identity, light->shadow_view);
+  glm_mat4_copy(identity, light->light_space_matrix);
+
   vec3 tmp = GLM_VEC3_ZERO_INIT;
 
   glm_vec3_copy(tmp, light->position);
@@ -115,6 +120,8 @@ void refresh_light(Light *light) {
       Shader_set_int(shader, "dirLight.active", light->active);
 
       if (!light->active) return;
+
+      Shader_set_matrix4(shader, "lightSpaceMatrix", (float*)light->light_space_matrix);
 
       Shader_set_vec3(shader, "dirLight.direction", (float*)light->direction);
       Shader_set_vec3(shader, "dirLight.ambient", (float*)light->ambient);

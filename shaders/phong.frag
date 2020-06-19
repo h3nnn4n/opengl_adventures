@@ -1,3 +1,20 @@
+float ShadowCalculation(vec4 fragPosLightSpace) {
+  // perform perspective divide
+  vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+
+  // transform to [0,1] range
+  projCoords = projCoords * 0.5 + 0.5;
+
+  float closestDepth = texture(shadowMap, projCoords.xy).r;
+
+  float currentDepth = projCoords.z;
+
+  float bias = 0.0005f;
+  float shadow = currentDepth - bias > closestDepth  ? 1.0 : 0.0;
+
+  return shadow;
+}
+
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir) {
   if (light.active == 0) return vec3(0, 0, 0);
 
@@ -15,7 +32,9 @@ vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir) {
   vec3 diffuse  = light.diffuse  * diff * vec3(texture(material.texture_diffuse, TexCoords));
   vec3 specular = light.specular * spec * vec3(texture(material.texture_specular, TexCoords));
 
-  return (ambient + diffuse + specular);
+  float shadow = ShadowCalculation(FragPosLightSpace);
+
+  return (ambient + (1.0 - shadow) * (diffuse + specular));
 }
 
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {

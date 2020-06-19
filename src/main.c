@@ -11,10 +11,11 @@
 
 #include "camera.h"
 #include "clickcolor_rendering.h"
+#include "directional_shadow.h"
 #include "entity.h"
+#include "game.h"
 #include "gui.h"
 #include "input_handling.h"
-#include "game.h"
 #include "light.h"
 #include "main_render_pass.h"
 #include "manager.h"
@@ -89,6 +90,8 @@ int main() {
   glEnable(GL_MULTISAMPLE);
 #endif
 
+  build_directional_shadow_map();
+
   glCullFace(GL_BACK);
 
   build_clickcolor_framebuffer();
@@ -118,6 +121,7 @@ int main() {
 
     // Render calls
     clickcolor_render_pass();
+    render_directional_shadow_map();
     main_render_pass();
     render_skybox();
     gui_render();

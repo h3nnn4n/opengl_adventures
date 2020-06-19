@@ -118,6 +118,24 @@ void Manager_render_entities(Manager *manager) {
   }
 }
 
+void Manager_render_entities_with_shader(Manager *manager, Shader *shader) {
+  assert(manager);
+  assert(shader);
+
+  for (int entity_index = 0; entity_index < manager->entity_count; ++entity_index) {
+    Entity *entity = manager->entities[entity_index];
+
+    if (entity == NULL) continue;
+    if (!entity->active) continue;
+    if (entity->deleted) continue;
+
+    update_camera_projection_matrix(manager->active_camera, entity->shader);
+    update_camera_view_matrix(manager->active_camera, entity->shader);
+
+    draw_entity_with_shader(entity, shader);
+  }
+}
+
 void Manager_update_active_camera_location(Manager *manager) {
   assert(manager);
   assert(manager->active_camera);
