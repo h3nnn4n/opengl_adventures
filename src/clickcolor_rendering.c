@@ -83,7 +83,8 @@ void build_clickcolor_color_id_framebuffer() {
 
   if (shader_colorclicker == NULL)
     shader_colorclicker = newShader("shaders/clickcolor/shader.vert",
-                                    "shaders/clickcolor/shader.frag");
+                                    "shaders/clickcolor/shader.frag",
+                                    NULL);
 }
 
 void build_clickcolor_normals_framebuffer() {
@@ -113,5 +114,6 @@ void build_clickcolor_normals_framebuffer() {
 
   if (shader_colorclicker == NULL)
     shader_colorclicker = newShader("shaders/clickcolor/shader.vert",
-                                    "shaders/clickcolor/shader.frag");
+                                    "shaders/clickcolor/shader.frag",
+                                    NULL);
 }

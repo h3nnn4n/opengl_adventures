@@ -6,8 +6,8 @@
 #include <stb.h>
 
 #include "camera.h"
-#include "settings.h"
 #include "manager.h"
+#include "settings.h"
 #include "utils.h"
 
 Camera* make_camera() {
@@ -114,9 +114,9 @@ void update_camera_position(Camera *camera, Direction direction) {
 void update_camera_projection_matrix(Camera *camera, Shader *shader) {
   glm_perspective(
     deg2rad(camera->zoom),
-    (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT,
-    1,
-    100,
+    aspect_ratio,
+    near_plane,
+    far_plane,
     camera->projection
   );
 

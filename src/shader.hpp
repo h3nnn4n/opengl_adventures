@@ -15,8 +15,11 @@ class Shader
 
     std::string vertexPath;
     std::string fragmentPath;
+    std::string geometryPath;
 
-    Shader(const char* vertexPath, const char* fragmentPath);
+    bool useGeometryShader;
+
+    Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath);
 
     void use();
 
@@ -33,7 +36,7 @@ class Shader
     int inotify_fd;
 
     void checkCompileErrors(GLuint shader, std::string type, std::string extra);
-    void load(const char* vertexPath, const char* fragmentPath);
+    void load(const char* vertexPath, const char* fragmentPath, const char* geometryPath);
 };
 
 #endif

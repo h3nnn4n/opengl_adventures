@@ -21,6 +21,7 @@
 #include "manager.h"
 #include "model_c.h"
 #include "player.h"
+#include "point_light_shadow.h"
 #include "scene_loader.h"
 #include "scene_save.h"
 #include "scenes.h"
@@ -73,8 +74,8 @@ int main() {
   {
     manager = init_manager();
 
-    Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag");
-    Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag");
+    Shader *shader = newShader("shaders/shader.vert", "shaders/phong_material.frag", NULL);
+    Shader *shader_light = newShader("shaders/shader.vert", "shaders/light_obj.frag", NULL);
 
     manager->default_shader = shader;
     manager->default_shader_light = shader_light;
@@ -83,6 +84,7 @@ int main() {
     load_scene_number(manager, 0);
   }
 
+  glCullFace(GL_BACK);
   glEnable(GL_CULL_FACE);
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_FRAMEBUFFER_SRGB);
@@ -90,11 +92,9 @@ int main() {
   glEnable(GL_MULTISAMPLE);
 #endif
 
-  build_directional_shadow_map();
-
-  glCullFace(GL_BACK);
-
   build_clickcolor_framebuffer();
+  build_directional_shadow_map(directional_light);
+  build_pointlight_shadow_maps();
   make_skybox();
 
   ////////////////////////
@@ -121,9 +121,10 @@ int main() {
 
     // Render calls
     clickcolor_render_pass();
-    render_directional_shadow_map();
+    /*render_directional_shadow_map(directional_light);*/
+    render_pointlight_shadow_maps();
     main_render_pass();
-    render_skybox();
+    /*render_skybox();*/
     gui_render();
 
     // Draw to screen

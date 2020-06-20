@@ -108,7 +108,7 @@ void make_skybox() {
   glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
   glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-  shader_skybox = newShader("shaders/skybox/shader.vert", "shaders/skybox/shader.frag");
+  shader_skybox = newShader("shaders/skybox/shader.vert", "shaders/skybox/shader.frag", NULL);
 
   Shader_use(shader_skybox);
   Shader_set_int(shader_skybox, "skybox", 0);

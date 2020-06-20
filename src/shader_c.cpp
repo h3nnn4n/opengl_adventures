@@ -2,8 +2,8 @@
 #include "shader_c.h"
 
 extern "C" {
-  Shader* newShader(const char* vertexPath, const char* fragmentPath) {
-    return new Shader(vertexPath, fragmentPath);
+  Shader* newShader(const char* vertexPath, const char* fragmentPath, const char* geometryPath) {
+    return new Shader(vertexPath, fragmentPath, geometryPath);
   }
 
   void Shader_reload_changes(Shader* shader) {

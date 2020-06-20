@@ -25,6 +25,11 @@ Light* make_light(LightType type) {
   glm_mat4_copy(identity, light->shadow_view);
   glm_mat4_copy(identity, light->light_space_matrix);
 
+  for (int i = 0; i < 6; ++i) {
+    glm_mat4_copy(identity, light->shadow_views[i]);
+    glm_mat4_copy(identity, light->light_space_matrixes[i]);
+  }
+
   vec3 tmp = GLM_VEC3_ZERO_INIT;
 
   glm_vec3_copy(tmp, light->position);
@@ -48,6 +53,9 @@ Light* make_light(LightType type) {
 
   light->shader = NULL;
   light->active = 0;
+
+  light->depthMapFBO = -1;
+  light->depthMap = -1;
 
   return light;
 }
@@ -139,6 +147,12 @@ void refresh_light(Light *light) {
         Shader_set_int(shader, buffer, light->active);
 
         if (!light->active) return;
+
+        if (light_index == 2)
+          for (int i = 0; i < 6; ++i) {
+            sprintf(buffer, "shadowMatrices[%d]", i);
+            Shader_set_matrix4(shader, buffer, (float*)light->light_space_matrixes[i]);
+          }
 
         sprintf(buffer, "pointLights[%d].position", light_index);
         Shader_set_vec3(shader, buffer, (float*)light->position);

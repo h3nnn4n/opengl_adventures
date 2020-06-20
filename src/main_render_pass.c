@@ -9,6 +9,7 @@
 #include "input_handling.h"
 #include "light.h"
 #include "manager.h"
+#include "point_light_shadow.h"
 #include "settings.h"
 #include "shader_c.h"
 
@@ -29,7 +30,8 @@ void main_render_pass() {
 
   Shader_use(manager->default_shader);
 
-  bind_directional_shadow_map(manager->default_shader);
+  /*bind_directional_shadow_map(manager->default_shader, directional_light);*/
+  bind_pointlight_shadow_map(manager->default_shader, point_lights[2]);
 
   // Lights
   refresh_lights();

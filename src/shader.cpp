@@ -17,11 +17,20 @@ void check_inotify_errors(int return_value) {
   }
 }
 
-Shader::Shader(const char* vertexPath, const char* fragmentPath) {
+Shader::Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath) {
+  useGeometryShader = geometryPath != NULL;
+
   this->vertexPath.assign(vertexPath);
   this->fragmentPath.assign(fragmentPath);
 
-  std::cout << "Loading " << vertexPath << " - " << fragmentPath << std::endl;
+  if (useGeometryShader) this->geometryPath.assign(geometryPath);
+
+  std::cout << "Loading " << vertexPath   << " - "
+                          << fragmentPath;
+
+  if (useGeometryShader) std::cout << " - " << geometryPath << std::endl;
+
+  std::cout << std::endl;
 
   inotify_fd = inotify_init1(IN_NONBLOCK);
 
@@ -31,9 +40,12 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     check_inotify_errors(inotify_add_watch(inotify_fd, vertexPath, IN_MODIFY));
     check_inotify_errors(inotify_add_watch(inotify_fd, fragmentPath, IN_MODIFY));
     check_inotify_errors(inotify_add_watch(inotify_fd, "shaders/", IN_MODIFY));
+
+    if (useGeometryShader)
+      check_inotify_errors(inotify_add_watch(inotify_fd, geometryPath, IN_MODIFY));
   }
 
-  load(vertexPath, fragmentPath);
+  load(vertexPath, fragmentPath, geometryPath);
 }
 
 void Shader::reload_changes() {
@@ -47,43 +59,69 @@ void Shader::reload_changes() {
 
   if (length > 0) {
     std::cerr << "hot reloading shaders" << std::endl;
-    load(vertexPath.c_str(), fragmentPath.c_str());
+    load(vertexPath.c_str(), fragmentPath.c_str(), geometryPath.c_str());
   }
 }
 
-void Shader::load(const char* vertexPath, const char* fragmentPath) {
+void Shader::load(const char* vertexPath, const char* fragmentPath, const char* geometryPath) {
   Shadinclude preprocessor = Shadinclude();
+
   std::string vertexCode = preprocessor.load(vertexPath);
   std::string fragmentCode = preprocessor.load(fragmentPath);
+  std::string geometryCode;
+
+  if (useGeometryShader)
+    geometryCode = preprocessor.load(geometryPath);
 
   const char* vShaderCode = vertexCode.c_str();
   const char* fShaderCode = fragmentCode.c_str();
+  const char* gShaderCode = NULL;
 
-  unsigned int vertex, fragment;
+  if (useGeometryShader)
+    gShaderCode = geometryCode.c_str();
 
-  // vertex shader
-  vertex = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vertex, 1, &vShaderCode, NULL);
-  glCompileShader(vertex);
-  checkCompileErrors(vertex, "VERTEX", vertexPath);
+  unsigned int vertex;
+  unsigned int fragment;
+  unsigned int geometry;
 
-  // fragment Shader
-  fragment = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fragment, 1, &fShaderCode, NULL);
-  glCompileShader(fragment);
-  checkCompileErrors(fragment, "FRAGMENT", fragmentPath);
+  {
+    vertex = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertex, 1, &vShaderCode, NULL);
+    glCompileShader(vertex);
+    checkCompileErrors(vertex, "VERTEX", vertexPath);
+  }
+
+  {
+    fragment = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragment, 1, &fShaderCode, NULL);
+    glCompileShader(fragment);
+    checkCompileErrors(fragment, "FRAGMENT", fragmentPath);
+  }
+
+  // geometry Shader
+  if (useGeometryShader) {
+    geometry = glCreateShader(GL_GEOMETRY_SHADER);
+    glShaderSource(geometry, 1, &gShaderCode, NULL);
+    glCompileShader(geometry);
+    checkCompileErrors(geometry, "GEOMETRY", geometryPath);
+  }
 
   // shader Program
   ID = glCreateProgram();
   glAttachShader(ID, vertex);
   glAttachShader(ID, fragment);
 
+  if (useGeometryShader)
+    glAttachShader(ID, geometry);
+
   glLinkProgram(ID);
   checkCompileErrors(ID, "PROGRAM", "");
 
-  // delete the shaders as they're linked into our program now and no longer necessary
   glDeleteShader(vertex);
   glDeleteShader(fragment);
+
+  if (useGeometryShader)
+    glDeleteShader(geometry);
 }
 
 void Shader::use()

@@ -16,8 +16,10 @@ typedef enum {
 
 typedef struct {
   mat4 shadow_projection;
-  mat4 shadow_view;
+  mat4 shadow_view; // Used for directional lights
   mat4 light_space_matrix;
+  mat4 shadow_views[6]; // Used for pointlights lights
+  mat4 light_space_matrixes[6];
 
   vec3 position;
   vec3 direction;
@@ -39,8 +41,10 @@ typedef struct {
   Shader *shader;
   Shader *shader_light_obj;
 
-  int active;
+  unsigned int depthMapFBO;
+  unsigned int depthMap;
 
+  int active;
   int draw;
 
   Model *model;

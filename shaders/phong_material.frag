@@ -23,6 +23,8 @@ uniform mat4 view;
 uniform mat4 projection;
 
 uniform sampler2D shadowMap;
+uniform samplerCube shadowCube;
+uniform float far_plane;
 
 #include phong.frag
 
@@ -31,15 +33,19 @@ void main() {
   vec3 viewDir = normalize(viewPos - FragPos);
   vec3 result  = vec3(0, 0, 0);
 
-  result += CalcDirLight(dirLight, normal, viewDir);
+  //result += CalcDirLight(dirLight, normal, viewDir);
 
-  for(int i = 0; i < NR_POINT_LIGHTS; i++) {
-    result += CalcPointLight(pointLights[i], normal, FragPos, viewDir);
-  }
+  //for(int i = 0; i < NR_POINT_LIGHTS; i++) {
+    //result += CalcPointLight(pointLights[i], normal, FragPos, viewDir);
+  //}
 
-  result += CalcSpotLight(spotLight, normal, FragPos, viewDir);
+  //result += CalcSpotLight(spotLight, normal, FragPos, viewDir);
+
+  result += CalcPointLight(pointLights[2], normal, FragPos, viewDir);
 
   result *= material.color;
+
+  //result = CalcPointLightShadowDebug(FragPos, pointLights[2].position);
 
   FragColor = vec4(result, 1.0);
 }

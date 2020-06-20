@@ -7,7 +7,7 @@ extern "C" {
 
   typedef struct Shader Shader;
 
-  Shader* newShader(const char* vertexPath, const char* fragmentPath);
+  Shader* newShader(const char* vertexPath, const char* fragmentPath, const char* geometryPath);
 
   void Shader_reload_changes(Shader* shader);
 
