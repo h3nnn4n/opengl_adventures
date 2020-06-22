@@ -37,6 +37,7 @@ void build_directional_shadow_map(Light *light) {
   glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, light->depthMap, 0);
   glDrawBuffer(GL_NONE);
   glReadBuffer(GL_NONE);
+  glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
   shader_directional_shadow = newShader("shaders/directional_shadow/shader.vert",
                                         "shaders/directional_shadow/shader.frag",

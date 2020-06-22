@@ -27,7 +27,7 @@ void build_pointlight_shadow_maps() {
     if (light == NULL) continue;
     if (!light->active) continue;
 
-    printf("building light %d\n", i);
+    printf("%d\n", i);
     build_pointlight_shadow_map(light);
   }
 }
@@ -35,6 +35,8 @@ void build_pointlight_shadow_maps() {
 void build_pointlight_shadow_map(Light *light) {
   if (light == NULL) return;
   if (!light->active) return;
+
+  printf("building light %p %d\n", light, light->point_light_index);
 
   glGenFramebuffers(1, &light->depthMapFBO);
   glGenTextures(1, &light->depthMap);
@@ -56,6 +58,7 @@ void build_pointlight_shadow_map(Light *light) {
   glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, light->depthMap, 0);
   glDrawBuffer(GL_NONE);
   glReadBuffer(GL_NONE);
+  glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void render_pointlight_shadow_maps() {
