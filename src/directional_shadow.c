@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stddef.h>
 
 #include <glad/glad.h>
@@ -11,10 +12,11 @@
 #include "settings.h"
 #include "shader_c.h"
 
-Shader *shader_directional_shadow;
+Shader *shader_directional_shadow = NULL;
 
 void build_directional_shadow_map(Light *light) {
-  if (light == NULL) return;
+  assert(light);
+  /*if (light == NULL) return;*/
   if (!light->active) return;
 
   glGenFramebuffers(1, &light->depthMapFBO);
@@ -45,8 +47,10 @@ void build_directional_shadow_map(Light *light) {
 }
 
 void render_directional_shadow_map(Light *light) {
-  if (light == NULL) return;
+  assert(light);
+  /*if (light == NULL) return;*/
   if (!light->active) return;
+  assert(shader_directional_shadow != NULL);
 
   Shader_use(shader_directional_shadow);
 
@@ -90,7 +94,8 @@ void render_directional_shadow_map(Light *light) {
 }
 
 void bind_directional_shadow_map(Shader *shader, Light *light) {
-  if (light == NULL) return;
+  assert(light);
+  /*if (light == NULL) return;*/
   if (!light->active) return;
 
   glActiveTexture(GL_TEXTURE1);

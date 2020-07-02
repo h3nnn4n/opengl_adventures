@@ -30,8 +30,8 @@ void main_render_pass() {
 
   Shader_use(manager->default_shader);
 
-  /*bind_directional_shadow_map(manager->default_shader, directional_light);*/
-  bind_pointlight_shadow_map(manager->default_shader, point_lights[2]);
+  bind_directional_shadow_map(manager->default_shader, directional_light);
+  /*bind_pointlight_shadow_map(manager->default_shader, point_lights[2]);*/
 
   // Lights
   refresh_lights();

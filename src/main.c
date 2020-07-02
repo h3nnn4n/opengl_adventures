@@ -94,7 +94,7 @@ int main() {
 
   build_clickcolor_framebuffer();
   build_directional_shadow_map(directional_light);
-  build_pointlight_shadow_maps();
+  /*build_pointlight_shadow_maps();*/
   make_skybox();
 
   ////////////////////////
@@ -121,10 +121,10 @@ int main() {
 
     // Render calls
     clickcolor_render_pass();
-    /*render_directional_shadow_map(directional_light);*/
-    render_pointlight_shadow_maps();
+    render_directional_shadow_map(directional_light);
+    /*render_pointlight_shadow_maps();*/
     main_render_pass();
-    /*render_skybox();*/
+    render_skybox();
     gui_render();
 
     // Draw to screen
