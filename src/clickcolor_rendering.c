@@ -63,6 +63,7 @@ void build_clickcolor_color_id_framebuffer() {
   // generate texture
   glGenTextures(1, &color_id_texColorBuffer);
   glBindTexture(GL_TEXTURE_2D, color_id_texColorBuffer);
+  glObjectLabel(GL_TEXTURE, color_id_texColorBuffer, -1, "color id");
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, WINDOW_WIDTH, WINDOW_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -94,6 +95,7 @@ void build_clickcolor_normals_framebuffer() {
   // generate texture
   glGenTextures(1, &normals_texColorBuffer);
   glBindTexture(GL_TEXTURE_2D, normals_texColorBuffer);
+  glObjectLabel(GL_TEXTURE, normals_texColorBuffer, -1, "color id normals");
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, WINDOW_WIDTH, WINDOW_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

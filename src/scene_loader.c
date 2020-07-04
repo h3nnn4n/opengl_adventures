@@ -147,6 +147,7 @@ void load_lights(Manager *manager, cJSON *json) {
         load_float(json_light, "quadratic", &light->quadratic);
 
         point_lights[point_light_index] = light;
+        light->point_light_index = point_light_index;
         point_light_index++;
         break;
 

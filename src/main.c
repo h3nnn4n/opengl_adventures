@@ -11,6 +11,7 @@
 
 #include "camera.h"
 #include "clickcolor_rendering.h"
+#include "debug.h"
 #include "directional_shadow.h"
 #include "entity.h"
 #include "game.h"
@@ -65,8 +66,10 @@ int main() {
   glfwSetCursorPosCallback(window, mouse_callback);
   glfwSetScrollCallback(window, scroll_callback);
   glfwSetMouseButtonCallback(window, mouse_click_callback);
-
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+  glEnable(GL_DEBUG_OUTPUT);
+  glDebugMessageCallback(MessageCallback, 0);
 
   stbi_set_flip_vertically_on_load(1);
   gui_init();

@@ -33,6 +33,7 @@ void build_pointlight_shadow_maps() {
 }
 
 void build_pointlight_shadow_map(Light *light) {
+  assert(light);
   if (light == NULL) return;
   if (!light->active) return;
 
@@ -40,11 +41,13 @@ void build_pointlight_shadow_map(Light *light) {
 
   glGenFramebuffers(1, &light->depthMapFBO);
   glGenTextures(1, &light->depthMap);
+  glActiveTexture(GL_TEXTURE2);
   glBindTexture(GL_TEXTURE_CUBE_MAP, light->depthMap);
+  glObjectLabel(GL_TEXTURE, light->depthMap, -1, "cube shadow map");
 
   for (unsigned int i = 0; i < 6; ++i) {
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_DEPTH_COMPONENT,
-                 WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale,
+                 WINDOW_WIDTH * shadow_map_scale, WINDOW_WIDTH * shadow_map_scale,
                  0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
   }
 
@@ -62,6 +65,7 @@ void build_pointlight_shadow_map(Light *light) {
 }
 
 void render_pointlight_shadow_maps() {
+  assert(shader_pointlight_shadow);
   Shader_use(shader_pointlight_shadow);
 
   for (int i = 0; i < NR_POINT_LIGHTS; ++i) {
@@ -75,8 +79,9 @@ void render_pointlight_shadow_map(Light *light) {
 
   assert(light->depthMapFBO >= 0);
   assert(light->depthMap >= 0);
+  assert(shader_pointlight_shadow);
 
-  glViewport(0, 0, WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale);
+  glViewport(0, 0, WINDOW_WIDTH * shadow_map_scale, WINDOW_WIDTH * shadow_map_scale);
   glBindFramebuffer(GL_FRAMEBUFFER, light->depthMapFBO);
   glClear(GL_DEPTH_BUFFER_BIT);
 

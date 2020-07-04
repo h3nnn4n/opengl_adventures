@@ -22,6 +22,7 @@ void build_directional_shadow_map(Light *light) {
   glGenFramebuffers(1, &light->depthMapFBO);
   glGenTextures(1, &light->depthMap);
   glBindTexture(GL_TEXTURE_2D, light->depthMap);
+  glObjectLabel(GL_TEXTURE, light->depthMap, -1, "directional shadow map");
 
   glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
                WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale,
@@ -94,6 +95,7 @@ void render_directional_shadow_map(Light *light) {
 }
 
 void bind_directional_shadow_map(Shader *shader, Light *light) {
+  assert(shader);
   assert(light);
   /*if (light == NULL) return;*/
   if (!light->active) return;
