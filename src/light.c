@@ -104,13 +104,12 @@ void refresh_light(Light *light) {
   Shader *shader = light->shader;
   assert(shader);
 
-
   switch (light->light_type) {
     case SPOTLIGHT:
-      /*fprintf(stdout, "refreshing spotlight\n");*/
       Shader_set_int(shader, "spotLight.active", light->active);
 
       if (!light->active) return;
+      /*fprintf(stdout, "refreshing spotlight\n");*/
 
       Shader_set_vec3(shader, "spotLight.position", (float*)light->position);
       Shader_set_vec3(shader, "spotLight.direction", (float*)light->direction);
@@ -124,10 +123,10 @@ void refresh_light(Light *light) {
       Shader_set_float(shader, "spotLight.outterCutOff", cos(deg2rad(light->outterCutOff)));
       break;
     case DIRECTIONAL:
-      /*fprintf(stdout, "refreshing direcional light\n");*/
       Shader_set_int(shader, "dirLight.active", light->active);
 
       if (!light->active) return;
+      /*fprintf(stdout, "refreshing direcional light\n");*/
 
       Shader_set_matrix4(shader, "lightSpaceMatrix", (float*)light->light_space_matrix);
 
@@ -141,12 +140,11 @@ void refresh_light(Light *light) {
         int light_index = light->point_light_index;
         char buffer[256];
 
-        /*fprintf(stdout, "refreshing point light %d\n", light_index);*/
-
         sprintf(buffer, "pointLights[%d].active", light_index);
         Shader_set_int(shader, buffer, light->active);
 
         if (!light->active) return;
+        /*fprintf(stdout, "refreshing point light %d\n", light_index);*/
 
         if (light_index == 2)
           for (int i = 0; i < 6; ++i) {
