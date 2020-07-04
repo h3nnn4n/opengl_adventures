@@ -59,6 +59,8 @@ void render_directional_shadow_map(Light *light) {
   glBindFramebuffer(GL_FRAMEBUFFER, light->depthMapFBO);
   glClear(GL_DEPTH_BUFFER_BIT);
 
+  bind_directional_shadow_map(shader_directional_shadow, light);
+
   {
     float light_distance = 10.0f;
 
@@ -86,8 +88,8 @@ void render_directional_shadow_map(Light *light) {
                  light->shadow_view,
                  light->light_space_matrix);
 
-    Shader_set_matrix4(shader_directional_shadow, "projection", (float*)light->shadow_projection);
-    Shader_set_matrix4(shader_directional_shadow, "view", (float*)light->shadow_view);
+    Shader_set_matrix4(shader_directional_shadow, "shadow_projection", (float*)light->shadow_projection);
+    Shader_set_matrix4(shader_directional_shadow, "shadow_view", (float*)light->shadow_view);
     Shader_set_matrix4(shader_directional_shadow, "lightSpaceMatrix", (float*)light->light_space_matrix);
   }
 
