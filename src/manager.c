@@ -129,8 +129,8 @@ void Manager_render_entities_with_shader(Manager *manager, Shader *shader) {
     if (!entity->active) continue;
     if (entity->deleted) continue;
 
-    update_camera_projection_matrix(manager->active_camera, entity->shader);
-    update_camera_view_matrix(manager->active_camera, entity->shader);
+    update_camera_projection_matrix(manager->active_camera, shader);
+    update_camera_view_matrix(manager->active_camera, shader);
 
     draw_entity_with_shader(entity, shader);
   }
