@@ -41,11 +41,7 @@ void main() {
 
   result += CalcSpotLight(spotLight, normal, FragPos, viewDir);
 
-  result += CalcPointLight(pointLights[2], normal, FragPos, viewDir);
-
   result *= material.color;
-
-  //result = CalcPointLightShadowDebug(FragPos, pointLights[2].position);
 
   FragColor = vec4(result, 1.0);
 }

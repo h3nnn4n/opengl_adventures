@@ -61,22 +61,10 @@ float CalcPointLightShadow(vec3 fragPos, vec3 lightPos) {
   closestDepth *= far_plane;
 
   float currentDepth = length(fragToLight);
-
   float bias = 0.05;
   float shadow = currentDepth -  bias > closestDepth ? 1.0 : 0.0;
 
   return shadow;
-}
-
-vec3 CalcPointLightShadowDebug(vec3 fragPos, vec3 lightPos) {
-  vec3 fragToLight = fragPos - lightPos;
-  float closestDepth = texture(shadowCube, fragToLight).r;
-
-  closestDepth *= far_plane;
-
-  float currentDepth = length(fragToLight);
-
-  return vec3(closestDepth / far_plane);
 }
 
 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
@@ -105,8 +93,7 @@ vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir) {
   diffuse  *= attenuation;
   specular *= attenuation;
 
-  //float shadow = CalcPointLightShadow(fragPos, light.position);
-  float shadow = 0;
+  float shadow = CalcPointLightShadow(fragPos, light.position);
 
   return (ambient + (1.0 - shadow) * (diffuse + specular));
 }
