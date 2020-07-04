@@ -47,7 +47,7 @@ void build_pointlight_shadow_map(Light *light) {
 
   for (unsigned int i = 0; i < 6; ++i) {
     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_DEPTH_COMPONENT,
-                 WINDOW_WIDTH * shadow_map_scale, WINDOW_WIDTH * shadow_map_scale,
+                 WINDOW_WIDTH * point_shadow_map_scale, WINDOW_WIDTH * point_shadow_map_scale,
                  0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
   }
 
@@ -81,7 +81,7 @@ void render_pointlight_shadow_map(Light *light) {
   assert(light->depthMap >= 0);
   assert(shader_pointlight_shadow);
 
-  glViewport(0, 0, WINDOW_WIDTH * shadow_map_scale, WINDOW_WIDTH * shadow_map_scale);
+  glViewport(0, 0, WINDOW_WIDTH * point_shadow_map_scale, WINDOW_WIDTH * point_shadow_map_scale);
   glBindFramebuffer(GL_FRAMEBUFFER, light->depthMapFBO);
   glClear(GL_DEPTH_BUFFER_BIT);
 

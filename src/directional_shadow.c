@@ -25,7 +25,7 @@ void build_directional_shadow_map(Light *light) {
   glObjectLabel(GL_TEXTURE, light->depthMap, -1, "directional shadow map");
 
   glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
-               WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale,
+               WINDOW_WIDTH * directional_shadow_map_scale, WINDOW_HEIGHT * directional_shadow_map_scale,
                0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -55,7 +55,7 @@ void render_directional_shadow_map(Light *light) {
 
   Shader_use(shader_directional_shadow);
 
-  glViewport(0, 0, WINDOW_WIDTH * shadow_map_scale, WINDOW_HEIGHT * shadow_map_scale);
+  glViewport(0, 0, WINDOW_WIDTH * directional_shadow_map_scale, WINDOW_HEIGHT * directional_shadow_map_scale);
   glBindFramebuffer(GL_FRAMEBUFFER, light->depthMapFBO);
   glClear(GL_DEPTH_BUFFER_BIT);
 

@@ -5,7 +5,8 @@ extern const int WINDOW_WIDTH;
 extern const int WINDOW_HEIGHT;
 extern const float aspect_ratio;
 
-extern const unsigned int shadow_map_scale;
+extern const unsigned int directional_shadow_map_scale;
+extern const unsigned int point_shadow_map_scale;
 
 extern const float near_plane;
 extern const float far_plane;
